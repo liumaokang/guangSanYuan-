@@ -1,0 +1,120 @@
+page {
+    background: #eeeeee;
+}
+
+.header {
+    background: #ffffff;
+    padding: 18rpx 24rpx;
+    margin: 20rpx 0 26rpx 0;
+}
+
+.header>view {
+    color: #686868;
+    font-size: 32rpx;
+    line-height: 52rpx;
+}
+
+.header>view>text {
+    margin-left: 20rpx;
+}
+
+.express-number {
+    color: #000000;
+}
+
+.express-name {
+    color: #2d2d2d;
+}
+
+.express-tel {
+    color: #3297f3;
+}
+
+.express-number,.express-tel {
+    font-size: 27rpx;
+    font-weight: bold;
+}
+
+.content {
+    background: #ffffff;
+    padding: 37rpx 21rpx 9rpx 40rpx;
+}
+
+.express-item {
+    border-left: 2rpx solid #e7e7e7;
+    position: relative;
+}
+
+.express-item:last-of-type {
+    border: none;
+}
+
+.express-icon-box {
+    width: 45rpx;
+    float: left;
+    height: 100%;
+    display: none;
+}
+
+.express-info {
+    height: 100%;
+    width: calc(100% - 46rpx);
+    margin-left: 46rpx;
+    border-bottom: 1rpx solid #dddddd;
+    padding: 34rpx 0 34rpx 0;
+    position: relative;
+}
+
+.express-item image {
+    width: 36rpx;
+    height: 36rpx;
+    position: absolute;
+    left: -18rpx;
+    top: 35rpx;
+}
+
+.express-item:first-of-type .express-info {
+    padding-top: 0;
+    color: #000000;
+}
+
+.express-item:last-of-type .express-info {
+    border: none;
+}
+
+.express-item:last-of-type image {
+    top: -18rpx;
+}
+
+.express-item:first-of-type image {
+    top: 0;
+}
+
+.express-info .time {
+    margin-bottom: 16rpx;
+    font-size: 24rpx;
+    display: block;
+}
+
+.express-info .status {
+    font-size: 30rpx;
+}
+
+.express-info .status>text {
+    color: #2d9dff;
+}
+
+.express-info .time,.express-info .status {
+    line-height: 36rpx;
+    color: #999999;
+}
+
+.express-item:first-of-type .express-info .time,.express-item:first-of-type .express-info .status {
+    color: #000000;
+}
+
+.no-data {
+    margin-top: 30%;
+    font-size: 28rpx;
+    text-align: center;
+}

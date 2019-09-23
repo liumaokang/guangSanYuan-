@@ -1,0 +1,23 @@
+<view bindtap="toCardBuyResult" class="card-item {{!item.useable?'unavailable':''}}" data-cardid="{{item.cardId}}" data-index="{{idx}}" wx:for="{{giftCardList}}" wx:for-index="idx" wx:key="{{item.cardId}}">
+    <image src="{{item.imageUrl}}"></image>
+    <view class="card-info">
+        <view class="name-box">
+            <text class="card-name">{{item.name}}</text>
+        </view>
+        <view class="price-box">
+      余额：
+      <text>￥{{item.balance}}</text>
+        </view>
+        <view class="buy-time" wx:if="{{item.useable}}">
+      本单最大可用金额：￥{{filters.filtToFix(item.maxUseTotal)}}
+    </view>
+        <view class="buy-time" wx:else>
+      {{item.reason}}
+    </view>
+        <image class="checked-icon" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/demo/{{item.isChecked?'iconChecked':'iconUnchecked'}}.png"></image>
+    </view>
+</view>
+<view class="no-data" wx:if="{{giftCardList.length===0}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wxapp/imgNoData.png"></image>
+</view>
+<wxs module="filters" src="../../wxs/filters.wxs" />

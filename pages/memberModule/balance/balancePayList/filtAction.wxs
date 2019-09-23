@@ -1,0 +1,12 @@
+var filtAction = (function(val) {
+    if (val === 'recharge') {
+        return ('充值')
+    } else if (val === 'consume') {
+        return ('消费')
+    } else {
+        return (val)
+    }
+});
+module.exports = ({
+    filtAction: filtAction,
+});

@@ -1,0 +1,20 @@
+<map bindmarkertap="markertap" bindregionchange="regionchange" class="map-box" id="map" includePoints="{{includePoints}}" latitude="{{position.latitude}}" longitude="{{position.longitude}}" markers="{{markers}}" polyline="{{polyline}}" scale="{{scale}}">
+    <cover-view class="close-box">
+        <cover-image bindtap="handleClose" class="close-img" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconTrajectoryClose.png"></cover-image>
+    </cover-view>
+    <cover-view bindtap="refreshTrajectory" class="refresh-box">
+        <cover-image class="refresh-img" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconTrajectoryRefresh.png"></cover-image>
+    </cover-view>
+    <cover-view class="cover-box">
+        <cover-view class="title" wx:if="{{deliveryStatus=='WAITDISPATCH'}}">商家已接单</cover-view>
+        <cover-view class="title" wx:if="{{deliveryStatus=='CREATE'}}">骑手到店取货中</cover-view>
+        <cover-view class="title" wx:if="{{deliveryStatus=='SHIP'}}">骑手正在送货</cover-view>
+        <cover-view class="content" wx:if="{{deliveryStatus=='WAITDISPATCH'}}">请您耐心等待~</cover-view>
+        <cover-view class="content" wx:if="{{deliveryStatus=='CREATE'||deliveryStatus=='SHIP'}}">由骑手{{riderName}}配送</cover-view>
+        <cover-view class="button-box">
+            <cover-view bindtap="contactSeller" class="contact-button">联系商家</cover-view>
+            <cover-view bindtap="contactRider" class="contact-button" wx:if="{{deliveryStatus=='CREATE'||deliveryStatus=='SHIP'}}">联系骑手</cover-view>
+        </cover-view>
+    </cover-view>
+</map>
+<canvas canvasId="myCanvas" style="width:72px;height:97px;position:absolute;left:-99999rpx"></canvas>

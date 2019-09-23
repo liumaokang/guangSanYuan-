@@ -1,0 +1,430 @@
+page {
+    height: 100%;
+    background: #f5f5f5;
+}
+
+.page-content {
+    height: 100%;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    background: #f5f5f5;
+    width: 710rpx;
+    margin: auto;
+}
+
+.banner-box {
+    margin-bottom:28rpx;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 28rpx;
+}
+
+.swiper {
+    width: 100%;
+    height: 290rpx;
+}
+
+.swiper-item {
+    width: 100%;
+    height: 290rpx;
+    border-radius: 6px;
+}
+
+.banner-box image {
+    width: 100%;
+    height: 290rpx;
+    display: block;
+    border-radius: 10rpx;
+}
+
+.time-list {
+    height: 159rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    border-radius: 10rpx 10rpx 0px 0px;
+    background: #fff;
+}
+
+.time-item {
+    width: 172rpx;
+    height: 159rpx;
+    box-sizing: border-box;
+    text-align: center;
+    color: #9b9b9d;
+    display: inline-block;
+    position: relative;
+    background: #fff;
+    border-bottom: 1px solid rgba(229,229,229,1);
+}
+
+.time-item .center {
+    height: 86rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 36rpx;
+}
+
+.time-item text {
+    display: block;
+}
+
+.time-item text:first-of-type {
+    font-size: 26rpx;
+    font-weight: bolder;
+    color: rgba(0,0,0,0.6);
+    line-height: 50rpx;
+}
+
+.time-item text:last-of-type {
+    font-size: 20rpx;
+    font-weight: 400;
+    color: rgba(0,0,0,0.3);
+    line-height: 32rpx;
+}
+
+.time-item .triangle {
+    display: none;
+}
+
+.time-item.active .triangle {
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    margin-left: -16rpx;
+    width: 32rpx;
+    height: 16rpx;
+}
+
+.time-item text:first-of-type {
+    font-size: 34rpx;
+}
+
+.time-item text:last-of-type {
+    font-size: 20rpx;
+}
+
+.time-item.active .center text:first-of-type {
+    font-size: 36rpx;
+    color: rgba(0,0,0,0.8);
+}
+
+.time-item.active .center text:last-of-type {
+    font-size: 22rpx;
+    color: rgba(0,0,0,0.6);
+}
+
+.time-down {
+    height: 88rpx;
+    line-height: 88rpx;
+    background: rgba(255,255,255,1);
+    box-shadow:0px 2px 8px 0px rgba(217,217,217,0.75);
+    border-radius: 0px 0px 10rpx 10rpx;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40rpx;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.time-down .label {
+    font-size: 24rpx;
+    color: rgba(0,0,0,0.8);
+}
+
+.time-down view.time-box {
+    font-size: 24rpx;
+    font-weight: 400;
+    color: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+}
+
+.time-down view.time-box .colon {
+    color: #FFD042;
+    margin: 0 10rpx;
+    line-height: 40rpx;
+}
+
+.time-down .time-box .txt {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 50%;
+    background:#FFD042;
+    font-size: 21rpx;
+    font-weight: bolder;
+    color: rgba(255,255,255,1);
+    line-height: 40rpx;
+    text-align: center;
+}
+
+.last-hour {
+    margin-left: 10rpx;
+}
+
+.time-body {
+    box-shadow:0px 2px 8px 0px rgba(217,217,217,0.75);
+    border-radius:10px;
+    overflow: hidden;
+}
+
+.goods-item {
+    height: 300rpx;
+    margin-bottom: 20rpx;
+    padding: 25rpx;
+    overflow: hidden;
+    background: #fff;
+    display: flex;
+    border-radius: 5rpx;
+    box-shadow:0px 2px 8px 0px rgba(217,217,217,0.75);
+    box-sizing: border-box;
+}
+
+.goods-img-box {
+    width: 240rpx;
+    height: 240rpx;
+    flex: 0 0 240rpx;
+    margin-right: 20rpx;
+    position: relative;
+}
+
+.sold-out {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.goods-img-box image {
+    width: 100%;
+    height: 100%;
+}
+
+.goods-img-box .qiangguang {
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+}
+
+.goods-info {
+    flex: 1 0 auto;
+    height: 240rpx;
+    position: relative;
+}
+
+.goods-info .goods-introduce {
+    font-size: 22rpx;
+    color: #3CDBC0;
+    height: 30rpx;
+    line-height: 30rpx;
+    font-weight: bold;
+}
+
+.goods-info .goods-introduce text {
+    padding: 0 10rpx;
+    height: 30rpx;
+    border-radius: 6rpx;
+    background: #3CDBC0;
+    color: #fff;
+    font-size: 20rpx;
+    line-height: 30rpx;
+    font-weight: normal;
+    display: inline-block;
+    text-align: center;
+    margin-right: 8rpx;
+}
+
+.goods-info .goods-name {
+    font-size: 32rpx;
+    font-weight: bolder;
+    color: rgba(0,0,0,0.8);
+    line-height: 44rpx;
+    margin-bottom: 2rpx;
+}
+
+.goods-info .goods-name view {
+    width: 360rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.goods-info .goods-name text {
+    height: 30rpx;
+    padding: 0 6rpx;
+    border-radius: 6rpx;
+    background: #3cdbc0;
+    color: #fff;
+    font-size: 20rpx;
+    line-height: 30rpx;
+    font-weight: normal;
+    display: inline-block;
+    text-align: center;
+    margin-right: 8rpx;
+    flex-shrink: 0;
+}
+
+.goods-info .goods-desc {
+    width: 380rpx;
+    display: inline-block;
+    font-size: 24rpx;
+    color: rgba(0,0,0,0.3);
+    line-height: 34rpx;
+    margin-bottom: 18rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.goods-price {
+    font-size: 32rpx;
+    font-weight: bolder;
+    color: rgba(253,118,122,1);
+    line-height: 56rpx;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 66rpx;
+    height: 56rpx;
+    align-items: center;
+}
+
+.goods-price .nowPrice {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-right: 9rpx;
+    color: #FE2A36;
+}
+
+.goods-price .oldPrice {
+    height: 28rpx;
+    font-size: 22rpx;
+    color:#A1A1A1;
+    text-decoration: line-through;
+}
+
+.goods-price .btn {
+    width: 185rpx;
+    height: 48rpx;
+    border: none;
+    color: #fff;
+    font-size: 24rpx;
+    font-weight: bold;
+    text-align: center;
+    line-height: 48rpx;
+    border-radius: 48rpx;
+     
+}
+.goods-price .skill-start{
+  background:linear-gradient(90deg,rgba(254,94,103,1),rgba(254,42,54,1));
+}
+.goods-price .skill-ahead{
+  background:linear-gradient(90deg,rgba(254,133,141,1),rgba(255,101,110,1));
+}
+.goods-price .skill-end{
+  background:rgba(229,229,229,1);
+}
+view.skill-ahead {
+    background: url('https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/skill_ahead.png') center center no-repeat;
+    background-size: 170rpx 56rpx;
+}
+
+/* view.skill-start {
+    background: url('https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/skill_start.png') center center no-repeat;
+    background-size: 170rpx 56rpx;
+} */
+
+view.skill-end {
+    background: url('https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/skill_end.png') center center no-repeat;
+    background-size: 170rpx 56rpx;
+}
+
+view.unable {
+    background: url('https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/skill_none.png') center center no-repeat;
+    background-size: 170rpx 56rpx;
+}
+
+.goods-info button::after {
+    border: none;
+}
+
+.goods-info button.unable {
+}
+
+.goods-info button.enable {
+}
+
+.progress-box {
+    position: relative;
+    height: 28rpx;
+    display: flex;
+    margin-top: 6rpx;
+    align-items: center;
+    overflow: hidden;
+}
+
+.progress-box text {
+    font-size: 20rpx;
+    font-family: PingFangSC-Regular;
+    color: rgba(205,159,100,1);
+    line-height: 28rpx;
+    margin-left: 12rpx;
+}
+
+.progress-box progress {
+    width: 200rpx;
+    height: 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,221,177,1);
+    overflow: hidden;
+}
+
+.no-data {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.goods-content .no-data {
+}
+
+.time-slot {
+    height: auto;
+    margin-top: 30%;
+}
+
+.no-data image {
+    width: 242rpx;
+    height: 261rpx;
+}
+
+.no-data button {
+    color: #3CDBC0;
+    border: 1rpx solid #3CDBC0;
+    margin-top: 50rpx;
+    width: 202rpx;
+    height: 60rpx;
+    background: #fff;
+}
+
+movable-area {
+    height: 100%;
+    width: 100%;
+}
+
+.movable-view {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+movable-view {
+    width: 120rpx;
+    height: 120rpx;
+}

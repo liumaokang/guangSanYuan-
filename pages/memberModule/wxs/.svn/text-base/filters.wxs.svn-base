@@ -1,0 +1,68 @@
+var filtQRNumber = (function(val) {
+    if (val) {
+        val = val.toString();
+        var op = '';
+        for (var i = 0; i < val.length; i++) {
+            if (i % 4 === 0 && i > 0) {
+                op += " " + val.charAt(i)
+            } else {
+                op += val.charAt(i)
+            }
+        };
+        return (op)
+    } else {
+        return ('')
+    }
+});
+var filtNickname = (function(val) {
+    if (!val) {
+        return ('点击头像授权登录')
+    } else {
+        return (val)
+    }
+});
+var filtMobile = (function(val) {
+    if (val) {
+        return (val.substring(0, 3) + '****' + val.substring(7))
+    } else {
+        return ('')
+    }
+});
+var filtCardState = (function(val) {
+    if (val === 'UNACTIVATED') {
+        val = "未激活"
+    } else if (val === 'PRESENT') {
+        val = "转赠中"
+    } else if (val === 'ACTIVED') {
+        val = "已激活"
+    } else if (val === 'EXPIRED') {
+        val = "已过期"
+    } else if (val === 'ABOLISH') {
+        val = "已作废"
+    } else {
+        val = ''
+    };
+    return (val)
+});
+var filtDateHead = (function(val) {
+    if (val) {
+        return (val.split(' ')[(0)])
+    } else {
+        return ('')
+    }
+});
+var filtToFix = (function(value) {
+    if (value >= 0) {
+        return (value.toFixed(2))
+    } else {
+        return (0)
+    }
+});
+module.exports = ({
+    filtQRNumber: filtQRNumber,
+    filtNickname: filtNickname,
+    filtMobile: filtMobile,
+    filtCardState: filtCardState,
+    filtDateHead: filtDateHead,
+    filtToFix: filtToFix,
+});

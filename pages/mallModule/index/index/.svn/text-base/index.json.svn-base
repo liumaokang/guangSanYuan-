@@ -1,0 +1,11 @@
+{
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "popup": "../../../../components/popup/popup",
+    "tabbar": "../../../../components/tabbar/tabbar",
+    "luckdraw-game": "../../../../components/luck-draw/luck-draw",
+    "setMeal": "../../../../components/setMeal/setMeal",
+    "loading": "/./components/loading/index"
+  }
+}

@@ -1,0 +1,20 @@
+<view class="top-info">
+    <text class="score-text">总积分</text>
+    <view class="score-num">{{memberScoreBalance}}
+    <text>积分</text>
+    </view>
+</view>
+<view class="score-box">
+    <view class="score-name">积分明细</view>
+    <view class="score-item" wx:for="{{scoreList}}" wx:key="{{idx}}">
+        <view class="status">
+            <text>{{item.action}}</text>
+            <text>{{item.tranTime}}</text>
+        </view>
+        <view class="num {{item.increase?'increase':'consume'}}">{{item.occur}}</view>
+    </view>
+    <view class="loading" hidden="{{!loading}}">{{loadingText}}</view>
+    <view class="no-data" hidden="{{scoreList.length>0}}">
+        <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/advertImages/noData.png"></image>
+    </view>
+</view>

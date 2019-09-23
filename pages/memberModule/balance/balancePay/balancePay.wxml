@@ -1,0 +1,16 @@
+<import src="../../template/barcode.wxml"></import>
+<view class="content">
+    <view class="title">向商家付款</view>
+    <template is="barcode" data></template>
+    <text class="number">{{filters.filtQRNumber(payNumber)}}</text>
+    <view class="qrcode-box">
+        <canvas canvasId="qrcode"></canvas>
+    </view>
+    <text class="tig">付款码每分钟自动刷新</text>
+    <view class="value-info">
+        <text>储值余额：￥{{storedValue}}</text>
+        <view bindtap="toBalancePay">前往充值 <image class="right-icon" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconRightPoint.png"></image>
+        </view>
+    </view>
+</view>
+<wxs module="filters" src="../../wxs/filters.wxs" />

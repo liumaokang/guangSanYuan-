@@ -1,0 +1,286 @@
+.top-info {
+    padding: 30rpx 40rpx;
+    border-bottom: 20rpx solid #F4F5F9;
+    font-size: 28rpx;
+    line-height: 48rpx;
+}
+
+.top-info .total {
+    color: #FF8561;
+}
+
+.content {
+    padding: 0 40rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.section {
+    height: 99rpx;
+    border-bottom: 1rpx solid #dcdcdc;
+    line-height: 99rpx;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.section .left {
+    color: #1b1b1d;
+    font-size: 28rpx;
+    display: flex;
+    align-items: center;
+}
+
+.section .left image {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 26rpx;
+}
+
+.section .right {
+    margin-left: 20rpx;
+    font-size: 24rpx;
+    line-height: 99rpx;
+    color: #1b1b1d;
+}
+
+.section .right .money {
+    font-size: 28rpx;
+    color: #ff8561;
+    font-weight: bold;
+}
+
+.active .isChecked {
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    right: 0;
+    top: 37rpx;
+    background: url('http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconChecked.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.isChecked {
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    right: 0;
+    top: 37rpx;
+    background: url('http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconUnchecked.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.bottom-box {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    height: 120rpx;
+    border-top: 1rpx solid #dcdcdc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    z-index: 9;
+}
+
+.bottom-box button.btn {
+    height: 100rpx;
+    width: 100%;
+    color: #fff;
+    font-size: 32rpx;
+    font-weight: bold;
+    line-height: 100rpx;
+    border-radius: 6rpx;
+}
+
+.available {
+    background: #3CDBC0;
+}
+
+.unusable {
+    background: #DCDCDC;
+}
+
+.bottom-box button::after {
+    border: 0;
+    border-radius: 0;
+}
+
+.modal-box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+
+.modal-body {
+    position: relative;
+}
+
+.modal-content {
+    background: #ffffff;
+    width: 670rpx;
+    padding: 0;
+    box-sizing: border-box;
+    border-radius: 8rpx;
+    overflow: hidden;
+    margin: 40% auto;
+    position: relative;
+}
+
+.modal-body .modal-content.card {
+    width: 670rpx;
+    height: 502rpx!important;
+}
+
+.modal-body .modal-content.score {
+    min-height: 520rpx!important;
+}
+
+.modal-content .title {
+    color: #777777;
+    font-size: 34rpx;
+    line-height: 94rpx;
+    height: 94rpx;
+    text-align: center;
+    border-bottom: 1rpx solid #f5f5f5;
+}
+
+.modal-content .content {
+    font-size: 28rpx;
+    line-height: 36rpx;
+    color: #676666;
+    padding: 0 40rpx;
+    margin-top: 76rpx;
+}
+
+.modal-content .content .uesd {
+    color: #ffaf61;
+    margin-bottom: 18rpx;
+}
+
+.modal-content .content input {
+    border: 1rpx solid #eff1f3;
+    background: #f5f5f9;
+    height: 90rpx;
+    font-size: 28rpx;
+    line-height: 90rpx;
+    box-sizing: border-box;
+    width: 592rpx;
+    border-radius: 8rpx;
+    padding: 0 0 0 27rpx;
+    display: block;
+}
+
+.modal-content .content text {
+    display: block;
+    font-size: 28rpx;
+    line-height: 36rpx;
+}
+
+.modal-content .content view {
+    margin-top: 20rpx;
+}
+
+.modal-content .pay-box text:first-of-type {
+    margin-bottom: 16rpx;
+}
+
+.card .content .forget-password {
+    color: #3CDBC0;
+    float: right;
+    font-size: 30rpx;
+    line-height: 62rpx;
+    margin-top: 16rpx;
+}
+
+.button-box {
+    display: flex;
+    width: 100%;
+    height: 100rpx;
+    position: absolute;
+    bottom: 0;
+}
+
+.button-box button {
+    flex: 1;
+    font-size: 32rpx;
+    height: 100rpx;
+    font-weight: bold;
+    line-height: 100rpx;
+    background: #ffffff;
+    border-radius: 0;
+    border: none;
+}
+
+button::after {
+    border: none;
+}
+
+.button-box .confirm {
+    background: #3CDBC0;
+    color: #ffffff;
+}
+
+.button-box .cancel {
+    box-sizing: border-box;
+    color: #8a8989;
+    border-top: 1rpx solid #e5e5e5;
+}
+
+.card .close {
+    width: 88rpx;
+    height: 88rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.card .close image {
+    position: absolute;
+    width: 44rpx;
+    height: 44rpx;
+    right: 40rpx;
+    top: 30rpx;
+}
+
+.popup-content {
+    width: 670rpx;
+    height: 500rpx;
+    background: #ffffff;
+    border-radius: 6rpx;
+    position: relative;
+}
+
+.popup-content-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400rpx;
+}
+
+.popup-content-box image {
+    width: 410rpx;
+    height: 421rpx;
+}
+
+.popup-content .button {
+    height: 100rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    line-height: 100rpx;
+    width: 100%;
+    color: #FFFFFF;
+    text-align: center;
+    background: #3CDBC0;
+    border-bottom-left-radius: 6rpx;
+    border-bottom-right-radius: 6rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,390 @@
+page {
+    width: 100%;
+    height: 100%;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    background-size: auto 100%;
+}
+
+.activity-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.activity-rule {
+    width: 142rpx;
+    height: 58rpx;
+    line-height: 58rpx;
+    background: linear-gradient(90deg,#41ebfc 0%,#17cbff 100%),linear-gradient(#41ebfc,#17cbff);
+    border-top-left-radius: 28rpx;
+    border-bottom-left-radius: 28rpx;
+    font-size: 26rpx;
+    color: #fff;
+    text-indent: 30rpx;
+    margin-top: 27rpx;
+}
+
+.activity-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.activity-title-img {
+    width: 600rpx;
+    height: 224rpx;
+}
+
+.activity-title image {
+    width: 600rpx;
+}
+
+.activity-text {
+    padding: 0 60rpx;
+    height: 70rpx;
+    background: #8abc43;
+    border-radius: 35rpx;
+    font-size: 44rpx;
+    color: #fff;
+    line-height: 70rpx;
+    text-align: center;
+    font-weight: bold;
+    margin-top: -20rpx;
+}
+
+.activity-text-invitee {
+    font-size: 44rpx;
+    color: #fff;
+    line-height: 70rpx;
+}
+
+.activity-body {
+    width: 100%;
+    box-sizing: border-box;
+    height: 436rpx;
+    padding: 50rpx 80rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    border-radius: 30rpx 30rpx 0px 0px;
+}
+
+.inviter>text {
+    font-size: 32rpx;
+    line-height: 42rpx;
+    color: #9d7754;
+    font-weight: bold;
+}
+
+.inviter text:last-of-type {
+    margin-bottom: 22rpx;
+}
+
+.inviter .coupon-box {
+    width: 480rpx;
+    height: 156rpx;
+    display: flex;
+    align-items: center;
+}
+
+.inviter .coupon-box image {
+    width: 100%;
+    flex: 1;
+    margin: 0 10rpx;
+}
+
+.inviter .activity-tips {
+    margin-top: 32rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.inviter .activity-tips>text {
+    font-size: 30rpx;
+    line-height: 40rpx;
+    color: #fae087;
+}
+
+.invitee {
+}
+
+.invitee>text {
+    font-size: 32rpx;
+    line-height: 42rpx;
+    color: #9d7754;
+    font-weight: bold;
+}
+
+.invitee .mobile-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 40rpx;
+}
+
+.invitee .section {
+    height: 88rpx;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    background: rgba(252,252,252,1);
+    border-radius: 44rpx;
+    border: 2rpx solid rgba(245,245,245,1);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invitee .section input {
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+}
+
+.invitee .section label {
+    width: 140rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: bolder;
+    border-left: 1rpx solid #e5e5e5;
+    padding-left: 38rpx;
+    color: #333;
+    line-height: 40rpx;
+}
+
+.invitee .section:first-of-type {
+    margin-bottom: 20rpx;
+}
+
+.invitee .section:first-of-type input {
+    width: 250rpx;
+}
+
+.invitee .coupon-box {
+    width: 480rpx;
+    height: 156rpx;
+    display: flex;
+    align-items: center;
+    margin-top: 20rpx;
+}
+
+.invitee .coupon-box image {
+    width: 100%;
+    flex: 1;
+    margin: 0 10rpx;
+}
+
+button::after {
+    border: none;
+    border-radius: 0;
+}
+
+.voucher {
+    height: 100rpx;
+    background: linear-gradient(270deg,rgba(5,178,155,1) 0%,rgba(59,233,178,1) 100%);
+    border-radius: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    line-height: 44rpx;
+}
+
+.modal-box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 99;
+}
+
+.modal-body {
+    position: relative;
+}
+
+.modal-content {
+    box-sizing: border-box;
+    border-radius: 18rpx;
+    overflow: hidden;
+    margin: 20% auto;
+    position: relative;
+    width: 660rpx;
+    padding: 0 25rpx;
+    height: 820rpx;
+    background: linear-gradient(180deg,#4cceff 0%,#00baff 100%),linear-gradient(#4cceff,#00baff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.rule-top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 36rpx;
+}
+
+.rule-top .rule-img {
+    width: 326rpx;
+}
+
+.rule-top .close {
+    height: 28rpx;
+    width: 28rpx;
+    position: absolute;
+    top: 28rpx;
+    right: 28rpx;
+}
+
+.rule-content {
+    width: 610rpx;
+    height: 630rpx;
+    border-radius: 16rpx;
+    background: #fff;
+    margin-top: 9rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+}
+
+.rule-content image {
+    width: 514rpx;
+}
+
+.rule-content-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 34rpx 0 34rpx 0;
+}
+
+.rule-content text {
+    font-size: 26rpx;
+    line-height: 36rpx;
+    color: #545454;
+    margin-bottom: 28rpx;
+    text-align: justify;
+}
+
+.rule-tips {
+    font-size: 28rpx;
+    line-height: 36rpx;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    margin-top: 20rpx;
+}
+
+.prompt-box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 20;
+}
+
+.prompt-body {
+    position: relative;
+}
+
+.prompt-content {
+    box-sizing: border-box;
+    border-radius: 18rpx;
+    overflow: hidden;
+    margin: 40% auto;
+    position: relative;
+    width: 550rpx;
+    padding: 0 25rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.again {
+    height: 576rpx;
+    background-size: contain;
+}
+
+.normal {
+    min-height: 356rpx;
+    background: #fff;
+}
+
+.prompt-title {
+    font-size: 36rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: bolder;
+    color: rgba(0,0,0,0.8);
+    line-height: 50rpx;
+    margin: 50rpx 0 6rpx;
+}
+
+.prompt-text {
+    margin-top: 10rpx;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(102,102,102,1);
+    line-height: 36rpx;
+}
+
+.prompt-btn {
+    width: 470rpx;
+    height: 100rpx;
+    background: linear-gradient(270deg,rgba(5,178,155,1) 0%,rgba(59,233,178,1) 100%);
+    border-radius: 10rpx;
+    margin: 50rpx 0 30rpx 0;
+    font-size: 34rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: bolder;
+    color: rgba(255,255,255,1);
+    line-height: 100rpx;
+    text-align: center;
+}
+
+.bottom-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    height: 108rpx;
+    padding: 14rpx 38rpx;
+}
+
+.activity-btn {
+    line-height: 80rpx;
+    background: #fe705c;
+    text-align: center;
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: 500;
+    color: rgba(255,255,255,1);
+    background: linear-gradient(270deg,rgba(5,178,155,1) 0%,rgba(59,233,178,1) 100%);
+    border-radius: 6rpx;
+}

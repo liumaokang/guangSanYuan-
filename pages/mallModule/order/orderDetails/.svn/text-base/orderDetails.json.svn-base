@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "订单详情",
+    "usingComponents": {
+        "popup": "../../../../components/popup/popup",
+        "loading": "/./components/loading/index"
+    }
+}

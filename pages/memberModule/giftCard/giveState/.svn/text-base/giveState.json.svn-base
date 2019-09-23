@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "赠送详情",
+    "usingComponents": {
+        "popup": "../../../../components/popup/popup",
+        "authorize": "../../../../components/authorize/authorize",
+        "loading": "/./components/loading/index"
+    }
+}

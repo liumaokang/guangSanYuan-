@@ -1,0 +1,13 @@
+<view class="content">
+    <form bindsubmit="handelChangePassword">
+        <view class="section">
+            <view class="section-title">最新密码</view>
+            <input password bindinput="handelPassInput" name="input" placeholder="请输入最新密码"></input>
+        </view>
+        <view class="section">
+            <view class="section-title">确认密码</view>
+            <input password bindinput="handelPass1Input" name="input" placeholder="请再次输入密码"></input>
+        </view>
+        <button class="btn" formType="submit">确认修改</button>
+    </form>
+</view>

@@ -1,0 +1,83 @@
+<view class="refund-main" wx:if="{{type==='submit'}}">
+    <form bindsubmit="refundSubmit">
+        <view class="refund-order" wx:if="{{supportPartReturn}}">
+            <view class="order-number">
+                <checkbox-group bindchange="checkboxAllChange" class="check-box">
+                    <label class="checkbox" for="checkAll">
+                        <checkbox checked="{{checkedAll}}" value="all"></checkbox> 订单号：{{orderId}}
+          </label>
+                </checkbox-group>
+            </view>
+            <view class="goods-box portion-refund">
+                <checkbox-group bindchange="checkboxChange">
+                    <view class="goods-item" wx:for="{{goodsList}}" wx:key="index">
+                        <checkbox checked="{{item.checked}}" value="{{item.productId}}"></checkbox>
+                        <image src="{{item.imageUrl}}"></image>
+                        <view class="goods-info">
+                            <text class="goods-name">{{item.name}}</text>
+                            <text class="goods-desc" wx:if="{{item.description}}">{{item.description}}</text>
+                            <view class="price-number">
+                                <view class="count-box">
+                                    <view catchtap="handleReduce" data-id="{{item.productId}}" hidden="{{item.status==='DELETED'||item.balance===0}}" style="color:{{item.productNumber>1?'#009136':'#BBBBBC'}}">-</view>
+                                    <text catchtap="handleNumber" data-id="{{item.productId}}" hidden="{{item.status==='DELETED'||item.balance===0}}">{{item.productNumber}}</text>
+                                    <view catchtap="handleAdd" data-id="{{item.productId}}" hidden="{{item.status==='DELETED'||item.balance===0}}">+</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </checkbox-group>
+            </view>
+            <view class="order-info">
+                <view class="goods-count">共 计：{{refundNumber}}件商品</view>
+            </view>
+        </view>
+        <view class="refund-order" wx:else>
+            <view class="order-number">订单号：{{orderId}}</view>
+            <view class="goods-box">
+                <view class="goods-item" wx:for="{{goodsList}}" wx:key="index">
+                    <image src="{{item.imageUrl}}"></image>
+                </view>
+            </view>
+            <view class="order-info">
+                <view class="goods-count">共 计：{{goodsList.length}}件商品</view>
+                <view>
+                    <view>合计：
+                    <text class="order-price">￥18</text>
+                    </view>
+                    <view class="freight-info" wx:if="{{shipmentAmount>0}}">(含运费
+            <text class="order-freight">￥{{shipmentAmount}}元</text>)</view>
+                </view>
+            </view>
+        </view>
+        <view class="refund-box">
+            <view class="refund-title">退款原因</view>
+            <view class="redund-explain">
+                <view class="redund-labels">
+                    <text bindtap="clickLabels" class="{{item.select?'select':''}}" data-id="{{item.id}}" wx:for="{{labels}}" wx:key="{{idx}}">{{item.text}}</text>
+                </view>
+                <textarea autoHeight="true" bindblur="handelTextAreaBlur" bindinput="handelTextArea" class="redund-explain-con" hidden="{{textAreaHidden}}" id="explain-con" maxlength="200" placeholder="补充详细信息以便快速处理（选填）"></textarea>
+                
+                <view bindtap="clickTextarea" class="redund-explain-con" hidden="{{!textAreaHidden}}">{{inputText!==''?inputText:'补充详细信息以便快速处理（选填）'}}</view>
+                <view class="refund-image">
+                    <image src="{{item}}" wx:for="{{avatarUrl}}" wx:key="unique"></image>
+                    <image bindtap="chooseImage" class="submit-img" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgAddImg.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="bottom-box">
+            <view class="order-price" wx:if="{{supportPartReturn}}">{{allRedund===true?'￥'+cashTotal:''}}
+        <text style="{{allRedund===false?'margin-left: 0;border-left: 0;':''}}">优先按原路退回</text>
+            </view>
+            <view class="order-price" wx:else>￥{{cashTotal}}
+        <text>优先按原路退回</text>
+            </view>
+            <button class="btn" formType="submit">提交申请</button>
+        </view>
+    </form>
+</view>
+<view class="refund-success" wx:if="{{type==='success'}}">
+    <image class="success-img" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRefundSuccess.png"></image>
+    <text class="success-tips">申请退款提交成功</text>
+    <button bindtap="backOrder" class="retuen-btn">返回订单详情</button>
+</view>
+<xf-model bind:cancel="toggleLuckConfirm" bind:confirm="payBackApply" confirmShow="{{confirmShow}}" confirmTxt="确认退款" content="{{bank?'退款将优先原路退回，银联退款到账时间为1-7个工作日。如遇第三方支付平台账户异常，系统将自动退款至用户账户余额。':'退款将优先原路退回，如遇用户三方支付平台账户异常，系统将自动退款至用户账户余额。'}}" title="退款提示"></xf-model>

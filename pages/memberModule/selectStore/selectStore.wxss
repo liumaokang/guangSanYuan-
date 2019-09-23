@@ -1,0 +1,144 @@
+@import "../template/searchAddress.wxss";
+
+page {
+    background: #eee;
+}
+
+.content {
+    padding: 0rpx 40rpx;
+    background: #ffffff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.current-position {
+    padding: 0rpx;
+    height: 90rpx;
+    background: #fff;
+    line-height: 90rpx;
+    border-bottom: 1rpx solid #f1F1F1;
+    font-size: 28rpx;
+    color: #454545;
+}
+
+.current-position>image {
+    width: 25rpx;
+    height: 30rpx;
+    float: left;
+    margin-right: 18rpx;
+    margin-top: 30rpx;
+}
+
+.current-position>text {
+    float: left;
+}
+
+.current-position view {
+    float: right;
+    color: #FFA300;
+    font-size: 28rpx;
+    overflow: hidden;
+}
+
+.current-position>view text {
+    width: 400rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.current-position>view image {
+    float: right;
+    width: 16rpx;
+    height: 28rpx;
+    margin-left: 10rpx;
+    margin-top: 35rpx;
+}
+
+.store-item {
+    padding: 0rpx;
+    height: 150rpx;
+    background: #fff;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    position: relative;
+    color: #454545;
+}
+
+.store-item view.address {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.store-item view.address view:first-of-type {
+    font-size: 32rpx;
+    line-height: 36rpx;
+    font-weight: bold;
+    margin-bottom: 14rpx;
+}
+
+.store-item view.address text {
+    font-size: 24rpx;
+    line-height: 30rpx;
+}
+
+.store-item view.address text {
+    display: inline-block;
+    width: 476rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.store-item .distance {
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    color: #FFA300;
+}
+
+.store-item icon {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    bottom: 0rpx;
+    top: 0rpx;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+
+.store-item.active {
+    background: #fff;
+}
+
+.store-item.active icon {
+    display: block;
+}
+
+.loading {
+    color: #999;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #eee;
+}
+
+.no-data {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200rpx;
+}
+
+.no-data image {
+    width: 242rpx;
+    height: 261rpx;
+}

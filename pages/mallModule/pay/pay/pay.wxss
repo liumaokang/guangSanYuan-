@@ -1,0 +1,122 @@
+page {
+    background: #019f55;
+}
+
+.content {
+    background: #fff;
+    width: 688rpx;
+    border-radius: 10rpx;
+    margin: 40rpx auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pay-title {
+    font-size: 36rpx;
+    line-height: 90rpx;
+    background: #f5f6f9;
+    width: 100%;
+    text-align: center;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+    margin-bottom: 52rpx;
+}
+
+.member-code-box {
+    text-align: center;
+}
+
+.member-code-box .barcode-box {
+    width: 586rpx;
+    height: 146rpx;
+}
+
+.member-code-box .barcode-box canvas {
+    width: 586rpx;
+    height: 146rpx;
+}
+
+.member-code-box>text {
+    font-size: 30rpx;
+    color: #727272;
+    line-height: 36rpx;
+    display: block;
+    height: 36rpx;
+}
+
+.member-code-box>text:last-of-type {
+    font-size: 36rpx;
+    line-height: 42rpx;
+    color: #333;
+    margin-top: 21rpx;
+}
+
+.pay-code-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 36rpx;
+    width: 302rpx;
+}
+
+.qrcode-box {
+    width: 302rpx;
+    height: 302rpx;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+.qrcode-box canvas {
+    width: 302rpx;
+    height: 302rpx;
+}
+
+.pay-code-box text {
+    font-size: 28rpx;
+    line-height: 36rpx;
+    color: #bcbcbc;
+}
+
+.pay-code-box .refresh {
+    font-size: 28rpx;
+    line-height: 36rpx;
+    margin-top: 28rpx;
+    color: #bcbcbc;
+    height: 48rpx;
+    display: flex;
+    align-items: center;
+    z-index: 99;
+    margin-top: 28rpx;
+}
+
+.pay-code-box .refresh image {
+    width: 34rpx;
+    height: 34rpx;
+    margin-right: 12rpx;
+}
+
+.card-balance {
+    border-top: 1rpx dashed #d6d6d6;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100rpx;
+    font-size: 28rpx;
+    line-height: 100rpx;
+    color: #313131;
+    padding: 0 46rpx;
+    box-sizing: border-box;
+    margin-top: 34rpx;
+}
+
+.card-balance .recharge {
+    color: #9b9b9b;
+    background: url('http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRight2.png') no-repeat right;
+    background-size: 12rpx 23rpx;
+    padding-right: 22rpx;
+}

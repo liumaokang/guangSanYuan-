@@ -1,0 +1,29 @@
+<view class="top-info">
+    <view bindtap="toChangeBalancePass" class="stored-pass-text">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconChuzhiPass.png"></image>
+    储值密码</view>
+    <view class="value-text">￥{{storedValue}}</view>
+    <view class="current-text">当前余额/元</view>
+    <view bindtap="toBalancePayList" class="watch-detail">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconWatchDetails.png"></image>查看明细</view>
+</view>
+<view class="content">
+    <view class="content-top-text">余额充值</view>
+    <view class="price-box">
+        <view bindtap="clickCheckPrice" class="{{item.active?'active':''}} " data-id="{{item.rechangeMoneyId}}" wx:for="{{rechargeList}}" wx:key="index">
+            <view class="price-text ">
+                <text>￥</text>{{item.amount}}</view>
+            <view class="welfare" wx:if="{{!item.discountMessage&&item.discountAmount&&item.discountAmount>0}}">· 优惠<text>{{item.discountAmount}}</text>元 ·</view>
+            <view class="welfare" wx:if="{{!item.discountMessage&&item.donationAmount&&item.donationAmount>0}}">· 送<text>{{item.donationAmount}}</text>元 ·</view>
+            <view class="welfare" wx:if="{{item.discountMessage}}">· {{item.discountMessage}} ·</view>
+        </view>
+    </view>
+    <button bindtap="handleRecharge" class="confirm-btn">确认充值</button>
+</view>
+<view class="remain">
+    <view>温馨提示</view>
+    <view>· 余额不可提现；</view>
+    <view>· 可到线下门店消费抵扣；</view>
+    <view>· 如有疑问请致电400-881-9090；</view>
+    <view>· 新用户充值后需设置储值卡支付密码。</view>
+</view>

@@ -1,0 +1,11 @@
+<template name="searchAddress">
+    <view class="search-box-addr">
+        <view class="search-main-addr">
+            <input bindblur="handleBlur" bindconfirm="handleConfirm" bindinput="handleInput" bindtap="handleFocus" confirmType="search" focus="{{searchFocus}}" id="search" value="{{searchItem}}"></input>
+            <label for="search" hidden="{{searchLabelShow}}">
+                <text>{{searchText}}</text>
+            </label>
+            <view bind:touchstart="clearSearchKey" class="clear" hidden="{{!searchItem}}"></view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,21 @@
+<view class="content">
+    <view class="refund-item" wx:for="{{refundList}}" wx:key="index">
+        <view class="refund-title">
+            <text style="color:#505050;">申请时间：{{item.applyTime}}</text>
+            <text class="refunding">{{item.status}}</text>
+        </view>
+        <view class="refund-goods">
+            <view class="goods-box" wx:for="{{item.refundDetails}}" wx:key="idx">
+                <image src="{{item.url}}"></image>
+            </view>
+        </view>
+        <view class="refund-reason">
+            <text>退款原因</text>
+            <text style="color:#8D8D8D;">{{item.applyReason}}</text>
+            <view class="refund-img-box">
+                <image src="{{imglist}}" wx:for="{{imglist.url}}" wx:key="idx"></image>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="filters" src="../../wxs/filters.wxs" />

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "充值",
+    "usingComponents": {
+        "authorize": "../../../../components/authorize/authorize",
+        "loading": "/./components/loading/index"
+    }
+}

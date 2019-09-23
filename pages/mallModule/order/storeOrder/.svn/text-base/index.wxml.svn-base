@@ -1,0 +1,26 @@
+<view class="order-body">
+    <view class="no-data" wx:if="{{orders.length===0}}">
+        <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/wxapp/no_data.png"></image>
+        <text>无相关数据</text>
+    </view>
+    <view bindtap="showOrderDetail" class="order" data-item="{{item}}" wx:for="{{orders}}" wx:key="{{item.flowNo}}">
+        <view class="top">
+            <view class="left">
+                <text class="store">{{item.storeName}}</text>
+                <text class="time">{{item.createTime}}</text>
+            </view>
+            <view class="right">查看订单详情</view>
+        </view>
+        <view class="goods">
+            <view class="goods-item" wx:for="{{item.goods}}" wx:for-item="good" wx:key="{{good.productName}}">
+                <text>{{good.productName}}</text>
+                <text>￥{{good.actualPaymentAmount}}</text>
+            </view>
+            <view class="goods-item" wx:if="{{item.more}}">...</view>
+        </view>
+        <view class="bottom">
+            <text class="plain">实付金额</text>
+            <text>￥{{item.actualPaymentAmount}}</text>
+        </view>
+    </view>
+</view>

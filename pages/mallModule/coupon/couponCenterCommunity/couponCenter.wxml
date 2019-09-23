@@ -1,0 +1,38 @@
+<movable-area>
+    <view bindtap="toSelectStore" class="current-store-box">
+        <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/advertImages/iconMendian.png"></image>
+        <text>当前门店:{{currentStoreInfo.storeName}}</text>
+        <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/advertImages/iconYousanjiao.png"></image>
+    </view>
+    <view class="banner-box" wx:if="{{banners.length>0}}">
+        <swiper autoplay="true" circular="true" class="swiper" indicatorDots="true" interval="5000">
+            <swiper-item bindtap="bannerJumping" class="swiper-item" data-id="{{item.id}}" wx:for="{{banners}}" wx:key="index">
+                <image class="slide-image" src="{{item.pictureUrl}}"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="coupon-list">
+        <view bindtap="toCouponDetails" class="list-item" data-couponId="{{item.id}}" wx:for="{{couponList}}" wx:key="{{idx}}">
+            <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconLogoXf.png"></image>
+            <view class="coupon-info name">{{item.name}}
+      </view>
+            <view class="coupon-info desc">{{item.description}}</view>
+            <view class="coupon-bottom">
+                <text>抢券时间：{{filters.filtDateHead(item.startDate)}}~{{filters.filtDateHead(item.endDate)}}</text>
+                <text class="remain-count" wx:if="{{item.balance}}">剩余<text>{{item.balance}}</text>张</text>
+            </view>
+            <block wx:if="{{item.balance>0||item.balance==null}}">
+                <button bindgetuserinfo="getUserInfo" catchtap="catchCoupon" class="sign-btn {{item.function=='PACKAGE'?'bold':''}}" openType="getUserInfo" wx:if="{{!hasUserInfo}}">{{item.price?'立即抢购':'立即领取'}}</button>
+                <button catchtap="handleCoupon" class="sign-btn {{item.function=='PACKAGE'?'bold':''}}" data-couponid="{{item.id}}" hidden="{{item.balance===0}}" wx:else>{{item.price?'立即抢购':'立即领取'}}</button>
+            </block>
+            <button class="sign-unable-btn" wx:if="{{item.balance===0}}">已领完</button>
+        </view>
+        <view class="no-data" hidden="{{couponList.length>0}}">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoCoupon.png"></image>
+        </view>
+    </view>
+    <movable-view direction="all" x="{{x}}" y="{{y}}" wx:if="{{homeBack}}">
+        <image bindtap="toHome" class="movable-view" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/toHome.png"></image>
+    </movable-view>
+</movable-area>
+<wxs module="filters" src="../../wxs/filters.wxs" />

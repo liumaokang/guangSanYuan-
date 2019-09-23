@@ -1,0 +1,14 @@
+<view class="content">
+    <view class="profit-item" wx:for="{{profitList}}" wx:key="idx">
+        <view class="info">
+            <text class="genre">会员拉新</text>
+            <text class="time">2017-04-28 11:28</text>
+        </view>
+        <text class="total">+{{item.backCash}}</text>
+    </view>
+</view>
+<button class="loading-btn" hidden="{{!loading}}" loading="{{loading}}">正在加载...</button>
+<view class="order-end" hidden="{{!noMore}}">~我也是有底线的~</view>
+<view class="no-data" hidden="{{profitList.length>0}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoData.png"></image>
+</view>

@@ -1,0 +1,32 @@
+<view class="cards-box">
+    <view class="show-box">
+        <image src="{{showCheckedImg}}"></image>
+    </view>
+    <scroll-view scrollX class="cards-show" style="width: 100%">
+        <view bindtap="clickChange" class="cards-item {{item.active?'active':''}}" data-styleid="{{item.styleId}}" wx:for="{{cardList}}" wx:key="{{item.id}}">
+            <image class="card-img" src="{{item.imageUrl}}"></image>
+            <image class="checked-icon" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconXuanzhong.png"></image>
+        </view>
+    </scroll-view>
+</view>
+<view class="content">
+    <view class="content-text">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/icon$.png"></image>
+    选择卡面额
+  </view>
+    <view bindtap="clickPrice" class="price-item {{item.active?'active':''}}" data-faceid="{{item.faceId}}" wx:for="{{priceList}}" wx:for-index="idx" wx:key="{{item.faceId}}">
+        <text>{{item.faceValue}}元</text>
+        <text>售价：{{item.price}}元</text>
+        <image class="checked-icon" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconXuanzhong.png"></image>
+    </view>
+</view>
+<view class="need-know">
+    <text bindtap="toUseNeedKnow">使用须知</text>
+</view>
+<view class="buy-box">
+    <view>
+        <view>总计：</view>
+        <view>￥{{needPayValue}}</view>
+    </view>
+    <button bindtap="handleBuy">购买</button>
+</view>

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "支付方式",
+    "usingComponents": {
+        "popup": "../../../../components/popup/popup",
+        "loading": "/./components/loading/index"
+    }
+}

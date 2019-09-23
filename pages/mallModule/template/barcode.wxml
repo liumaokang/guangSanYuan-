@@ -1,0 +1,5 @@
+<template name="barcode">
+    <view class="barcode-box">
+        <canvas canvasId="barcode"></canvas>
+    </view>
+</template>

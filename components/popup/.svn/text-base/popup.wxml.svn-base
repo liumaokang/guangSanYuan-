@@ -1,0 +1,4 @@
+<view bind:tap="onClickOverlay" class="overlay-class popup__overlay {{show?'popup--show':''}}" style="{{overlayStyle}}" wx:if="{{overlay}}"></view>
+<view class="custom-class popup {{position?'popup--'+position:''}} {{show?'popup--show':''}}">
+    <slot></slot>
+</view>

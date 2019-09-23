@@ -1,0 +1,80 @@
+<view class="ranking-content">
+    <view class="tab-box">
+        <view class="billboard-tab">
+            <view bindtap="switchTab" class="tab-item {{tabSelected==idx?'active':''}}" data-idx="{{idx}}" wx:for="{{tabType}}" wx:for-index="idx" wx:key="index">{{item}}</view>
+        </view>
+    </view>
+    <swiper bindchange="bindChange" class="swiper" current="{{tabSelected}}" duration="300">
+        <swiper-item>
+            <view class="first-three">
+                <view class="portrait-item" wx:if="{{index<3}}" wx:for="{{rankingList}}" wx:key="index">
+                    <view class="portrait-img">
+                        <image src="{{item.avatar?item.avatar:'https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/userLogoImg.png'}}"></image>
+                    </view>
+                    <view class="billboard-info">
+                        <text class="name">{{item.name?item.name:'虚位以待'}}</text>
+                        <text class="total">￥{{item.total?item.total:0}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="ranking-list">
+                <view class="ranking-item" wx:if="{{index>2}}" wx:for="{{rankingList}}" wx:key="index">
+                    <view class="info">
+                        <text class="ranking">{{item.num}}</text>
+                        <image src="{{item.imagrUrl}}"></image>
+                        <text class="name">{{item.name}}</text>
+                    </view>
+                    <text class="total">￥{{item.total}}</text>
+                </view>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view class="first-three">
+                <view class="portrait-item" wx:if="{{index<3}}" wx:for="{{rankingList}}" wx:key="index">
+                    <view class="portrait-img">
+                        <image src="{{item.avatar?item.avatar:'https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/userLogoImg.png'}}"></image>
+                    </view>
+                    <view class="billboard-info">
+                        <text class="name">{{item.name?item.name:'虚位以待'}}</text>
+                        <text class="total">￥{{item.total?item.total:0}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="ranking-list">
+                <view class="ranking-item" wx:if="{{index>2}}" wx:for="{{rankingList}}" wx:key="index">
+                    <view class="info">
+                        <text class="ranking">{{item.num}}</text>
+                        <image src="{{item.imagrUrl}}"></image>
+                        <text class="name">{{item.name}}</text>
+                    </view>
+                    <text class="total">￥{{item.total}}</text>
+                </view>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view class="first-three">
+                <view class="portrait-item" wx:if="{{index<3}}" wx:for="{{rankingList}}" wx:key="index">
+                    <view class="portrait-img">
+                        <image src="{{item.avatar?item.avatar:'https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/userLogoImg.png'}}"></image>
+                    </view>
+                    <view class="billboard-info">
+                        <text class="name">{{item.name?item.name:'虚位以待'}}</text>
+                        <text class="total">￥{{item.total?item.total:0}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="ranking-list">
+                <view class="ranking-item" wx:if="{{index>2}}" wx:for="{{rankingList}}" wx:key="index">
+                    <view class="info">
+                        <text class="ranking">{{item.num}}</text>
+                        <image src="{{item.imagrUrl}}"></image>
+                        <text class="name">{{item.name}}</text>
+                    </view>
+                    <text class="total">￥{{item.total}}</text>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+    <button class="loading-btn" hidden="{{!loading}}" loading="{{loading}}">正在加载...</button>
+    <view class="order-end" hidden="{{!noMore}}">~我也是有底线的~</view>
+</view>

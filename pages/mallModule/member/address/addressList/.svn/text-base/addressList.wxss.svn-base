@@ -1,0 +1,213 @@
+page {
+    background: #f9f9f9;
+}
+
+.content {
+    padding: 0 0rpx 150rpx 0rpx;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+}
+
+.title {
+    font-size: 28rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0 30rpx;
+    color: #333;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.title view:first-of-type {
+    color: #454545;
+}
+
+.title view:first-of-type image {
+    width: 25rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-right: 18rpx;
+    margin-top: -6rpx;
+}
+
+.title view:last-of-type {
+    color: #3cdbc0;
+}
+
+.title view:last-of-type image {
+    width: 20rpx;
+    height: 20rpx;
+    margin-right: 15rpx;
+    margin-top: -6rpx;
+}
+
+.title view.delete {
+    color: #454545;
+}
+
+.title view.delete image {
+    width: 29rpx;
+    height: 35rpx;
+    vertical-align: middle;
+    margin-top: -9rpx;
+}
+
+.active .isChecked {
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    right: 0;
+    top: 71rpx;
+    background: url('http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconChecked.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.isChecked {
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    right: 0;
+    top: 71rpx;
+    background: url('http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconUnchecked.png') no-repeat center;
+    background-size: 100% 100%;
+}
+
+.address-item {
+    background: #fff;
+    font-size: 26rpx;
+    padding:22rpx 17rpx;
+    width: 710rpx;
+    margin: auto;
+    border-radius: 10rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin-bottom:17rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.address-item .item-main {
+    width: 530rpx;
+    height: 100%;
+    float: left;
+    color: #454545;
+    line-height: 36rpx;
+}
+
+.address-item image {
+    width: 25rpx;
+    height: 25rpx;
+}
+
+.address-item .item-main .address-title {
+    font-size: 30rpx;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-family: PingFangSC-Medium;
+    color:#1B1B1B;
+    line-height: 45rpx;
+    margin-bottom: 10rpx;
+}
+
+.address-item .item-main .address-icon {
+    font-size: 20rpx;
+    line-height: 32rpx;
+    color: #fff;
+    display: inline-block;
+    margin-left: 20rpx;
+    white-space: nowrap;
+    text-align: center;
+    align-self: flex-start;
+    margin-top: 9rpx;
+    width:82rpx;
+    height:31rpx;
+    background:rgba(240,135,138,1);
+    border-radius:4px 4px 4px 4px;
+}
+
+.address-item .item-main .name-mobile {
+    color:rgba(161,161,161,1);
+    font-size: 22rpx;
+    line-height: 36rpx;
+}
+
+.address-item .item-main .address-info {
+    line-height: 40rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color:#4B4A4A;
+}
+
+.address-item .item-main .name-mobile text:first-of-type {
+    margin-right: 14rpx;
+    color: #999;
+}
+
+.address-item .item-main .name-mobile text:last-of-type {
+    color: #999;
+}
+
+.bottom-box {
+    width: 100%;
+    height: 130rpx;
+    border-top: 1rpx solid #dcdcdc;
+    text-align: center;
+    line-height: 100rpx;
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    z-index: 999;
+}
+
+.bottom-box image {
+    width: 36rpx;
+    height: 36rpx;
+    vertical-align: middle;
+    margin-top: -6rpx;
+    font-size: 36rpx;
+}
+
+.bottom-box button {
+    height: 88rpx;
+    width: 670rpx;
+    line-height: 88rpx;
+    color: #fff;
+    background: #3cdbc0;
+    padding: 0;
+    border-radius: 6rpx;
+}
+
+.no-data {
+    text-align: center;
+    margin-top: 200rpx;
+}
+
+.no-data image {
+    width: 257rpx;
+    height: 261rpx;
+}
+
+.edit-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+}
+.edit-body text,.sc1{
+  font-size:26rpx;
+  font-family:"FZLanTingHei-R-GBK";
+  font-weight:400;
+  color:rgba(44,43,43,1);
+}
+.edit-body image {
+    margin-right: 10rpx;
+}

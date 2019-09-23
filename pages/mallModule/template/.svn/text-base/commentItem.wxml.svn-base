@@ -1,0 +1,26 @@
+<template name="commentItem">
+    <view class="comment-item">
+        <!-- <image class="headPortrait" src="{{item.avatar?item.avatar:''}}"></image> -->
+       <image class="headPortrait" src="{{item.head_pic}}"></image>   
+        <view>
+            <view class="comment-scoreinfo">
+                <view class="comment-score">
+                    <text>{{item.nickname}}</text>
+                    <!-- <text>{{item.mobile?item.mobile:''}}</text> -->
+                    <view class="dots">
+                        <view class="comment-stars-box" wx:for="{{item.service_rank}}">
+                        <image src="https://v.coolndns.com/upload/wxapi/star_icon02.png"></image>
+                    </view>
+                    </view>
+                </view>
+                <text>{{item.add_time}}</text>
+            </view>
+            <view class="comment-item-con">{{item.content}}</view>
+            <view class="comment-image-box">
+                <view bindtap="previewImage" class="comment-img" data-commentId="{{item.id}}" data-urlId="{{index}}" wx:for="{{item.img}}" wx:for-item="img" wx:key="index">
+                    <image mode="aspectFill" src="{{img.img}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

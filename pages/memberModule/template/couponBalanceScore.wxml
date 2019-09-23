@@ -1,0 +1,20 @@
+<template name="couponBalanceScore">
+    <view class="coupon-balance-score">
+        <view bindtap="toMyCoupon" class="coupon-box">
+            <text>{{couponCount}}<text>(张)</text>
+            </text>
+            <text>优惠券</text>
+            <view class="line"></view>
+        </view>
+        <view bindtap="toStoredValue" class="balance-box">
+            <text>
+                <text>￥</text>{{storedValue}}</text>
+            <text>储值、余额</text>
+            <view class="line"></view>
+        </view>
+        <view bindtap="toScore" class="score-box">
+            <text>{{score}}</text>
+            <text>积分</text>
+        </view>
+    </view>
+</template>

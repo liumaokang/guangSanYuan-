@@ -1,0 +1,20 @@
+<view class="top-img">
+    <image src="{{bannerList}}"></image>
+</view>
+<view class="activity-box" wx:for="{{activityGroup}}" wx:key="{{item.id}}">
+    <view class="title">{{item.name}}</view>
+    <view bindtap="toGiftCardBuy" class="act-item" data-id="{{it.giftCardActivityId}}" wx:for="{{item.giftCardActivity}}" wx:for-item="it" wx:key="{{it.id}}">
+        <image src="{{it.giftCardImageUrl}}"></image>
+        <text>{{it.giftCardActivityName}}</text>
+    </view>
+</view>
+<view class="no-data1" wx:if="{{activityGroup.length===0&&bannerList.length===0}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wxapp/imgNoData.png"></image>
+</view>
+<view class="no-data2" wx:if="{{activityGroup.length===0&&bannerList.length!==0}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wxapp/imgNoData.png"></image>
+</view>
+<view bindtap="toBuyHistory" class="footer">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconBuyHis.png"></image>
+  我的礼品卡
+</view>

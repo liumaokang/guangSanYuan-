@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "即时送",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "popup": "../../../../components/popup/popup",
+        "tabbar": "../../../../components/tabbar/tabbar",
+        "setMeal": "../../../../components/setMeal/setMeal",
+        "loading": "/./components/loading/index"
+    }
+}

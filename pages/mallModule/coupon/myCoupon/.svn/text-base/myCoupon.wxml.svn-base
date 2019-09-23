@@ -1,0 +1,150 @@
+<view class="coupon-main" >
+    <view class="coupon-nav">
+        <view bindtap="clickCategory"  data-index="0" class="{{type=='unuse'?'selected':'select'}}"   data-type="unuse">未使用</view>
+        <view bindtap="clickCategory" data-index="1" class="{{type=='used'?'selected':'select'}}"     data-type="used">已使用</view>
+        <view bindtap="clickCategory"  data-index="2" class="{{type=='expires'?'selected':'select'}}" data-type="expires">已过期</view>
+    </view>
+    <view class="coupon-item-box">
+        <!-- 未使用 -->
+        <view class="coupon-available " wx:if="{{index==0}}">
+           <!--  <view bindtap="toCouponDetails" class="coupon-item" data-activityId="{{item.couponActivityId}}" data-external="{{item.isExternal}}" data-id="{{item.id}}" data-item="{{item}}" data-type="discount" wx:for="{{coupon}}" wx:key="index">
+                <view class="coupon-top">
+                    <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconLogoXf.png"></image>
+                    <view class="name" wx:if="{{item.function!=='DISCOUNT'}}">{{item.name}}</view>
+                    <view class="name" wx:if="{{item.function==='DISCOUNT'}}">{{item.couponActivityName}}</view>
+                    <text class="time" wx:if="{{item.end_time!==''}}">有效使用期：{{item.star_time}}-{{item.end_time}}</text>
+                    <image class="timeout" src="./timeout.png" wx:if="{{item.willTimeout}}"></image>
+                </view>
+                <view class="coupon-bottom">
+                    <view class="coupon-bottom-body">
+                        <text class="condition">{{item.allProduct?'该优惠券对全部商品(不包括秒杀/拼团等促销商品)适用':'该优惠券只针对特定商品使用'}}</text>
+                        <text catchtap="payBack" class="pay-back" data-item="{{item}}" wx:if="{{item.canRefund}}">申请退款</text>
+                        <view catchtap="toIndex" class="use" wx:if="{{false}}">去购物</view>
+                    </view>
+                </view>
+            </view> -->
+            <view  class="coupon-item" data-activityId="{{item.couponActivityId}}" data-external="{{item.isExternal}}" data-id="{{item.id}}" data-type="freeship" wx:for="{{coupon}}" wx:key="index">
+                <!-- <view style="font-size:24rpx;color:#333;text-align:right">剩余时间{{((item.use_end_time-item.use_start_time)/3600/24)}}天</view> -->
+                <view class="coupon-top">
+                    <image src="{{imageUrl}}coup_logo.png"></image>
+                    <view class="name" >{{item.name}}</view>
+                    <!-- <view class="name">优惠券价格：{{item.money}}</view> -->
+                    <text class="time" wx:if="{{item.effectiveTime!==''}}">有效使用期：{{item.star_time}}-{{item.end_time}}</text>
+                    <!-- <text class="time">该优惠券对全部商品使用</text> -->
+                    <!-- 即将过期图片 -->
+                    <image class="timeout" src="{{imageUrl}}guoqi.png" wx:if="{{item.willTimeout}}"></image>
+                </view>
+                <view class="coupon-bottom">
+                    <view class="coupon-bottom-body">
+                        <!-- <text class="condition">该优惠券只针对配送使用</text> -->
+                        <text catchtap="payBack" class="pay-back" data-item="{{item}}" wx:if="{{item.canRefund}}">申请退款</text>
+                        <view catchtap="toIndex" class="use" wx:if="{{false}}">去购物</view>
+                    </view>
+                </view>
+            </view>
+            
+
+            <!-- <view class="no-data" hidden="{{coupon.length==0}}">
+                <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoCoupon.png"></image>
+                <button bindtap="toHome" size="mini">随便逛逛</button>
+            </view>
+            <view class="coupon-bottom-box">
+                <view class="coupon-data" hidden="{{!noCouponData}}">没有更多数据</view>
+            </view>
+            <view class="loading" hidden="{{!load}}">{{loadingText}}</view> -->
+        </view>
+
+
+        <!-- 已使用 -->
+        <view class="coupon-available {{index===1?'show':'hidden'}}">
+            <view class="coupon-item" data-activityId="{{item.couponActivityId}}" data-external="{{item.isExternal}}" data-id="{{item.id}}" data-type="discount" wx:if="{{!item.rate}}" wx:for="{{coupon}}" wx:key="index">
+                <view class="coupon-top">
+                    <image src="{{imageUrl}}coup_logo.png"></image>
+                    <view class="name" >{{item.name}} 优惠券价格：{{item.money}}</view>
+                    <!-- <view class="name" wx:if="{{item.function!=='DISCOUNT'}}">{{item.name}}</view>
+                    <view class="name" wx:if="{{item.function==='DISCOUNT'}}">{{item.name}}</view> -->
+                    <text class="time" wx:if="{{item.effectiveTime!==''}}">有效使用期：{{item.star_time}}-{{item.end_time}}</text>
+                </view>
+                <view class="coupon-bottom">
+                    <text class="condition">{{item.allProduct?'该优惠券对全部商品(不包括秒杀/拼团等促销商品)适用':'该优惠券只针对特定商品使用'}}</text>
+                    <view class="use">{{item.statusDesc}}</view>
+                </view>
+            </view>
+            <view  class="coupon-item" data-activityId="{{item.couponActivityId}}" data-external="{{item.isExternal}}" data-id="{{item.id}}" data-type="freeship" wx:if="{{item.rate}}" wx:for="{{usedCouponList}}" wx:key="index">
+                <view class="coupon-top">
+                    <image src="{{imageUrl}}coup_logo.png"></image>
+                    <view class="name" >{{item.name}} 优惠券价格：{{item.money}}</view>
+                    <!-- <view class="name" wx:if="{{item.rate!=0}}">
+                        <text>{{item.rate}}</text>折运费优惠券</view>
+                    <view class="name" wx:if="{{item.rate==0}}">全价运费优惠券</view> -->
+                    <text class="time" wx:if="{{item.effectiveTime!==''}}">有效使用期：{{item.effectiveTime}}</text>
+                </view>
+                <view class="coupon-bottom">
+                    <text class="condition">该优惠券只针对配送使用</text>
+                    <view class="use">{{item.statusDesc}}</view>
+                </view>
+            </view>
+            <view class="no-data" hidden="{{usedCouponList.length==0?false:true}}">
+                <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoCoupon.png"></image>
+                <button bindtap="toHome" size="mini">随便逛逛</button>
+            </view>
+            <view class="coupon-bottom-box" hidden="{{!historyNoCouponData||usedCouponList.length==0}}">
+                <view class="coupon-data">没有更多数据</view>
+            </view>
+            <view class="loading" hidden="{{!historyLoad}}">正在加载...</view>
+        </view>
+        <!-- 已过期 -->
+        <view class="coupon-available {{index===2?'show':'hidden'}}">
+            <view  class="coupon-item" data-activityId="{{item.couponActivityId}}" data-external="{{item.isExternal}}" data-id="{{item.id}}" data-type="discount" wx:if="{{!item.rate}}" wx:for="{{coupon}}" wx:key="index">
+                <view class="coupon-top">
+                    <image src="{{imageUrl}}coup_logo.png"></image>
+                    <view class="name" >{{item.name}} 优惠券价格：{{item.money}}</view>
+                    <!-- <view class="name" wx:if="{{item.function!=='DISCOUNT'}}">{{item.name}}</view>
+                    <view class="name" wx:if="{{item.function==='DISCOUNT'}}">{{item.name}}</view> -->
+                    <text class="time" wx:if="{{item.effectiveTime!==''}}">有效使用期：{{item.star_time}}-{{item.end_time}}</text>
+                </view>
+                <view class="coupon-bottom">
+                    <view class="coupon-bottom-body">
+                        <text class="condition">{{item.allProduct?'该优惠券对全部商品(不包括秒杀/拼团等促销商品)适用':'该优惠券只针对特定商品使用'}}</text>
+                        <text catchtap="payBack" class="pay-back" data-item="{{item}}" wx:if="{{item.canRefund}}">申请退款</text>
+                        <view class="use">{{item.statusDesc}}</view>
+                    </view>
+                </view>
+            </view>
+          <!--   <view bindtap="toCouponDetails" class="coupon-item" data-activityId="{{item.couponActivityId}}" data-external="{{item.isExternal}}" data-id="{{item.id}}" data-type="freeship" wx:if="{{item.rate}}" wx:for="{{coupon}}" wx:key="index">
+                <view class="coupon-top">
+                    <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconLogoXf.png"></image>
+                    <view class="name" wx:if="{{item.rate!=0}}">
+                        <text>{{item.rate}}</text>折运费优惠券</view>
+                    <view class="name" wx:if="{{item.rate==0}}">全价运费优惠券</view>
+                    <text class="time" wx:if="{{item.effectiveTime!==''}}">有效使用期：{{item.effectiveTime}}</text>
+                </view>
+                <view class="coupon-bottom">
+                    <view class="coupon-bottom-body">
+                        <text class="condition">该优惠券只针对配送使用</text>
+                        <text catchtap="payBack" class="pay-back" data-item="{{item}}" wx:if="{{item.canRefund}}">申请退款</text>
+                        <view class="use">{{item.statusDesc}}</view>
+                    </view>
+                </view>
+            </view> -->
+            <view class="no-data" hidden="{{historyCouponList.length==0?false:true}}">
+                <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoCoupon.png"></image>
+                <button bindtap="toHome" size="mini">随便逛逛</button>
+            </view>
+            <view class="coupon-bottom-box" hidden="{{!historyNoCouponData||historyCouponList.length==0}}">
+                <view class="coupon-data">没有更多数据</view>
+            </view>
+            <view class="loading" hidden="{{!historyLoad}}">正在加载...</view>
+        </view>
+    </view>
+</view>
+<view class="content" wx:if="{{loading}}">
+    <view class="spinner">
+        <view class="rect1"></view>
+        <view class="rect2"></view>
+        <view class="rect3"></view>
+        <view class="rect4"></view>
+        <view class="rect5"></view>
+    </view>
+</view>
+<image bindtap="toHome" class="movable-view" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/toHome.png" wx:if="{{homeBack}}"></image>

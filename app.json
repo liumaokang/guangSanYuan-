@@ -1,0 +1,136 @@
+{
+  "pages": [
+    "pages/mallModule/index/index/index",
+    "pages/mallModule/score/scoreMall/scoreMall",
+    "pages/mallModule/member/my/my",
+    "pages/mallModule/goods/category/category",
+    "pages/mallModule/activity/midAutumn/index",
+    "pages/mallModule/myCard/recharge/recharge",
+    "pages/mallModule/myCard/balance/balance",
+    
+    "pages/mallModule/myCard/rechargeSuccess/rechargeSuccess",
+    "pages/mallModule/invite/invite",
+    "pages/mallModule/order/storeOrderDetail/index",
+    "pages/mallModule/order/storeOrder/index",
+    "pages/mallModule/goods/search/search",
+    "pages/mallModule/myCard/resetPassword/resetPassword",
+    "pages/mallModule/myCard/checkMobile/index",
+    "pages/mallModule/coupon/myCoupon/myCoupon",
+    "pages/mallModule/index/selectStore/selectStore",
+    "pages/mallModule/distribution/myDistribution/myDistribution",
+    "pages/mallModule/distribution/rankingList/rankingList",
+    "pages/mallModule/distribution/profit/profit",
+    "pages/mallModule/distribution/teamList/teamList",
+    "pages/mallModule/fightGroup/fightGroup/fightGroup",
+    "pages/mallModule/member/memberInfo/memberInfo",
+    "pages/mallModule/member/system/system",
+    "pages/mallModule/member/about/index",
+    "pages/memberModule/score/score",
+    "pages/mallModule/member/address/addressList/addressList",
+    "pages/mallModule/member/address/addAddress/addAddress",
+    "pages/mallModule/member/redPacket/redPacket",
+    "pages/mallModule/member/bindMobile/bindMobile",
+    "pages/mallModule/member/authorize/authorize",
+    "pages/mallModule/member/feedback/feedback",
+    "pages/mallModule/member/vip/index",
+    "pages/mallModule/order/order/order",
+    "pages/mallModule/order/orderDetails/orderDetails",
+    "pages/mallModule/order/logisticsInfo/logisticsInfo",
+    "pages/mallModule/order/evaluate/evaluate",
+    "pages/mallModule/order/perfectOrder/perfectOrder",
+    "pages/mallModule/order/addRemarks/addRemarks",
+    "pages/mallModule/order/refund/refund",
+    
+    "pages/mallModule/order/refundDetails/refundDetails",
+    "pages/mallModule/order/orderTrajectory/orderTrajectory",
+    "pages/mallModule/goods/goodsDetail/goodsDetail",
+    "pages/mallModule/goods/shopcart/shopcart",
+    "pages/mallModule/goods/goodsComment/goodsComment",
+    "pages/mallModule/pay/pay/pay",
+    "pages/mallModule/pay/payMethod/payMethod",
+    "pages/mallModule/pay/payment/payment",
+    "pages/mallModule/coupon/couponHistory/couponHistory",
+    "pages/mallModule/coupon/couponDetails/couponDetails",
+    "pages/mallModule/coupon/choiceCoupon/choiceCoupon",
+    "pages/mallModule/coupon/couponCenter/couponCenter",
+    "pages/mallModule/coupon/couponCenterCommunity/couponCenter",
+    "pages/mallModule/myCard/memberCard/memberCard",
+    "pages/mallModule/fightGroup/groupPurchase/groupPurchase",
+    "pages/mallModule/fightGroup/teamList/teamList",
+    "pages/mallModule/activity/newmbrActivity/newmbrActivity",
+    "pages/mallModule/activity/advanceSell/advanceSell",
+    "pages/mallModule/activity/seckill/seckill",
+    "pages/mallModule/activity/luckDraw/luckDraw",
+    "pages/mallModule/advertising/advertising",
+    "pages/mallModule/score/score/score",
+    "pages/mallModule/score/scoreOrder/scoreOrder",
+    "pages/memberModule/index/index",
+    "pages/memberModule/giftCard/giftCard/giftCard",
+    "pages/memberModule/giftCard/giftCardBuy/giftCardBuy",
+    "pages/memberModule/giftCard/buyHistory/buyHistory",
+    "pages/memberModule/giftCard/useNeedKnow/useNeedKnow",
+    "pages/memberModule/giftCard/storeList/storeList",
+    "pages/memberModule/giftCard/giftCardDetails/giftCardDetails",
+    "pages/memberModule/giftCard/cardBuyResult/cardBuyResult",
+    "pages/memberModule/giftCard/giftCardPayQR/giftCardPayQR",
+    "pages/memberModule/giftCard/giveState/giveState",
+    "pages/memberModule/giftCard/giftCardPaysuccess/giftCardPaysuccess",
+    "pages/memberModule/giftCard/choiceGiftCard/choiceGiftCard",
+    "pages/memberModule/balance/storedValue/storedValue",
+    "pages/memberModule/balance/balancePay/balancePay",
+    "pages/memberModule/balance/balancePayList/balancePayList",
+    "pages/memberModule/balance/changeBalancePass/changeBalancePass",
+    "pages/memberModule/myCard/myCard",
+    "pages/memberModule/bindMobile/bindMobile",
+    "pages/memberModule/selectStore/selectStore",
+    "pages/mallModule/myCard/recharge/refundSuccess/refundSuccess"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#e94a4e",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "逛三园优选"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#333333",
+    "selectedColor": "#ED484C",
+    "list": [
+      {
+        "pagePath": "pages/mallModule/index/index/index",
+        "iconPath": "image/index.png",
+        "selectedIconPath": "image/index1.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/mallModule/fightGroup/fightGroup/fightGroup",
+        "iconPath": "image/group.png",
+        "selectedIconPath": "image/group_active.png",
+        "text": "拼团"
+      },
+      {
+        "pagePath": "pages/mallModule/goods/category/category",
+        "iconPath": "image/send2.png",
+        "selectedIconPath": "image/send3.png",
+        "text": "即时送"
+      },
+      {
+        "pagePath": "pages/mallModule/goods/shopcart/shopcart",
+        "iconPath": "image/shopcat.png",
+        "selectedIconPath": "image/shopcat_active.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/mallModule/member/my/my",
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/my_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,167 @@
+<loading showLoading="{{loading}}"></loading>
+<image hidden bindload="couponTipImgLoad" src="{{couponTipUrl}}"></image>
+<view catchtap="showTipModel" class="add-app-tip" wx:if="{{appTipShow}}"></view>
+<view catchtap="hiddenTipModel" class="add-app-model" wx:if="{{appTipShowModel}}"></view>
+<view>
+    <view>
+        <image src="/image/indexbg.png" style="width: 750rpx;height: 290rpx;position: absolute;top: 0;left: 0;z-index: -1"></image>
+        <view class="top-info container">
+            <view bindtap="changeStore" class="location">
+                <image src="/image/location_03.png" style="width: 24rpx;height: 29rpx;margin-right: 8rpx;"></image><text>{{address}}</text><image src="/image/select.png" style="width: 17rpx;height: 10rpx;"></image>
+            </view>
+            <view class="index-search-box">
+                <view bindtap="handleConfirm" class="search-hot-box">
+                    <image class="search" src="/image/search.png"></image>
+                    <text>请输入您要搜索的商品</text>
+                </view>
+            </view>
+        </view>
+        <block >
+            <view class="banner-box">
+                <swiper autoplay="true" circular="true" bindchange="swiperChange" indicator-color="{{moren}}" indicator-active-color="{{active_color}}"  indicatorDots="{{true}}" class="swiper" interval="5000">
+                    <swiper-item bindtap="bannerJumping" class="swiper-item" data-id="{{item.ad_id}}" wx:for="{{banners}}" wx:key="index">
+                        <image class="slide-image" src="{{item.ad_code}}"></image>
+                    </swiper-item>
+                </swiper>
+                <!-- <view class="custom-indicator">
+                    <text class="dots {{index==current?'active':''}}" wx:for="{{banners}}" wx:key="index"></text>
+                </view> -->
+            </view>
+            <view class="column-box">
+                <view bindtap="sendgoods" class="column-item">
+                    <view class="column-img">
+                        <image mode="widthFix" src="/image/icon01.png"></image>
+                    </view>
+                    <view>即时送</view>
+                </view>
+                <view bindtap="money" class="column-item">
+                    <view class="column-img">
+                        <image mode="widthFix" src="/image/icon02.png"></image>
+                    </view>
+                    <view>充值有礼</view>
+                </view>
+                 <view bindtap="pintuan" class="column-item">
+                    <view class="column-img">
+                        <image mode="widthFix" src="/image/icon03.png"></image>
+                    </view>
+                    <view>多人拼团</view>
+                </view>
+                 <view bindtap="clickFunctionEntry" class="column-item">
+                    <view class="column-img">
+                        <image mode="widthFix" src="/image/icon04.png"></image>
+                    </view>
+                    <view>每日签到</view>
+                </view>
+                 <view bindtap="jifenshop" class="column-item">
+                    <view class="column-img">
+                        <image mode="widthFix" src="/image/icon05.png"></image>
+                    </view>
+                    <view>积分商城</view>
+                </view>
+            </view>
+        </block>
+        <view class="index-grab" >
+            <view class="title">
+                <view class="time-down">
+                    <view class="imgpar"><image  mode="widthFix" src="/image/time-down.png"></image></view>
+                    <view class="time-box">
+                        <view class="time-item">
+                            <text style="font-size:22rpx;color:#707070;margin-right:4rpx">本场剩余</text>
+                            <text class="last-hour txt" style="margin-left:0">{{time_h}}</text>
+                            <text class="colon">:</text>
+                            <text class="last-minute txt">{{time_m}}</text>
+                            <text class="colon">:</text>
+                            <text class="last-second txt">{{time_s}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view bindtap="toSeckill" class="more">全部商品
+          <image class="right-icon" style="width:20rpx;height:30rpx;" src="/image/rights.png"></image>
+                </view>
+            </view>
+            <scroll-view scrollX class="grab-goods-list" style="width: 100%">
+                <view bindtap="flash_Goods_Detail" class="module-goods-item scroll-skill-goods" wx:for="{{flash_sale}}" wx:key="index" data-productid="{{item.goods_id}}" data-saleid="{{item.id}}">
+                    <view class="module-goods-img">
+                        <image mode="aspectFit" src="{{url+item.goods_img}}"></image>
+                    </view>
+                        <view class="goods-names">
+                            <view>{{item.goods_name}}</view>
+                        </view>
+                        <view class="module-goods-price">
+                            <text class="nowPrice"><text></text>{{item.price}}</text>
+                            <text class="oldPrice">￥{{item.shop_price}}</text>
+                        </view>
+                  </view>
+            </scroll-view>
+        </view>
+        <view class="module-box">
+          <view class="activity-img">
+            <image src="{{bannerimg}}"></image>
+          </view>
+        </view>
+        <view class="store-title" style="text-align:center;">
+            <image src="/image/left.png" style="width: 84rpx;height: 16rpx;" alt=""></image><text style="padding:0 14rpx;font-size: 32rpx;color: #3e3e3e;">门店热销</text><image style="width: 84rpx;height: 16rpx;" src="/image/right.png" alt=""></image>
+        </view>
+        <view class="goods-box clearfix">
+            <view bindtap="toGoodsDetail" class="goods-item" data-item="{{item}}" data-productId="{{item.goods_id}}" data-type="normal" id="" wx:for="{{hotgoods}}" wx:key="index">
+                <view class="goods-img-box">
+                    <image lazyLoad="true" mode="aspectFit" src="{{url}}{{item.original_img}}"></image>
+                </view>
+                <view class="goods-info">
+                    <view class="goods-name">
+                        <view>{{item.goods_name}}</view>
+                    </view>
+                    <view class="goods-desc">{{item.goods_remark}}</view>
+                    <view class="goods-price" style="{{item.promotions&&item.promotions.length!==0?'':'margin-top:28rpx;'}}">
+                        <text class="symbol">￥</text>
+                        <text class="nowPrice">{{item.shop_price}}</text>
+                        <text class="oldPrice"> ￥{{item.market_price}}</text>
+                         <form bindsubmit="addShopcart" catchtap="addShopcartCatch" reportSubmit="true">
+                        <view class="cart-control">
+                            <image src="/image/add.png" catchtap="addShopCarts" data-id="{{item.goods_id}}" style="width: 40rpx;height: 40rpx;position:absolute;z-index: 5;right: 0;padding-top:8rpx;"></image>
+                        </view>
+                    </form>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="copyright-info" wx:if="{{fineQualityGoodsList.length>0}}">
+            <image mode="widthFix" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconLogoXf.png"></image>
+            <text>元芒数字提供技术支持</text>
+        </view>
+    </view>
+</view>
+<view wx:if="{{show}}" class="modal-box" data-type="signIn">
+    <view catchtap="clickBody" class="modal-body">
+        <view class="modal-content sign-in {{memberScore.signed===false?'unSignIn':'signIned'}}">
+            <view><image src="/image/qian.png" style="width:217rpx;height:214rpx;"></image></view>
+            <view class="sign-bg"></view>
+            <view class="sign-tips">已累计签到
+        <text>{{memberScore.daysCount}}</text>天</view>
+            <view wx:if="{{show1}}" class="sign-text">+{{memberScore.score}}</view>
+            <view wx:if="{{false1}}" class="sign-text2">今天已经签到过啦</view>
+            <button wx:if="{{show1}}"  bindtap="clickBlank" class="button-box" data-type="signIn">确认</button>
+            <button wx:if="{{false1}}" bindtap="clickBlank" class="button-box second-sign" data-type="signIn">立即签到</button>
+        </view>
+    </view>
+</view>
+<!-- 优惠券 -->
+    <view style="background: rgba(0,0,0,0.5);z-index:1000;position:fixed;left:0;top:0;bottom:0;right:0;height:100%;" hidden="{{open}}">
+      <view class="shouModal">
+        <view class="couple" style="height:743rpx;">
+          <!-- <view class="title">恭喜您</view>
+          <view class="couple_box">
+            <view class="money"><text style="font-size:36rpx;padding:0 2px;">￥</text>1441</view>
+            <view class="new_coup">
+              <view>新用户优惠券</view>
+              <view style="font-size:24rpx;">适用424商品</view>
+              <view style="font-size:24rpx;">有效期至:4</view>
+            </view>
+          </view>
+          <view class="go_use" bindtap="go_use">立即领取</view> -->
+          <image src="{{url}}{{tan.ad_code}}" style="width:100%;height:100%;"></image>
+        </view>
+        <view class="border_line"></view> 
+        <view class="closes" bindtap="close_modal">×</view>
+      </view>
+  </view>

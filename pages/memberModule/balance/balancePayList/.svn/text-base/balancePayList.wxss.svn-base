@@ -1,0 +1,37 @@
+.pay-item {
+    height: 140rpx;
+    width: 690rpx;
+    margin: 0 auto;
+    overflow: hidden;
+    font-size: 30rpx;
+    border-bottom: 1rpx solid #ebebeb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pay-item .status {
+    float: left;
+}
+
+.pay-item .status text {
+    display: block;
+}
+
+.status text:first-of-type,.count {
+    color: #f1b400;
+}
+
+.pay-item .status text:last-of-type {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.pay-item .count {
+    float: right;
+    font-size: 36rpx;
+}
+
+.pay-item .consume,.pay-item .status .consume {
+    color: #e65e5c;
+}

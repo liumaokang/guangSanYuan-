@@ -1,0 +1,20 @@
+<view class="top-info">
+    <text class="score-text">总积分</text>
+    <view class="score-num">{{score}}<text>积分</text>
+    </view>
+</view>
+<view class="score-box">
+    <view class="score-name">积分明细</view>
+    <view class="score-item" wx:for="{{scoreList}}" wx:key="{{idx}}" >
+        <view class="status">
+            <text>{{item.desc}}</text>
+            <text>{{item.change_time}}</text>
+        </view>
+        <view class="num {{item.increase?'increase':'consume'}}">{{item.fu}}{{item.pay_points}}</view>
+    </view>
+ <!--    <button class="loading-btn" hidden="{{!loading}}" loading="{{loading}}">正在加载...</button>
+    <view class="order-end" hidden="{{!noMore}}">~我也是有底线的~</view> -->
+    <view class="no-data" wx:if="{{scoreList.length==0}}">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoData.png"></image>
+    </view>
+</view>

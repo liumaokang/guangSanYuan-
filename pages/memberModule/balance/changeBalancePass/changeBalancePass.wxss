@@ -1,0 +1,32 @@
+.content {
+    padding: 0rpx 40rpx;
+}
+
+.section {
+    font-size: 28rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #454545;
+    border-bottom: 1rpx solid #f1f1f1;
+}
+
+.section-title {
+    width: 150rpx;
+    float: left;
+}
+
+.section input {
+    float: left;
+    height: 64rpx;
+    margin-top: 13rpx;
+}
+
+.btn {
+    background: #ffa300;
+    color: #fff;
+    margin-top: 60rpx;
+}
+
+.btn::after {
+    border: none;
+}

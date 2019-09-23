@@ -1,0 +1,23 @@
+<view bindtap="toCardBuyResult" class="his-item" data-cardid="{{item.cardId}}" data-index="{{idx}}" wx:for="{{historyList}}" wx:for-index="idx" wx:key="{{item.cardId}}">
+    <image src="{{item.imageUrl}}"></image>
+    <view class="card-info">
+        <view class="name-box">
+            <text class="card-name">{{item.name}}</text>
+            <text class="card-no">{{item.cardNo}}</text>
+            <text style="color:#2BB842" wx:if="{{item.state==='ACTIVED'}}">{{filters.filtCardState(item.state)}}</text>
+            <text style="color:#FF3333" wx:if="{{item.state==='UNACTIVATED'}}">{{filters.filtCardState(item.state)}}</text>
+            <text style="color:#999999" wx:if="{{item.state!=='ACTIVED'&&item.state!=='UNACTIVATED'}}">{{filters.filtCardState(item.state)}}</text>
+        </view>
+        <view class="price-box">
+      余额：
+      <text>￥{{item.balance}}</text>
+        </view>
+        <view class="buy-time">
+      购买时间：{{item.createTime}}
+    </view>
+    </view>
+</view>
+<view class="no-data" wx:if="{{historyList.length===0}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wxapp/imgNoData.png"></image>
+</view>
+<wxs module="filters" src="../../wxs/filters.wxs" />

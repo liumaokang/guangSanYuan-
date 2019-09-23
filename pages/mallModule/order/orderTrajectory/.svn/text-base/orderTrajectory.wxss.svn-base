@@ -1,0 +1,84 @@
+page {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.map-box {
+    height: 100%;
+    width: 100%;
+}
+
+.close-box {
+    width: 56rpx;
+    height: 56rpx;
+    position: fixed;
+    top: 58rpx;
+    left: 17rpx;
+}
+
+.close-img {
+    width: 56rpx;
+    height: 56rpx;
+    line-height: 1;
+}
+
+.refresh-box {
+    width: 92rpx;
+    height: 92rpx;
+    border-radius: 8rpx;
+    position: fixed;
+    bottom: 316rpx;
+    left: 16rpx;
+}
+
+.refresh-img {
+    width: 92rpx;
+    height: 92rpx;
+    line-height: 1;
+}
+
+.cover-box {
+    width: 708rpx;
+    height: 280rpx;
+    background: #fff;
+    position: fixed;
+    bottom: 20rpx;
+    left: 21rpx;
+    border-radius: 8rpx;
+    padding: 24rpx 31rpx;
+    box-sizing: border-box;
+}
+
+.cover-box .title {
+    font-size: 38rpx;
+    color: #333;
+    line-height: 48rpx;
+    margin-top: 24rpx;
+}
+
+.cover-box .content {
+    font-size: 30rpx;
+    color: #4a4a4a;
+    line-height: 50rpx;
+    margin-bottom: 41rpx;
+}
+
+.button-box {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.contact-button {
+    border: 1px solid #c2c2c2;
+    background: #fff;
+    border-radius: 4rpx;
+    width: 154rpx;
+    height: 70rpx;
+    font-size: 24rpx;
+    color: #4a4a4a;
+    line-height: 70rpx;
+    margin: 0 22rpx 0 0;
+    text-align: center;
+}

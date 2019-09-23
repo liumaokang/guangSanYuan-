@@ -1,0 +1,28 @@
+<popup bind:close="toggleMiddlePopup" catchtouchmove="catchtouchmove" customClass="middle" position="middle" show="{{show.middle}}">
+    <view class="setMeal-box">
+        <view class="setMeal-title">{{name}}</view>
+        <scroll-view scrollY class="setMeal-content-box" style="height: 646rpx;">
+            <view class="section" wx:for="{{cateringGroupProducts}}" wx:for-item="groupItem" wx:key="index">
+                <view class="section-title">{{groupItem.groupName}}{{groupItem.required?' (必选)':''}}</view>
+                <view class="goods-list">
+                    <view bindtap="onClickMealGroupGoods" class="goods-item {{item.defalutChoose?'active':''}}" data-index="{{index}}" data-productId="{{item.productId}}" wx:for="{{groupItem.mealDetails}}" wx:for-index="idx" wx:key="idx">
+                        <view class="goods-img">
+                            <image mode="widthFix" src="{{item.url}}"></image>
+                            <image class="no-balance" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/sold_out_icon.png" wx:if="{{!item.exist}}"></image>
+                        </view>
+                        <view class="goods-info">
+                            <text class="goods-name">{{item.productName}}</text>
+                            <text class="goods-price" wx:if="{{item.price}}">加<text>￥{{item.price}}</text>
+                            </text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="setMeal-bottom-botton">
+            <form bindsubmit="_addShopcart" catchtap="_emptyMethods" reportSubmit="true">
+                <button formType="submit">选好了</button>
+            </form>
+        </view>
+    </view>
+</popup>

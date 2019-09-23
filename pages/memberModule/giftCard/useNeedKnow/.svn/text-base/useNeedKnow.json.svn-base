@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "使用须知",
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    }
+}

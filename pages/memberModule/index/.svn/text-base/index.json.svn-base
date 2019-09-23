@@ -1,0 +1,9 @@
+{
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "popup": "../../../components/popup/popup",
+        "authorize": "../../../components/authorize/authorize",
+        "loading": "/./components/loading/index"
+    }
+}

@@ -1,0 +1,15 @@
+<view class="content">
+    <icon bindtap="handelClose" color="#ccc" size="30" type="cancel"></icon>
+    <view class="giver-info">
+        <image src="{{avatar}}"></image>
+        <text>{{nickName}}</text>
+    </view>
+    <view class="card-name" wx:if="{{state==='PRESENT'}}">{{name}}</view>
+    <view class="text" wx:if="{{state==='ABOLISH'&&isCardMaster}}">已经被领取</view>
+    <view class="text" wx:if="{{state==='ABOLISH'&&!isCardMaster}}">来晚了，礼品卡被领完了</view>
+    <view class="text" wx:if="{{state==='EXPIRED'}}">来晚了，礼品卡已超时退回</view>
+    <image class="card-img" src="{{imageUrl}}"></image>
+    <button bindtap="handelGetCard" class="btn" wx:if="{{state==='PRESENT'}}">领取</button>
+    <button bindtap="handelClose" class="btn" wx:if="{{(state==='ABOLISH'||state==='EXPIRED')&&!isCardMaster}}">我也要送</button>
+</view>
+<authorize bind:login="handleUserLogin" bind:phone="handleBindPhone" bind:tabBar="handleTabbar" showPhone="{{showPhone}}"></authorize>

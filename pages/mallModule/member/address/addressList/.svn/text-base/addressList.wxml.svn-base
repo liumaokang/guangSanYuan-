@@ -1,0 +1,32 @@
+<import src="../../../template/searchAddress"></import>
+<view class="title">
+    <view class="delete">
+        <image src='/image/newadd.png' style="width:24rpx;height:24rpx;margin-right:5rpx;"></image>
+        <text bindtap="toAddAddress" style='font-size:26rpx;'>新增地址</text>
+    </view>
+</view>
+<view class="content" hidden="{{addressList.length==0?true:false}}">
+    <view bindtap="handleChoose" class="address-item {{currentItem==index?'active':''}}" data-id="{{item.address_id}}" data-address="{{item.address}}" data-pro="{{item.province}}" data-name="{{item.consignee}}" data-phone="{{item.mobile}}"  data-index="{{index}}" wx:for="{{addressList}}" wx:key="index">
+        <view class="item-main">
+            <view class="address-title">{{item.address}}
+              <text class="address-icon" wx:if="{{item.type}}">{{item.type}}</text>
+            </view>
+            <view class="address-info">{{item.province}}</view>
+            <view class="name-mobile">
+                <text>{{item.consignee}}</text>
+                <text>{{item.mobile}}</text>
+            </view>
+        </view>
+        <view catchtap="editAddress" class="edit-body" data-id="{{item.address_id}}" id="{{item.address_id}}">
+            <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/edit_icon.png"></image>
+            <text>编辑</text>
+        </view>
+          <view class='sc1'>
+            <!-- 删除 -->
+            <view class='sc' catchtap='delAddress' data-address-id="{{item.address_id}}"> 删除</view>
+        </view>
+    </view>
+</view>
+<view class="no-data" hidden="{{addressList.length==0?false:true}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoAddress.png"></image>
+</view>

@@ -1,0 +1,87 @@
+page {
+    text-align: center;
+}
+
+.card-img {
+    width: 630rpx;
+    height: 380rpx;
+    border-radius: 20rpx;
+    margin-top: 30rpx;
+    box-shadow: 0rpx 0rpx 20rpx 0rpx rgba(0,0,0,0.4);
+}
+
+.card-act-name {
+    font-size: 36rpx;
+    margin: 60rpx 0rpx 80rpx;
+}
+
+.icon-succ {
+    width: 114rpx;
+    height: 114rpx;
+    margin-bottom: 30rpx;
+}
+
+.tig {
+    font-size: 48rpx;
+    margin-bottom: 60rpx;
+}
+
+.card-name {
+    font-size: 36rpx;
+    margin-bottom: 50rpx;
+}
+
+button {
+    width: 620rpx;
+    height: 92rpx;
+    line-height: 92rpx;
+    background: #f1b400;
+    color: #fff;
+}
+
+text {
+    display: inline-block;
+    color: #f1b400;
+    font-size: 30rpx;
+    margin: 50rpx 0rpx;
+}
+
+.active-btn {
+    width: 360rpx;
+    height: 94rpx;
+    line-height: 94rpx;
+    margin: 0 auto;
+    border-radius: 10rpx;
+    background: #fff;
+    color: #3CDBC0;
+    border: 1rpx solid #3CDBC0;
+    font-size: 32rpx;
+    position: absolute;
+    bottom: 200rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.remain {
+    color: #999;
+    font-size: 24rpx;
+    position: absolute;
+    bottom: 100rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sendother-btn {
+    display: block;
+    font-size: 30rpx;
+    background: none;
+    color: #3CDBC0;
+    position: absolute;
+    bottom: 40rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sendother-btn::after {
+    border: none;
+}

@@ -1,0 +1,108 @@
+<view class="top-info">
+    <image class="portrait" src="{{userInfo.avatarUrl}}"></image>
+    <view class="info">
+        <text>{{member.nickName?member.nickName:userInfo.nickName}}</text>
+        <view>
+            <image mode="widthFix" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconGrade1.png" wx:if="{{member.gradeNo===1}}"></image>
+            <image mode="widthFix" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconGrade1.png" wx:if="{{member.gradeNo===2}}"></image>
+            <image mode="widthFix" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconGrade2.png" wx:if="{{member.gradeNo===3}}"></image>
+            <image mode="widthFix" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconGrade3.png" wx:if="{{member.gradeNo===4}}"></image>
+            <image mode="widthFix" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconGrade4.png" wx:if="{{member.gradeNo===5}}"></image>
+            <text>{{member.gradeName?member.gradeName:''}}</text>
+        </view>
+    </view>
+</view>
+<view class="profit-box">
+    <view class="title">我的收益</view>
+    <view class="profit-content">
+        <view class="put-forward-box">
+            <text>可提现金额(元)</text>
+            <text>{{member.canBackCash}}</text>
+            <button bindtap="createBackCash" class="put-forward-btn">提现</button>
+        </view>
+        <view class="profit-item">
+            <text>待到账金额(元)</text>
+            <text>{{member.stayBackCash}}</text>
+        </view>
+        <view class="profit-item">
+            <text>累计金额(元)</text>
+            <text>{{member.hasBackCash}}</text>
+        </view>
+    </view>
+    <view bindtap="toProfit" class="my-profit">我的收益明细></view>
+</view>
+<view class="billboard-box">
+    <view class="title">龙虎榜</view>
+    <view class="billboard-content">
+        <view class="billboard-tab">
+            <view bindtap="switchTab" class="tab-item {{tabSelected==idx?'active':''}}" data-idx="{{idx}}" wx:for="{{tabType}}" wx:for-index="idx" wx:key="index">
+        {{item}}
+      </view>
+        </view>
+        <swiper bindchange="bindChange" class="swiper" current="{{tabSelected}}" duration="300">
+            <swiper-item>
+                <view class="portrait-item" wx:for="{{monthRankList}}" wx:key="idx">
+                    <view class="portrait-img">
+                        <image src="{{item.avatar?item.avatar:'https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/userLogoImg.png'}}"></image>
+                    </view>
+                    <view class="billboard-info">
+                        <text class="name">{{item.name?item.name:'虚位以待'}}</text>
+                        <text class="total">￥{{item.total?item.total:0}}</text>
+                    </view>
+                </view>
+            </swiper-item>
+            <swiper-item>
+                <view class="portrait-item" wx:for="{{quarterRankList}}" wx:key="idx">
+                    <view class="portrait-img">
+                        <image src="{{item.avatar?item.avatar:'https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/userLogoImg.png'}}"></image>
+                    </view>
+                    <view class="billboard-info">
+                        <text class="name">{{item.name?item.name:'虚位以待'}}</text>
+                        <text class="total">￥{{item.total?item.total:0}}</text>
+                    </view>
+                </view>
+            </swiper-item>
+            <swiper-item>
+                <view class="portrait-item" wx:for="{{annualRankList}}" wx:key="idx">
+                    <view class="portrait-img">
+                        <image src="{{item.avatar?item.avatar:'https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/userLogoImg.png'}}"></image>
+                    </view>
+                    <view class="billboard-info">
+                        <text class="name">{{item.name?item.name:'虚位以待'}}</text>
+                        <text class="total">￥{{item.total?item.total:0}}</text>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view bindtap="toRankingList" class="my-more">查看更多数据></view>
+</view>
+<view class="module-box">
+    <view class="title">常用功能</view>
+    <view class="module-content">
+        <view bindtap="toProfit">
+            <view class="img">
+                <image mode="widthFix" src="http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconProfit.png"></image>
+            </view>
+            <text>我的收益</text>
+        </view>
+        <view bindtap="toMyGroup">
+            <view class="img">
+                <image mode="widthFix" src="http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconTeam.png"></image>
+            </view>
+            <text>我的团队</text>
+        </view>
+        <view bindtap="toRankingList">
+            <view class="img">
+                <image mode="widthFix" src="http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconNoticeList.png"></image>
+            </view>
+            <text>龙虎榜</text>
+        </view>
+        <view bindtap="toInvitation">
+            <view class="img">
+                <image mode="widthFix" src="http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconShare1.png"></image>
+            </view>
+            <text>邀请好友</text>
+        </view>
+    </view>
+</view>

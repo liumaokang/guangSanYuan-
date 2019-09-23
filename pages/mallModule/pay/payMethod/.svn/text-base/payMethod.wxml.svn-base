@@ -1,0 +1,54 @@
+<view class="top-info">
+    <block wx:if="{{type!='payTail'}}">
+        <view wx:if="{{payMethods[0].checked}}">已使用余额抵扣￥{{payments.cardPay.total}}</view>
+        <view>应付金额
+      <text class="total" wx:if="{{cardPayChoose}}">￥{{filters.filtToFix(order.cashTotal)}}</text>
+            <text class="total" wx:else>￥{{filters.filtToFix(order.cashTotal-order.cardDeductTotal)}}</text>
+        </view>
+    </block>
+    <view wx:else>应付金额
+      <text class="total">￥{{filters.filtToFix(order.balanceTotal)}}</text>
+    </view>
+</view>
+<view class="content">
+    <view bindtap="onPayClick" class="section {{item.checked?'active':''}}" data-id="{{item.id}}" data-name="{{item.name}}" hidden="{{!item.isShow}}" wx:for="{{payMethods}}" wx:key="index">
+        <view class="left">
+            <image src="{{item.imageUrl}}"></image> {{item.value}}
+    </view>
+        <view class="right" wx:if="{{item.name=='CARDPAY'}}">
+            <text>剩余可用余额</text>
+            <text class="money">￥{{balance}}</text>
+        </view>
+        <icon class="isChecked"></icon>
+    </view>
+</view>
+<view class="bottom-box">
+    <button bindtap="toPayment" class="btn {{canBuy?'available':'unusable'}}" wx:if="{{type!='payTail'}}">确认支付￥{{cardPayChoose?order.cashTotal:filters.filtToFix(order.cashTotal-order.cardDeductTotal)}}</button>
+    <button bindtap="toPayment" class="btn {{canBuy?'available':'unusable'}}" wx:else>确认支付￥{{order.balanceTotal}}</button>
+</view>
+<view bindtap="clickBlank" class="modal-box" hidden="{{!modal}}">
+    <view catchtap="clickBody" class="modal-body">
+        <view class="modal-content card">
+            <view class="title">请输入储值支付密码</view>
+            <view class="close">
+                <image catchtap="clickBlank" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconCloseImg2.png"></image>
+            </view>
+            <view class="content">
+                <input bindinput="handlePassword" confirmType="done" focus="{{focus}}" maxlength="10" password="true" value="{{password}}"></input>
+                <view bindtap="handleResetPassword" class="forget-password">忘记密码？</view>
+            </view>
+            <view class="button-box">
+                <button bindtap="toCardPay" class="confirm">确认支付</button>
+            </view>
+        </view>
+    </view>
+</view>
+<popup bind:close="toggleMiddlePopup" customClass="middle" position="middle" show="{{show.middle}}">
+    <view class="popup-content">
+        <view class="popup-content-box">
+            <image mode="widthFix" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconNetworkTimeout.png"></image>
+        </view>
+        <view bindtap="toggleMiddlePopup" class="button">我知道了</view>
+    </view>
+</popup>
+<wxs module="filters" src="../../wxs/filters.wxs" />

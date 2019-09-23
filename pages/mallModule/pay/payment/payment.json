@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "支付成功",
+    "usingComponents": {
+        "popup": "../../../../components/popup/popup",
+        "luckdraw-game": "../../../../components/luck-draw/luck-draw",
+        "loading": "/./components/loading/index"
+    }
+}

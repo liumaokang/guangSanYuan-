@@ -1,0 +1,58 @@
+<view class="carts-list">
+  <view class="a-gooods" wx:for="{{carts}}"  wx:key="{{index}}" wx:if="{{carts.length != 0}}">
+    <view class="a-goods-conts" data-title="{{item.businessName}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}">
+      <view class="goods-info">
+        <icon wx:if="{{item.selected}}" type="success" size="20" bindtap="bindCheckbox" data-index="{{index}}" data-id="{{item.id}}" color='red'/>
+        <icon wx:else type="circle" size="20" bindtap="bindCheckbox" data-index="{{index}}" data-id="{{item.id}}" color='red'/>
+        <view class="img-box">
+            <image class="carts-image" src="{{imgurl+item.goods_img}}" mode="aspectFill"/>
+        </view>
+        <view class="text-box">
+            <view class="goods-title">
+              <text>{{item.goods_name}}</text>
+              <!-- <view class="new_add">
+                <image src="../image/index/shop_1.png"></image>
+                <text>{{item.read}}</text>
+              </view> -->
+            </view>
+            <view class="goods-label">
+              <text>{{item.goods_name}}</text>
+            </view>
+            <view class="carts-subtitle">
+                <view>
+                  <text class="carts-price"><text style="font-size:24rpx;">￥</text>{{item.member_goods_price}}</text>
+                  <text style="margin-left:3px;font-size:22rpx;color:#A1A1A1;">￥{{item.market_price}}</text>
+                </view>   
+                <view class="buy_num" style="padding:0 10px;">            
+                  <text class="reduce" bindtap="bindMinus" data-index="{{index}}">-</text>
+                  <text class="Num">{{item.goods_num}}</text>
+                  <text class="add" bindtap="bindPlus" data-index="{{index}}">+</text>
+                </view> 
+            </view>
+        </view>
+         <!-- 删除按钮 -->
+      <view class="delete-btn" data-index="{{item.id}}" catchtap="delItem">删除</view>     
+      </view>
+          
+    </view>
+  </view>
+</view>
+<view class="carts-footer" wx:if="{{carts.length != 0}}">
+    <view bindtap="bindSelectAll">
+        <icon wx:if="{{selectedAllStatus}}" type="success" size="20" color='red'/>
+        <icon wx:else type="circle" size="20" color='red'/>
+        <text style="line-height:100rpx;font-size:24rpx;">全选</text>
+    </view>
+    <view style="margin-left:-20%;">合计:<text style="color:#e64340;">¥ {{total}}</text></view>
+    <view class="button" bindtap="go_pay">结算</view>
+</view>
+
+<view wx:if="{{carts.length == 0}}">
+  <view class="title-box">
+    购物车空空如也～
+</view>
+<view class="to-index-btn" bindtap="go_shopping">
+    去逛逛
+</view>
+</view>
+

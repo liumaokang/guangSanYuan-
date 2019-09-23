@@ -1,0 +1,464 @@
+<import src="../../template/teamItem.wxml"></import>
+<import src="../../template/commentItem.wxml"></import>
+<import src="../../template/groupKillIcon"></import>
+<import src="../../../../wxParse/wxParse.wxml" />
+<movable-area>
+    <view class="page-content">
+        <view class="swiperContainer" id="products-{{goodsId}}">
+            <swiper autoplay="true" bindchange="swiperChange" circular="true" class="swiper" interval="5000">
+                <swiper-item class="swiper-item" wx:for="{{img}}" wx:key="index">
+                    <image class="slide-presell" hidden="{{true}}" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconPresell.png"></image>
+                    <image class="slide-image" height="150" src="{{url+item.image_url}}" width="355"></image>
+                </swiper-item>
+            </swiper>
+            <view class="custom-indicator">
+                <text class="dots {{index+1==current?'active':''}}" wx:for="{{productPictures}}" wx:key="index"></text>
+            </view>
+        </view>
+        <view class="commission-box" wx:if="{{commissionTotal>0}}">
+            <view>佣金：
+        <text>￥{{commissionTotal}}</text>
+            </view>
+            <button openType="share">
+        分享赚佣金
+      </button>
+        </view>
+        
+        <!-- 限时抢购 -->
+        <view class="secKill-box" wx:if="{{goods_type == 2}}">
+            <view class="secKill-price-box">
+                <view class="group-people-number" style="width:152rpx;">
+                    <image src="/image/mui.png" style="width:32rpx;height:32rpx;line-height:15rpx;margin-right:5rpx;"></image>
+                    <text>限时抢购</text>
+                </view>
+                
+            </view>
+            <view class="group-time-down" wx:if="{{goods_type == 2}}">
+                <text>抢购倒计时</text>
+                <view>
+                    <text class="last-day txt" hidden="{{time_d == '00'?true:false}}">{{time_d}}</text>
+                    <text class="colon" hidden="{{time_d == '00'?true:false}}">:</text>
+                    <text class="last-hour txt">{{time_h}}</text>
+                    <text class="colon">:</text>
+                    <text class="last-minute txt">{{time_m}}</text>
+                    <text class="colon">:</text>
+                    <text class="last-second txt">{{time_s}}</text>
+                </view>
+            </view>
+            <view class="secKill-time-down" wx:if="{{secKillInfo.secKillStatus==='end'}}">活动已结束</view>
+        </view>
+        <!-- 拼团商品 -->
+        <view class="group-box" wx:if="{{goods_type == 1}}">
+            <view class="price-people">
+                <view class="group-people-number">
+                    <image src="/image/ping.png" style="width:26rpx;height:26rpx;"></image>
+                    <text>{{team.humansum}}人拼团</text>
+                </view>
+                <!-- <view class="group-price">
+                    <text class="goods-nowPrice">
+                        <text class="label-symol">￥</text>{{team.team_price}}</text>
+                    <text class="goods-oldPrice">￥{{team.shop_price}}</text>
+                </view> -->
+            </view>
+           <!-- <text>wx:if="{{time_h!='00'&&time_m!='00'&&time_s!='00'}}"</text>-->
+            <view class="group-time-down" wx:if="{{time_d!='00'||time_h!='00'||time_m!='00'||time_s!='00'}}" >
+                <text>拼团倒计时</text>
+                <view>
+                    <text class="last-day txt" hidden="{{time_d == '00'?false:true}}">{{time_d}}</text>
+                    <text class="colon" hidden="{{time_d == '00'?false:true}}">:</text>
+                    <text class="last-hour txt">{{time_h}}</text>
+                    <text class="colon">:</text>
+                    <text class="last-minute txt">{{time_m}}</text>
+                    <text class="colon">:</text>
+                    <text class="last-second txt">{{time_s}}</text>
+
+                    <!-- <text class="last-hour txt">{{groupTime.hou}}</text>
+                    <text class="colon">:</text>
+                    <text class="last-minute txt">{{groupTime.min}}</text>
+                    <text class="colon">:</text>
+                    <text class="last-second txt">{{groupTime.sec}}</text> -->
+                </view>
+            </view>
+            <view class="secKill-time-down" wx:if="{{time_d=='00'&&time_h=='00'&&time_m=='00'&&time_s=='00'}}">活动已结束</view>
+        </view>
+        <!-- 普通商品信息 -->
+        <view class="goods-info-box" wx:if="{{goods_type!=4}}">
+            <view class="goods-name">
+                <view>{{list.goods_name}}</view>
+            </view>
+            <text class="goods-desc">{{list.goods_remark}}</text>
+            <view class="group-price">
+                    <text class="goods-nowPrice">
+                        <text class="label-symol">￥</text>{{list.shop_price?list.shop_price:''}}</text>
+                    <text class="goods-oldPrice">{{list.market_price?'￥'+list.market_price:' '}}</text>
+              </view>
+            <!-- <text class="goods-desc" wx:if="{{isSecKill}}">{{grabDescribe}}</text>
+            <text class="goods-desc" wx:else>{{description}}</text> -->
+            <view class="goods-price-box">
+                <image src="/image/fire.png" style="width:23rpx;height:20rpx;vertical-align:center;"></image>
+                <text decode class="goods-soldNum">销量：&nbsp;{{sales_sum?sales_sum:0}}</text>
+            </view>
+        </view>
+
+        
+        <!-- 普通商品 -->
+        <!-- <view class="price-normal-box" wx:if="{{goods_type == 0}}">
+            <view class="price-normal">
+                <view class="group-price">
+                    <text class="goods-nowPrice">
+                        <text class="label-symol">￥</text>{{list.shop_price}}</text>
+                    <text class="goods-oldPrice">￥{{list.market_price}}</text>
+                </view>
+            </view>
+        </view> -->
+        <view class="price-normal-box score-box" wx:if="{{goods_type==4}}">
+            <view class="goods-info-box" >
+            <view class="goods-name">
+                <view>{{list.goods_name}}</view>
+            </view>
+            <text class="goods-desc">{{list.goods_remark}}</text>
+            <view class="group-price">
+                    <text class="goods-nowPrice">
+                        <text class="label-symol"></text>{{list.shop_price?list.shop_price:''}}积分</text>
+                    <text class="goods-oldPrice" style="font-size:22rpx;color:#A1A1A1;">{{list.market_price?list.market_price+'积分':' '}}</text>
+              </view>
+            <!-- <text class="goods-desc" wx:if="{{isSecKill}}">{{grabDescribe}}</text>
+            <text class="goods-desc" wx:else>{{description}}</text> -->
+            <view class="goods-price-box">
+                <image src="/image/fire.png" style="width:20rpx;height:20rpx;vertical-align:center;"></image>
+                <text decode class="goods-soldNum">销量：&nbsp;{{sales_sum?sales_sum:0}}</text>
+            </view>
+        </view>
+            <!-- <view class="price-normal">
+
+                <view class="group-price">
+                    <text class="goods-nowPrice">{{list.shop_price}}</text>
+                    <text>积分</text>
+                </view>
+            </view> -->
+        </view>
+        
+        <view class="goods-presell" wx:if="{{advanceSell}}">
+            <view class="presell-box">
+                <view class="price-limit">
+                    <view wx:if="{{advanceSellInfo.payType=='FULL'}}">
+                        <text>预售价</text>
+                        <text>
+                            <text class="label-symol">￥</text>{{advanceSellInfo.sellPrice}}</text>
+                    </view>
+                    <view wx:else>
+                        <text>预售价</text>
+                        <text>
+                            <text class="label-symol">￥</text>{{advanceSellInfo.sellPrice}}</text>
+                        <text>定金</text>
+                        <text>￥{{advanceSellInfo.frontPrice}}</text>
+                    </view>
+                    <text class="limit-label" wx:if="{{advanceSellInfo.memberLimit}}">每人限购 {{advanceSellInfo.memberLimit}} 份</text>
+                </view>
+                <view class="self-get">
+                    <text>定金支付时间：{{advanceSellTime.frontStartTime}} 至 {{advanceSellTime.frontEndTime}}</text>
+                    <text wx:if="{{advanceSellInfo.payType=='PARTIAL'}}">尾款支付时间：{{advanceSellTime.balanceStartTime}} 至 {{advanceSellTime.balanceEndTime}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="goods-promise">
+            <view>
+                <text></text> 品质保障</view>
+            <view>
+                <text></text> 坏果包退换</view>
+            <view>
+                <text></text> 新鲜水果</view>
+        </view>
+       
+        <!-- 正在进行中的拼团 -->
+        <view class="team-box" wx:if="{{goods_type == 1}}">
+            <view class="team-title">
+                <text>进行中的拼团</text>
+                <text bindtap="toAllTeamList">全部拼团</text>
+            </view>
+            <!-- 该商品下的团队 -->
+            <!-- <template is="teamItem" data="{{item:item}}" wx:if="{{index<2}}" wx:for="{{teamBuyList}}" wx:key="index"></template> -->
+
+        <view class="team-item"  wx:if="{{index<2}}" wx:for="{{teamBuyList}}" wx:key="index">
+            <view class="team-info" style="width:100%;">
+                <view class="user-portrait">
+                    <image src="{{item.head_pic}}"/>
+                </view>
+                <view class="info">
+                    <view>
+                    还差<text>{{item.num}}</text>人成团
+                    </view>
+                    <!-- <view class="time">::</view> -->
+                </view>
+                <view bindtap="openTeamBuyModal" class="btn" data-teambuyid="{{item.id}}">一起拼</view>
+            </view>
+        </view>
+
+
+
+
+
+
+
+            <view class="no-data" hidden="{{teamBuyList.length>0?true:false}}">暂无正在进行中的拼团，赶快开团吧~</view>
+            <view class="team-title liu">
+                <text>拼团流程</text>
+                <text></text>
+            </view>
+            <view class="team-process">
+                <view>
+                    <text>1</text>
+                    <text>选择商品</text>
+                </view>
+                <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/groupLine.png"></image>
+                <view>
+                    <text>2</text>
+                    <text>邀请好友</text>
+                </view>
+                <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/groupLine.png"></image>
+                <view>
+                    <text>3</text>
+                    <text>人满成团</text>
+                </view>
+            </view>
+        </view>
+
+
+        <view class="detail-goods">
+            <view class="team-title">
+                <text>商品详情</text>
+                <text></text>
+            </view>
+            <view class="goods-details">
+                <text wx:if="{{item.propertyName!=='规格'}}" wx:for="{{productProperties}}" wx:key="index">{{item.propertyName}}  {{item.propertyValue}}</text>
+                <text>规格 {{specifications||'--'}}</text>
+            </view>
+        </view>
+          <view  bindtap="openshadow" class="section" style='' wx:if="{{goods_type==4}}">
+              <text style="padding:6rpx 0;background-color:#orange;">选择自提门店:</text>
+              <text style="padding-left:10rpx;">{{addresss}}</text>
+          </view>
+        <view class="comment-goods">
+            <view class="comment-title2">
+                <view>
+                    <text>商品评价</text>
+                    <text>（{{commentnum}}）</text>
+                </view>
+                <text bindtap="toGoodsComment" data-goodsId="{{list.goods_id}}">查看更多评价</text>
+            </view>
+            <view class="goods-comment" hidden="{{commentList.length===0?true:false}}">
+                <template is="commentItem" data="{{item:item}}" wx:for="{{commentList}}" wx:key="idx"></template>
+            </view>
+        </view>
+        <!-- <view class="goods-imgtext" hidden="{{productDetails.length===0?true:false}}">
+            <image mode="widthFix" src="{{item.url}}" wx:for="{{productDetails}}" wx:key="index"></image>
+        </view> -->
+        <!-- 商品介绍 -->
+        <view class="goods-imgtext">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+        <!-- 购物袋板块 -->
+        <view class="handle-box">
+            <view bindtap="toShopCart" class="shopcart-icon">
+                <image mode="widthFix" src="/image/cat.png" style="width:120rpx;height:73rpx;"></image>
+                <view class="badge" wx:if="{{shopCartNum>0}}">{{shopCartNum}}</view>
+            </view>
+            <!-- <view class="noraml-buttom {{balance==0?'no-goods':''}}" wx:if="{{!isTeam&&!isSecKill&&!advanceSell&&goodType!=='score'}}">
+                <button bindgetuserinfo="getUserInfo" openType="getUserInfo" wx:if="{{!hasUserInfo}}">{{balance>0?'加入购物袋':'已售罄'}}</button>
+                <form bindsubmit="addShopCarts" catchtap="addShopCartCatch" reportSubmit="true" wx:else>
+                    <button data-addtype="detail" data-id="{{goodsId}}" formType="submit" wx:if="{{balance>0}}">加入购物袋</button>
+                    <button data-addtype="detail" data-id="{{goodsId}}" formType="submit" wx:if="{{balance==0}}">已售罄</button>
+                </form>
+            </view> -->
+            <view class="noraml-buttom" wx:if="{{goods_type == 0}}">
+              <form bindsubmit="addShopCarts">
+                  <button data-addtype="detail" data-id="{{goodsId}}" formType="submit" wx:if="{{goods_type == 0}}">加入购物袋</button>
+                  <button data-addtype="detail" data-id="{{goodsId}}" formType="submit" wx:if="{{balance==0}}">已售罄</button>
+              </form>
+            </view>
+            <view class="team-button " wx:if="{{goods_type==4}}">
+                <form bindsubmit="scoreExchange" reportSubmit="true">
+                    <!-- <button bindgetuserinfo="getUserInfo" class="group" openType="getUserInfo" wx:if="{{!hasUserInfo}}">立即兑换</button> -->
+                    <button bindtap="toAuthorize" class="group" >立即兑换</button>
+                    <block >
+                        <!-- <button class="group" data-id="{{goodsId}}" formType="submit" >立即兑换</button> -->
+                        <!-- <button disabled class="group" data-id="{{goodsId}}" formType="submit" wx:if="{{balance>0&&score<scoreInfo.exchangeScores}}">积分不足</button> -->
+                        <!-- <button disabled class="group" data-id="{{goodsId}}" formType="submit" wx:if="{{balance==0}}">您来晚了，商品已售空</button> -->
+                    </block>
+                </form>
+            </view>
+            <view class="team-button {{balance==0?'no-goods':''}}" wx:if="{{goods_type == 1}}">
+                <block wx:if="{{teamBuyingType==='COMMON'||teamBuyingType==='OLDBELTNEW'}}">
+                    <button bindtap="toPayTeamBuying" class="group" data-type="{{goods_type}}"  data-teamid="{{team_id}}"  data-id="{{id}}"  wx:if="{{balance>0}}">
+                    <!-- <button bindtap="addShopCarts" class="group" data-type="{{goods_type}}"  data-id="{{id}}"  wx:if="{{balance>0}}">  -->
+                        <text>￥{{team.team_price}}</text>
+                        <text>立即开团</text>
+                    </button>
+                    <button disabled bindtap="toPayTeamBuying" class="group" wx:if="{{balance==0}}">已售罄</button>
+                </block>
+                <block wx:if="{{teamBuyingType==='THOUSAND'}}">
+                    <button bindtap="joinThousandGroup" class="group" wx:if="{{balance>0}}">
+                        <text>￥{{team.team_price}}</text>
+                        <text>立即参团</text>
+                    </button>
+                    <button disabled bindtap="joinThousandGroup" class="group" wx:if="{{balance==0||storeProductState!=='ON'}}">已售罄</button>
+                </block>
+                <!-- <button bindgetuserinfo="getUserInfo" class="authorization" openType="getUserInfo" wx:if="{{!hasUserInfo}}"></button> -->
+            </view>
+            <view class="seckill seckill-btn {{secKillInfo.availableStockAmount==0||balance==0?'no-seckill-goods':''}}" wx:if="{{goods_type == 2}}">
+                <!-- <button bindgetuserinfo="getUserInfo" class="authorization" openType="getUserInfo" wx:if="{{!hasUserInfo}}"></button> -->
+                <!-- <button bindtap="toPaySecKill" class="skill-btn2" wx:if="{{secKillInfo.availableStockAmount>0&&balance>0}}">立即抢购</button> -->
+                <button bindtap="toAuthorize1" class="skill-btn2" wx:if="{{goods_type == 2}}">立即抢购</button>
+                <button disabled bindtap="toPaySecKill" class="skill-btn2" wx:if="{{list.order_num==list.goods_num}}">已抢完</button>
+                <button disabled bindtap="toPaySecKill" class="skill-btn2" wx:if="{{secKillInfo.availableStockAmount>0&&balance==0}}">补货中</button>
+            </view>
+            <view class="team-button {{advanceSellInfo.advanceAmount==0?'no-goods':''}}" wx:if="{{advanceSell}}">
+                <button bindgetuserinfo="getUserInfo" class="group authorization" openType="getUserInfo" wx:if="{{!hasUserInfo}}"> {{advanceSellInfo.payType=='FULL'?'全款预定':'支付定金'}}</button>
+                <block wx:else>
+                    <button bindtap="handleNext" class="group" wx:if="{{advanceSellInfo.advanceAmount>0}}">{{advanceSellInfo.payType=='FULL'?'全款预定':'支付定金'}}</button>
+                    <button disabled bindtap="toPayAdvanceSell" class="group" wx:if="{{advanceSellInfo.advanceAmount==0}}">已售罄</button>
+                </block>
+            </view>
+        </view>
+        <view bindtap="clickBlank" class="modal-box" data-type="group" hidden="{{!groupModal}}">
+            <view catchtap="clickBody" class="modal-body">
+                <view class="modal-content join-group">
+                    <view class="title">一起参与拼团
+            <image catchtap="clickBlank" data-type="group" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/close.png"></image>
+                    </view>
+                    <view class="group-info">
+                        <text>{{name}}</text>
+                        <text>结束倒计时:{{countDownTime.hou}}:{{countDownTime.min}}:{{countDownTime.sec}}</text>
+                    </view>
+                    <view class="group-people-list">
+                        <block wx:if="{{groupInfo.teamBuyingType!=='THOUSAND'}}">
+                            <view class="people-item leader" hidden="{{groupInfo.joinPeopleCount==0}}" wx:if="{{idx==0}}" wx:for="{{groupInfo.joinMbrs}}" wx:for-index="idx" wx:key="idx">
+                                <image src="{{item.avatar}}"></image>
+                                <text>团长</text>
+                            </view>
+                        </block>
+                        <block wx:if="{{groupInfo.teamBuyingType==='THOUSAND'}}">
+                            <view class="people-item" wx:if="{{index<3}}" wx:for="{{groupInfo.joinMbrs}}" wx:key="index">
+                                <image src="{{item.avatar}}"></image>
+                            </view>
+                            <view class="people-item" wx:for="{{(groupInfo.teamMemberCount>3?3:groupInfo.teamMemberCount)-groupInfo.joinPeopleCount}}" wx:key="index">
+                                <text>?</text>
+                            </view>
+                        </block>
+                        <block wx:if="{{groupInfo.teamBuyingType!=='THOUSAND'}}">
+                            <view class="people-item" hidden="{{index==0}}" wx:if="{{groupInfo.teamPeopleCount>10?index<8:index<groupInfo.teamPeopleCount}}" wx:for="{{groupInfo.joinMbrs}}" wx:key="index">
+                                <image src="{{item.avatar}}"></image>
+                            </view>
+                            <view class="people-item" wx:for="{{(groupInfo.teamMemberCount>3?3:groupInfo.teamMemberCount)-groupInfo.joinPeopleCount}}" wx:key="index">
+                                <text>?</text>
+                            </view>
+                        </block>
+                        <view class="people-more" wx:if="{{groupInfo.teamMemberCount>3}}">
+                            <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/avatorOther.png"></image>
+                        </view>
+                    </view>
+                    <view class="group-remain">还剩
+            <text>{{groupInfo.teamMemberCount-groupInfo.joinMemberCount}}</text> 个参团名额，赶紧来参团吧</view>
+                    <view>
+                        <button bindgetuserinfo="getUserInfo" class="button-box" openType="getUserInfo" wx:if="{{!hasUserInfo}}">确认拼团</button>
+                        <!-- <button bindtap="toAuthorize" class="button-box" wx:if="{{!isMember}}">确认拼团</button> -->
+                        <!-- <button bindtap="joinGroup" class="button-box" wx:else>确认拼团</button> -->
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="clickBlank" class="modal-box" data-type="goods" hidden="{{!modal}}">
+            <view catchtap="clickBody" class="modal-body">
+                <view class="modal-content handle-goods">
+                    <view catchtap="clickBlank" class="close" data-type="goods"></view>
+                    <view class="goods-box">
+                        <view class="goods-img">
+                            <image mode="widthFix" src="{{imageUrl}}"></image>
+                        </view>
+                        <view class="goods-info">
+                            <view class="goods-name">{{name}}</view>
+                            <view class="goods-desc">{{description}}</view>
+                            <view class="goods-price-box" wx:if="{{advanceSell}}">
+                                <text>￥{{sellPrice}}</text>
+                            </view>
+                            <view class="goods-price-box" wx:if="{{isTeam}}">
+                                <text>开团价：￥{{teamLeaderPrice}}</text>
+                                <text>{{teamMemberCount}}人团</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="goods-num">
+                        <text>购买数量：</text>
+                        <view class="count-box">
+                            <view catchtap="handleReduce" class="{{productNum<=1?'unavailable':''}}">-</view>
+                            <input bindinput="handleInput" type="number" value="{{productNum}}"></input>
+                            <view catchtap="handleAdd">+</view>
+                        </view>
+                    </view>
+                    <view class="button-box">
+                        <button catchtap="toPayAdvanceSell" class="confirm" data-id="{{goodsInfo.id}}" wx:if="{{advanceSell}}">下一步</button>
+                        <button catchtap="toPayTeamBuying"  class="confirm" data-teamid="{{team_id}}" data-id="{{goodsInfo.id}}" wx:if="{{isTeam}}">下一步</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="handleSharePopCancel" class="bottom-pop" hidden="{{showSharePop}}">
+            <view animation="{{animationData}}" catchtap="catchSharePopCancel" class="bottom-pop-main">
+                <view class="share-title">
+                    <text>分享至</text>
+                    <image catchtap="handleSharePopCancel" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/close.png"></image>
+                </view>
+                <view class="share-type-box">
+                    <view class="share-wx">
+                        <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/weixin.png"></image>
+                        <text>分享给好友</text>
+                        <button openType="share"></button>
+                    </view>
+                    <view bindtap="handleShareTimeline" class="share-circle">
+                        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconFriendsCircle.png"></image>
+                        <text>生成分享图</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="handlePosterCancel" catchtouchmove="preventTouchMove" class="poster-box" wx:if="{{showPoster}}">
+            <view class="poster-picture-box">
+                <canvas canvasId="pictureQRCanvas"></canvas>
+            </view>
+            <view class="poster-action">
+                <button catchtap="handleSaveToImg">保存图片</button>
+            </view>
+        </view>
+    </view>
+    <xf-model bind:cancel="closeCantGroupModel" bind:confirm="toPayTeamBuying" confirmShow="{{cantGroupModel}}" confirmTxt="去开团" content="建议您选择重新开团参与该活动" title="您不满足该参团条件哦"></xf-model>
+    <view bindtap="handleClickShare" class="share-reamin" wx:if="{{showSharePop&&!groupModal&&!showPoster&&!modal}}">
+        <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/groupShare.png"></image> 分享
+  </view>
+  <view class="overlay-class popup__overlay" hidden="{{hide}}">
+      <view class="popup-content custom-class popup popup--middle">
+        <view class="title">选择门店自提<text bindtap="closepopup" style="float:right;margin-right:15px;">x</text></view>
+        <view class="popup-content-box">
+          <radio-group class="radio-group" bindchange="radioChange">
+            <view class="price-detail">     
+                <view wx:for="{{address}}" wx:key="{{item.pickup_id}}" >
+                    <text  style="float:left;color:#333;" >{{item.pickup_address}}</text>
+                  <label class="radio" style="float:right">
+                    <radio value="{{item.pickup_address}}" bindtap="radio" data-id="{{item.pickup_id}}" checked="{{item.pickup_id==1?true:false}}"/>
+                  </label>
+                </view>
+            </view>
+          </radio-group>
+        </view>
+        <view bindtap="closepopup" class="button" style="background-color: #fa888b">确 定</view>
+    </view>
+  </view>
+
+
+    <setMeal bind:outcome="chooseOutcome" productId="{{meals.productId}}" show="{{meals.show}}" storeId="{{meals.storeId}}"></setMeal>
+    <movable-view direction="all" x="{{x}}" y="{{y}}" wx:if="{{homeBack}}">
+        <image bindtap="toHome" class="movable-view" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/toHome.png"></image>
+    </movable-view>
+</movable-area>
+<view animation="{{animation}}" class="good_box" hidden="{{hide_good_box}}" style="left:{{bus_x}}px;top:{{bus_y}}px;">
+    <image mode="aspectFit" src="{{goodsBoxImage}}"></image>
+</view>

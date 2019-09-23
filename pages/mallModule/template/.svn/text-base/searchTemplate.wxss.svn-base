@@ -1,0 +1,42 @@
+.search-box {
+    overflow: hidden;
+    border-bottom: 1rpx solid #eee;
+    background: #fff;
+}
+
+.search-main {
+    width: 100%;
+    height: 60rpx;
+    float: right;
+    border-radius: 55rpx;
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+    color: #878787;
+}
+
+.search-main input {
+    font-size: 24rpx;
+    height: 55rpx;
+    width: 593rpx;
+    border-radius: 55rpx;
+    margin-left: 57rpx;
+}
+
+.search-main label {
+    position: absolute;
+    top: 0rpx;
+    left: 20rpx;
+    width: 100%;
+    height: 100%;
+    font-size: 28rpx;
+    color: #ccc;
+    line-height: 60rpx;
+}
+
+.search-main label image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-top: -4rpx;
+}

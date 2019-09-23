@@ -1,0 +1,53 @@
+<view class="content">
+    <view class="member-card">
+        <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/bgMyMemberCard.png"></image>
+    </view>
+    <view class="member-code-box" wx:if="{{isMember}}">
+        <text>{{codeType=='BARCODE'?'向收银员出示会员码':'向收银员出示会员码付款'}}</text>
+        <view class="barcode-box" wx:if="{{codeType=='BARCODE'}}">
+            <canvas canvasId="barcode" hidden="{{canvasHidden}}"></canvas>
+        </view>
+        <view class="qrcode-box" wx:if="{{codeType!='BARCODE'}}">
+            <canvas canvasId="qrcode" hidden="{{canvasHidden}}"></canvas>
+        </view>
+        <text style="margin-top:{{codeType=='BARCODE'?'25rpx':'20rpx'}}">{{memberId}}</text>
+        <view bindtap="refreshMbrCode" class="refresh" wx:if="{{codeType!='BARCODE'}}">
+            <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRefresh2.png"></image> 点击刷新付款码
+    </view>
+    </view>
+    <view class="other-pay">使用其他方式付款</view>
+    <view class="pay-box">
+        <view bindtap="tobalancePay" class="pay-item" wx:if="{{codeType=='BARCODE'}}">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconBalancePay.png"></image>
+            <text>余额支付</text>
+        </view>
+        <view bindtap="toWeixinPay" class="pay-item">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconWeixinPay.png"></image>
+            <text>微信支付</text>
+        </view>
+    </view>
+    <button bindgetuserinfo="getUserInfo" class="authorization" openType="getUserInfo" wx:if="{{!hasUserInfo}}"></button>
+    <button bindtap="toAuthorize" class="authorization" wx:elif="{{!isMember}}"></button>
+</view>
+<image bindtap="toHome" class="movable-view" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/toHome.png" wx:if="{{homeBack}}"></image>
+<popup bind:close="toggleMiddlePopup" customClass="middle" position="middle" show="{{show.middle}}">
+    <view class="popup-content {{redPacket?'received':'open'}}" wx:if="{{redPacket}}">
+        <view class="popup-content-box">
+            <image animation="{{animationRotate}}" bindtap="openRedPacket" class="popup-content-open" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconDismantling.png"></image>
+            <text class="popup-content-tips">恭喜您，收到一个神秘红包！</text>
+        </view>
+    </view>
+    <view class="popup-content {{redPacket?'received':'open'}}" wx:if="{{!redPacket}}">
+        <view animation="{{animationData}}" class="popup-content-top" hidden="{{popupTop}}">
+            <view class="title">恭喜您获得</view>
+            <view class="total">
+                <text>{{moneyAmount}}</text>元</view>
+            <text class="tips">仅限当天使用</text>
+            <image class="red-packet-member" mode="widthFix" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacketMember.png"></image>
+        </view>
+        <view class="popup-content-bottom">
+            <button openType="share">通知亲朋好友</button>
+            <view bindtap="toRedPacket">红包记录</view>
+        </view>
+    </view>
+</popup>

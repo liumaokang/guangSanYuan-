@@ -1,0 +1,1572 @@
+@import "../../template/commentItem.wxss";
+
+page {
+    height: 100%;
+}
+
+.swiperContainer {
+    width: 100%;
+    height: 750rpx;
+    position: relative;
+}
+.section{
+    background-color:#fff;
+    color:#333;
+    font-size:28rpx;
+    font-weight:bold;
+    width:710rpx;
+    margin:10rpx auto;
+    padding:16rpx;
+    box-shadow:0px 2px 10px 0px rgba(227,227,227,0.75);
+    border-radius:21px;
+    box-sizing: border-box;
+}
+.swiper {
+    width: 100%;
+    height: 750rpx;
+}
+.popup,.popup__overlay {
+  position: fixed;
+  animation: fade-in 0.3s ease;
+}
+.popup__overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.7);
+
+}
+.user-portrait {
+  float: left;
+}
+.user-portrait image{
+  width: 80rpx;
+  height: 80rpx;
+} 
+.popup-content {
+  width: 600rpx;
+  border-radius: 6rpx;
+  background: #fff;
+  overflow: hidden;
+  padding-top: 12rpx;
+
+}
+.popup {
+  top: 50%;
+  left: 50%;
+  z-index: 11;
+  max-height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  transform: translate3d(-50%,-50%,0);
+}
+.popup,.popup__overlay {
+  position: fixed;
+  animation: fade-in 0.3s ease;
+
+}
+.popup-content .title {
+font-size: 32rpx;
+color: #454545;
+line-height: 80rpx;
+text-align: center;
+border-bottom: 1px solid #f5f5f5;
+
+}
+.popup-content-box {
+color: #454545;
+}
+.price-detail {
+padding: 0 32rpx;
+font-size: 30rpx;
+line-height: 77rpx;
+border-bottom: 1px solid #f1f1f1;
+background: #fff;
+
+}
+.price-detail view {
+border-bottom: 1px solid #f1f1f1;
+height: 77rpx;
+
+}
+
+.popup-content .button {
+font-size: 28rpx;
+color: #fff;
+line-height: 84rpx;
+height: 84rpx;
+background: #3cdbc0;
+font-weight: bold;
+text-align: center;
+
+}
+
+.swiper-item {
+    width: 100%;
+    height: 750rpx;
+}
+.price-detail view text:last-of-type {
+float: right;
+color: #ff7171;
+border-bottom: none;
+
+}
+
+.swiper-item image {
+    width: 100%;
+    height: 750rpx;
+}
+
+.swiper-item .slide-presell {
+    width: 152rpx;
+    height: 145rpx;
+    position: absolute;
+    top: 26rpx;
+    left: 60rpx;
+    z-index: 10;
+}
+
+.imageCount {
+    width: 60rpx;
+    height: 30rpx;
+    background: rgba(0,0,0,0.5);
+    font-size: 20rpx;
+    text-align: center;
+    line-height: 30rpx;
+    color: #fff;
+    border-radius: 6rpx;
+    position: absolute;
+    bottom: 25rpx;
+    right: 25rpx;
+}
+
+.share-reamin {
+    position: fixed;
+    right: 0rpx;
+    bottom: 130rpx;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    height: 62rpx;
+    min-width: 112rpx;
+    line-height: 66rpx;
+    border-bottom-left-radius: 34rpx;
+    border-top-left-radius: 34rpx;
+    overflow: hidden;
+    font-size: 26rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rpx 16rpx;
+    z-index: 10000;
+}
+
+.share-reamin image {
+    width: 38rpx;
+    height: 36rpx;
+    margin-right: 4rpx;
+}
+
+.share-reamin {
+    position: absolute;
+    right: 0rpx;
+    bottom: 130rpx;
+    background: #333333;
+    color: #fff;
+    height: 52rpx;
+    min-width: 112rpx;
+    line-height: 52rpx;
+    border-bottom-left-radius: 35rpx;
+    border-top-left-radius: 35rpx;
+    overflow: hidden;
+    font-size: 30rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 9rpx 22rpx;
+}
+
+.share-reamin image {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 8rpx;
+}
+
+.commission-box {
+    background: #ff8561;
+    height: 110rpx;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commission-box view {
+    font-size: 30rpx;
+    color: #fff;
+}
+
+.commission-box view>text {
+    font-size: 40rpx;
+    font-weight: bold;
+}
+
+.commission-box button {
+    width: 234rpx;
+    height: 66rpx;
+    font-size: 30rpx;
+    border-radius: 33rpx;
+    border: 2rpx solid #fff;
+    line-height: 66rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: url('http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconShare.png') no-repeat 21rpx;
+    background-size: 35rpx 33rpx;
+    margin: 0;
+    padding: 0 0 0 60rpx;
+}
+
+.commission-box view image {
+    width: 35rpx;
+    height: 33rpx;
+    margin-right: 9rpx;
+}
+
+.goods-info-box {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20rpx;
+}
+
+.goods-info-box .goods-name {
+    position: relative;
+    height: 45rpx;
+    font-size: 32rpx;
+    font-weight: bolder;
+    color: #3B3B3B;
+    line-height: 45rpx;
+    margin-top: 23rpx;
+    margin-bottom: 6rpx;
+}
+
+.goods-info-box .goods-name view {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 690rpx;
+    text-align: center;
+}
+
+.goods-info-box .goods-desc {
+    font-size: 24px;
+    color: #666;
+    line-height: 33rpx;
+    height: 33rpx;
+}
+
+.goods-info-box .label-item {
+    padding: 0 10rpx;
+    height: 48rpx;
+    border-radius: 6rpx;
+    background: #3CDBC0;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 48rpx;
+    font-weight: normal;
+    display: inline-block;
+    margin-right: 8rpx;
+    vertical-align: top;
+    margin-top: 8rpx;
+}
+
+.goods-info-box .goods-name text {
+    display: inline-block;
+}
+
+.goods-info-box .goods-name .goods-soldNum {
+    float: right;
+    display: inline-block;
+    font-size: 24rpx;
+    font-weight: normal;
+    color: #454545;
+}
+
+.goods-info-box .goods-desc {
+    color: #A1A1A1;
+    font-size: 24rpx;
+    margin-bottom:16rpx;
+    display: block;
+    width: 690rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.goods-info-box .goods-tag {
+    font-size: 26rpx;
+    min-height: 26rpx;
+    line-height: 26rpx;
+}
+
+.goods-info-box .goods-tag text {
+    display: inline-block;
+    height: 40rpx;
+    line-height: 38rpx;
+    padding: 0rpx 10rpx;
+    text-align: center;
+    border: solid 2rpx red;
+    border-radius: 20rpx;
+    margin: 20rpx 10rpx 20rpx 0rpx;
+}
+
+.goods-info-box .goods-price-box {
+    height: 40rpx;
+    text-align: center;
+    background:rgba(253,115,116,1);
+    border-radius: 5rpx;
+    font-size: 20rpx;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.goods-price-box image {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 9rpx;
+}
+
+.goods-nowPrice {
+    margin-right: 10rpx;
+    display: inline-block;
+    font-size: 44rpx;
+    font-weight: bold;
+    color: #FF3B3F;
+    margin-bottom:10rpx;
+}
+
+
+.goods-nowPrice text {
+    font-size: 20rpx;
+}
+
+.goods-oldPrice {
+    font-size: 22rpx;
+    font-weight: normal;
+    text-decoration: line-through;
+    color: #A1A1A1;
+}
+
+.goods-price-box .goods-soldNum {
+    line-height: 44rpx;
+}
+
+.goods-promise {
+    padding: 19rpx 30rpx;
+    font-size: 18rpx;
+    color: #898989;
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    border-top:1px solid rgba(236,236,236,1);
+}
+
+.goods-promise view {
+    margin-right: 30rpx;
+    display: flex;
+    align-items: center;
+}
+
+.goods-promise text {
+    display: inline-block;
+    width: 6rpx;
+    height: 6rpx;
+    border-radius: 50%;
+    margin-right: 10rpx;
+    background-color: #666;
+}
+
+.goods-promise view image {
+    vertical-align: middle;
+    margin-right: 15rpx;
+    margin-top: -5rpx;
+}
+
+.goods-promise view:first-of-type image {
+    width: 22rpx;
+    height: 31rpx;
+}
+
+.goods-promise view:nth-last-child(2) image {
+    width: 27rpx;
+    height: 26rpx;
+}
+
+.goods-promise view:last-of-type image {
+    width: 25rpx;
+    height: 25rpx;
+}
+
+.goods-standard {
+    height: 89rpx;
+    line-height: 89rpx;
+    font-size: 30rpx;
+    color: #454545;
+    background: #fff;
+    margin-bottom: 20rpx;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+}
+
+.goods-standard text:last-of-type {
+    font-weight: bold;
+}
+
+.goods-presell {
+    padding: 0 30rpx;
+    background: rgba(255,251,239,1);
+}
+
+.goods-presell .presell-box {
+    padding: 22rpx 0;
+    border-bottom: 1rpx solid #dcdcdc;
+}
+
+.goods-presell .price-limit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65rpx;
+}
+
+.goods-presell .price-limit view text:first-child {
+    height: 40px;
+    font-size: 28rpx;
+    color: rgba(51,51,51,1);
+    line-height: 40rpx;
+}
+
+.goods-presell .price-limit view text:nth-of-type(2) {
+    height: 65px;
+    font-size: 46rpx;
+    color: #FF4E53;
+    line-height: 65rpx;
+    font-weight: bold;
+}
+
+.goods-presell .price-limit view text:nth-of-type(2) .label-symol {
+    font-size: 28rpx;
+    color: #FF4E53;
+}
+
+.goods-presell .price-limit view text:nth-of-type(3) {
+    font-size: 24rpx;
+    color: #333333;
+    line-height: 33rpx;
+    margin: 0 10rpx 0 30rpx;
+}
+
+.goods-presell .price-limit view text:nth-of-type(4) {
+    font-size: 24rpx;
+    font-weight: bolder;
+    color: #FF4E53;
+    line-height: 33rpx;
+}
+
+.goods-presell .limit-label {
+    width: 200rpx;
+    height: 50rpx;
+    transform: translateX(30rpx);
+    background: url('https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/advance-label.png') center center no-repeat;
+    background-size: 200rpx 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24rpx;
+    color: rgba(255,255,255,1);
+}
+
+.goods-presell .self-get {
+    font-size: 22rpx;
+    color: rgba(102,102,102,1);
+    line-height: 36rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-goods {
+    background-color: #fff;
+    box-shadow:0px 2rpx 10rpx 0px rgba(227,227,227,0.75);
+    border-radius:21rpx;
+    width: 710rpx;
+    margin: auto;
+}
+
+.goods-details {
+    padding: 0 30rpx;
+    font-size: 24rpx;
+    color: #999;
+    line-height: 50rpx;
+    display: flex;
+    flex-direction: column;
+    border-radius:21px;
+}
+
+.goods-imgtext {
+    background-color: #fff;
+    width: 750rpx;
+    overflow: hidden;
+}
+
+.goods-imgtext>text {
+    display: block;
+    text-indent: 40rpx;
+    font-size: 36rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+}
+
+.goods-imgtext image {
+    width: 100%;
+    display: block;
+}
+
+.handle-box {
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    height: 98rpx;
+    padding: 13rpx 26rpx 13rpx 0;
+    padding-right: 26rpx;
+    padding-left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #fff;
+    border-top: 1rpx solid #e5e5e5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.handle-box view view.badge {
+    position: absolute;
+    right: 32rpx;
+    top: 10rpx;
+    width: 28rpx;
+    height: 28rpx;
+    text-align: center;
+    line-height: 28rpx;
+    font-weight: bold;
+    font-size: 22rpx;
+    color: #fff;
+    background: #FF3B3F;
+    border-radius: 14rpx;
+}
+
+.handle-box .shopcart-icon {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+.handle-box .shopcart-icon image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.handle-box view:nth-of-type(3) {
+    width: 480rpx;
+    background-color: #fff;
+}
+
+.handle-box view.no-seckill-goods {
+    opacity: 0.6;
+}
+
+.handle-box view.noraml-buttom {
+    width:457rpx;
+    height:72rpx;
+      background:linear-gradient(90deg,rgba(255,96,96,1),rgba(246,65,69,1));
+    box-shadow:0px 2rpx 10rpx 0px rgba(234,193,194,0.75);
+    border-radius: 72rpx;
+}
+
+.handle-box view.noraml-buttom button {
+    flex: 1;
+    padding: 0;
+    box-sizing: border-box;
+    width: 457rpx;
+    color: #fff;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    line-height: 72rpx;
+    background: transparent;
+    border-radius: 72rpx;
+    font-size: 29rpx;
+}
+
+.handle-box view.noraml-buttom button::after {
+    border: none;
+}
+
+.handle-box view.team-button {
+    display: flex;
+    height: 80rpx;
+    float: right;
+    position: relative;
+}
+
+.handle-box view.team-button button {
+    padding: 0;
+    box-sizing: border-box;
+    width: 457rpx;
+    color: #fff;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    line-height: 72rpx;
+    background: transparent;
+    border-radius: 72rpx;
+    font-size: 29rpx;
+}
+
+.handle-box view.team-button button::after {
+    border: none;
+}
+
+.handle-box view.team-button button.add-cart {
+    background: rgba(0,159,85,0.4);
+}
+
+.handle-box .no-goods {
+    opacity: 0.6;
+}
+
+.handle-box view.team-button button text {
+    display: block;
+}
+
+.handle-box view.team-button button.group {
+    background:linear-gradient(90deg,rgba(255,96,96,1),rgba(246,65,69,1));
+    box-shadow:0rpx 2rpx 10rpx 0rpx rgba(234,193,194,0.75);
+    width: 457rpx;
+    height:72rpx
+}
+
+.handle-box .seckill {
+    position: relative;
+    display: flex;
+}
+
+.handle-box .seckill-btn button::after {
+    border: none;
+    outline: none;
+}
+
+.handle-box .seckill-btn .skill-btn1 {
+    width: 285rpx;
+    height: 80rpx;
+    background: rgba(255,255,255,1);
+    border-radius: 4rpx;
+    border: 1rpx solid rgba(60,219,192,1);
+    text-align: center;
+    line-height: 80rpx;
+    color: rgba(60,219,192,1);
+    font-size: 28rpx;
+    font-weight: bolder;
+}
+
+.handle-box .seckill-btn .skill-btn2 {
+    width: 457rpx;
+    height: 72rpx;
+   background:linear-gradient(90deg,rgba(255,96,96,1),rgba(246,65,69,1));
+    box-shadow:0px 2px 10px 0px rgba(234,193,194,0.75);
+    text-align: center;
+    line-height: 72rpx;
+    color: #fff;
+    font-size: 29rpx;
+    font-weight: 400;
+    flex: 1;
+    border-radius: 72rpx;
+}
+
+.team-box {
+    background: #fff;
+}
+
+.team-title {
+    box-sizing: border-box;
+    height: 90rpx;
+    padding: 30rpx 30rpx 20rpx 30rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+    color:#1b1b1b;
+    line-height: 40rpx;
+}
+
+.team-title .liu {
+    box-sizing: border-box;
+    height: 90rpx;
+    padding: 10rpx 30rpx 20rpx 30rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #333;
+    line-height: 40rpx;
+}
+
+.team-title text:last-of-type {
+    float: right;
+    color: #999;
+    font-size: 24rpx;
+    padding-right: 27rpx;
+    font-weight: normal;
+    background: url('https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/locMore.png') no-repeat right;
+    background-size: 24rpx 24rpx;
+}
+
+.team-box>view:nth-last-of-type(2) {
+    border: none!important;
+}
+
+.no-data {
+    font-size: 24rpx;
+    line-height: 48rpx;
+    padding: 24rpx 0;
+    color: #666;
+    display: flex;
+    justify-content: center;
+}
+
+.secKill-box {
+    padding:28rpx 32rpx;
+    display: flex;
+    justify-content: space-between;
+    background:linear-gradient(90deg,rgba(251,112,113,1),rgba(251,72,76,1));
+}
+
+.secKill-price-box {
+    display: flex;
+    flex-direction: column;
+    height: 48rpx;
+}
+
+.group-box {
+    padding: 35rpx 28rpx;
+    display: flex;
+    justify-content: space-between;
+    background:linear-gradient(90deg,rgba(251,112,113,1),rgba(251,72,76,1));
+}
+
+.price-people {
+    display: flex;
+    flex-direction: column;
+}
+
+.group-people-number {
+    width: 140rpx;
+    flex: 0 0 40rpx;
+    border-radius: 4rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.secKill-time-down {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.group-people-number image {
+    width: 44rpx;
+    height: 44rpx;
+    vertical-align: middle;
+    margin-bottom: 6rpx;
+}
+
+.group-people-number text {
+    font-size: 28rpx;
+    font-weight: bolder;
+    color: #fff;
+    line-height: 40rpx;
+    flex: 1;
+    text-align: center;
+}
+
+.group-price {
+    font-size: 28rpx;
+    color: #fff;
+}
+
+.group-time-down {
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 20rpx;
+    color: #fff;
+}
+
+.group-time-down>text {
+    margin-top: 5rpx;
+    display: inline-block;
+    margin-bottom: 10rpx;
+}
+.group-time-down>view{
+  display: inline-block;
+}
+.group-time-down .txt {
+    display: inline-block;
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 40rpx;
+    margin: 0rpx 8rpx;
+    box-sizing: border-box;
+    background:rgba(255,163,165,1);
+    font-size: 21rpx;
+}
+
+.group-time-down .txt:last-of-type {
+    margin-right: 0;
+}
+
+.group-time-down .colon {
+    color: #fff;
+}
+
+.modal-box {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.modal-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.modal-content {
+    background: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.handle-goods {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 518rpx;
+    padding-bottom: 120rpx;
+}
+
+.handle-goods .close {
+    width: 44rpx;
+    height: 44rpx;
+    background: url('http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconCloseImg.png') no-repeat center;
+    background-size: 100%;
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}
+
+.handle-goods .goods-box {
+    padding: 54rpx 30rpx 50rpx 30rpx;
+    overflow: hidden;
+    border-bottom: 1rpx solid #dcdcdc;
+}
+
+.handle-goods .goods-box .goods-img {
+    width: 158rpx;
+    height: 158rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+
+.handle-goods .goods-box .goods-img image {
+    width: 158rpx;
+    height: 158rpx;
+}
+
+.handle-goods .goods-box .goods-info {
+    width: calc(100% - 180rpx);
+    position: relative;
+    float: right;
+    color: #454545;
+}
+
+.handle-goods .goods-box .goods-info .goods-name {
+    font-size: 42rpx;
+    line-height: 48rpx;
+    font-weight: bold;
+    margin-bottom: 14rpx;
+}
+
+.handle-goods .goods-box .goods-info .goods-desc {
+    font-size: 28rpx;
+    line-height: 36rpx;
+    margin-bottom: 18rpx;
+}
+
+.handle-goods .goods-box .goods-info .goods-price-box {
+    font-size: 34rpx;
+    line-height: 36rpx;
+}
+
+.handle-goods .goods-box .goods-info .goods-price-box text:first-of-type {
+    color: #ff8561;
+    margin-right: 34rpx;
+}
+
+.handle-goods .goods-box .goods-info .goods-price-box text:last-of-type {
+    font-size: 28rpx;
+}
+
+.handle-goods .goods-num {
+    height: 136rpx;
+    line-height: 136rpx;
+    padding: 0 30rpx;
+    font-size: 36rpx;
+}
+
+.handle-goods .goods-num .count-box {
+    float: right;
+    width: 164rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 56rpx;
+    height: 56rpx;
+    margin-top: 40rpx;
+    border: 1rpx solid #f1f1f1;
+}
+
+.handle-goods .goods-num .count-box input {
+    background: #fff;
+    color: #454545;
+    font-size: 30rpx;
+    width: 62rpx;
+    height: 100%;
+    text-align: center;
+}
+
+.handle-goods .goods-num .count-box view {
+    width: 56rpx;
+    height: 56rpx;
+    text-align: center;
+    font-size: 48rpx;
+    background: #f1f1f1;
+    color: #009136;
+    line-height: 56rpx;
+}
+
+.handle-goods .goods-num .count-box .unavailable {
+    color: #999;
+}
+
+.handle-goods .button-box {
+    display: flex;
+    width: 100%;
+    height: 100rpx;
+    padding: 10rpx 0;
+    border-top: 1rpx solid #dcdcdc;
+    position: absolute;
+    bottom: 0;
+}
+
+.handle-goods .button-box button {
+    font-size: 30rpx;
+    box-sizing: border-box;
+}
+
+.handle-goods button::after {
+    border: 1rpx solid #3CDBC0;
+}
+
+.handle-goods .button-box .confirm {
+    width: 692rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    background: #fff;
+    border-radius: 6rpx;
+    color: #3CDBC0;
+    border: 1rpx solid #3CDBC0;
+}
+
+.join-group {
+    position: relative;
+    width: 750rpx;
+    min-height: 620rpx;
+    box-sizing: border-box;
+    padding: 0 50rpx 40rpx 50rpx;
+}
+
+.join-group .title {
+    font-size: 28rpx;
+    height: 120rpx;
+    width: 100%;
+    text-align: center;
+    line-height: 120rpx;
+    color: #333;
+    position: relative;
+}
+
+.join-group .title image {
+    width: 24rpx;
+    height: 24rpx;
+    padding: 22rpx;
+    position: absolute;
+    top: 0;
+    right: -50rpx;
+}
+
+.group-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-info text:first-of-type {
+    margin-top: 10rpx;
+    font-size: 24rpx;
+    color: #666;
+    line-height: 33rpx;
+    margin: 20rpx 0;
+}
+
+.group-info text:last-of-type {
+    height: 45rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #333;
+    line-height: 45rpx;
+}
+
+.group-people-list {
+    padding: 30rpx 75rpx;
+    min-height: 100rpx;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.people-item {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    border: 3rpx dashed #adadad;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.group-people-list .leader {
+    border: 3rpx solid #3cdbc0;
+}
+
+.group-people-list .leader text {
+    display: inline-block;
+    width: 75rpx;
+    height: 28rpx;
+    background: #3cdbc0;
+    border-radius: 14rpx;
+    line-height: 28rpx;
+    font-size: 20rpx;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    bottom: -14rpx;
+    right: 13rpx;
+}
+
+.group-remain {
+    font-size: 24rpx;
+    color: #666;
+    margin: 30rpx 0;
+    line-height: 33rpx;
+    text-align: center;
+}
+
+.people-item image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+}
+
+.people-more {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 5rpx 0;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.people-more image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.people-item text {
+    font-size: 28rpx;
+    line-height: 101rpx;
+    color: #999;
+}
+
+.people-item:first-of-type {
+    margin-left: 0;
+}
+
+.join-group .button-box {
+    height: 100rpx;
+    font-size: 30rpx;
+    line-height: 100rpx;
+    border-radius: 100rpx;
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+    margin-bottom: 10rpx;
+    background:linear-gradient(90deg,rgba(255,96,96,1),rgba(246,65,69,1));
+}
+
+button[class="button-box"]::after {
+    border: 0;
+}
+
+.page-content {
+    height: calc(100% - 120rpx);
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 120rpx;
+}
+
+movable-area {
+    height: 100%;
+    width: 100%;
+}
+
+.movable-view {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+movable-view {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.bottom-pop {
+    position: fixed;
+    top: 0rpx;
+    left: 0rpx;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+.bottom-pop-main {
+    position: absolute;
+    bottom: -500rpx;
+    left: 0rpx;
+    width: 100%;
+    height: 500rpx;
+    overflow: hidden;
+    background: #fff;
+    text-align: center;
+}
+
+.bottom-pop-main .cancel {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 32rpx;
+    border-top: 1rpx solid #ddd;
+}
+
+.bottom-pop-main .share-type-box {
+    width: 80%;
+    height: 200rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    margin: 0 auto;
+}
+
+.bottom-pop-main .share-type-box>view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+    width: 50%;
+    height: 130rpx;
+    box-sizing: border-box;
+    float: left;
+}
+
+.bottom-pop-main .share-type-box>view image {
+    height: 100rpx;
+    width: 100rpx;
+    flex: 0 0 100rpx;
+    margin-bottom: 10rpx;
+}
+
+.bottom-pop-main .share-wx {
+    font-size: 24rpx;
+    color: #666;
+    line-height: 33rpx;
+    position: relative;
+}
+
+.bottom-pop-main .share-wx button {
+    background: transparent;
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+    width: 100%;
+    height: 100%;
+}
+
+.share-title {
+    height: 45rpx;
+    font-size: 32rpx;
+    padding: 45rpx 0;
+    margin-bottom: 41rpx;
+    font-weight: bold;
+    color: #333;
+    line-height: 45rpx;
+}
+
+.share-title image {
+    width: 28rpx;
+    height: 28rpx;
+    padding: 22rpx;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.bottom-pop-main .share-wx button::after {
+    border: none;
+}
+
+.poster-box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0rpx;
+    left: 0rpx;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    font-size: 32rpx;
+    overflow-y: scroll;
+}
+
+.poster-action {
+    display: flex;
+    justify-content: space-between;
+}
+
+.poster-action button {
+    width: 330rpx;
+    height: 80rpx;
+    border-radius: 40rpx;
+    border: 1rpx solid rgba(255,255,255,1);
+    background-color: transparent;
+    font-size: 32rpx;
+    font-weight: bolder;
+    color: rgba(255,255,255,1);
+    line-height: 80rpx;
+    text-align: center;
+}
+
+.poster-action button::after {
+    border: none;
+}
+
+.poster-picture-box {
+    width: 540rpx;
+    height: 890rpx;
+    margin: 0 auto;
+    margin-top: 90rpx;
+    margin-bottom: 30rpx;
+}
+
+.poster-picture-box canvas {
+    width: 540rpx;
+    height: 890rpx;
+}
+
+.poster-box>button {
+    width: 600rpx;
+    height: 90rpx;
+    background: #019f55;
+    color: #fff;
+    font-size: 34rpx;
+    margin: 0 auto 10rpx auto;
+    border-radius: 15rpx;
+}
+
+.poster-box>text {
+    font-size: 28rpx;
+}
+
+.good_box {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    z-index: +99;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.good_box image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.comment-goods {
+    
+    background-color: #fff;
+    width: 710rpx;
+    margin: auto;
+    padding: 16rpx;
+    padding-top: 70rpx;
+    box-sizing: border-box;
+    box-shadow:0px 2rpx 10rpx 0px rgba(227,227,227,0.75);
+    border-radius:21rpx;
+    margin-bottom: 43rpx;
+}
+
+.comment-title {
+    font-size: 32rpx;
+    color: #1b1b1d;
+    line-height: 90rpx;
+    text-align: center;
+    width: 100%;
+    border-bottom: 2rpx solid #f1f1f1;
+}
+
+.goods-comment .more {
+    font-size: 28rpx;
+    color: #009136;
+    line-height: 48rpx;
+    margin-top: 24rpx;
+}
+
+.comment-item-con {
+    padding-bottom: 0;
+}
+
+button.authorization {
+    width: 100%!important;
+    height: 100%!important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+button.authorization::after {
+    border: none;
+}
+
+.bg-009f55 {
+    background: #3CDBC0!important;
+}
+
+.custom-indicator {
+    height: 14rpx;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20rpx;
+    left: 0;
+    right: 0;
+}
+
+.custom-indicator .dots {
+    width: 14rpx;
+    height: 14rpx;
+    background: rgba(238,238,238,1);
+    border-radius: 8rpx;
+    margin: 0 10rpx;
+    transition: width 0.5s ease;
+}
+
+.custom-indicator .dots.active {
+    width: 24rpx;
+    background: rgba(60,219,192,1);
+}
+
+.team-process {
+    display: flex;
+    padding: 0 87rpx;
+    align-items: center;
+}
+
+.team-process view {
+    display: flex;
+    flex-direction: column;
+    font-size: 22rpx;
+    color: #666;
+    line-height: 30rpx;
+    white-space: nowrap;
+}
+
+.team-process view text:nth-of-type(1) {
+    font-size: 32rpx;
+    font-family: HiraKakuStdN-W8;
+    font-weight: bolder;
+    color: #FF3B3F;
+    line-height: 44rpx;
+    margin-bottom: 8rpx;
+    text-align: center;
+}
+
+.team-process image {
+    width: 160rpx;
+    height: 9rpx;
+}
+
+.price-normal-box {
+    background-color: #fffbef;
+}
+
+.price-normal-box .price-normal {
+    display: flex;
+    height: 108rpx;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.price-normal-box .price-normal>text {
+    font-size: 24rpx;
+    color: rgba(150,124,88,1);
+}
+
+.price-normal-box .group-price .goods-nowPrice {
+    font-size: 46rpx;
+    font-weight: bolder;
+    color: rgba(255,78,83,1);
+}
+
+.price-normal-box .group-price .goods-nowPrice .label-symol {
+    font-size: 28rpx;
+}
+
+.score-box .group-price .goods-nowPrice {
+    color: #ff4e53;
+}
+
+.score-box .group-price text:last-child {
+    font-size: 28rpx;
+    color: rgba(255,78,83,1);
+}
+
+.score-box .group-price .goods-nowPrice .label-symol {
+    font-size: 46rpx;
+}
+
+.price-normal-box .group-price .goods-oldPrice {
+    color: #999;
+}
+
+.goods-activity {
+    padding: 20rpx;
+    background-color: #fff;
+}
+
+.goods-activity view {
+    height: 62rpx;
+    padding: 14rpx 24rpx;
+    border-radius: 10rpx;
+    background: #fafafa url('https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/activity-label.png') 10rpx center no-repeat;
+    background-size: 4rpx 25rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.goods-activity view text:first-child {
+    font-size: 22rpx;
+    font-weight: bolder;
+    color: rgba(51,51,51,1);
+    line-height: 32rpx;
+}
+
+.goods-activity view text:last-child {
+    font-size: 20rpx;
+    color: rgba(102,102,102,1);
+    line-height: 28rpx;
+}
+
+.comment-title2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-title2 view {
+    font-size: 28rpx;
+    font-weight: bolder;
+    color: rgba(51,51,51,1);
+    line-height: 40rpx;
+}
+
+.comment-title2 view text:last-child {
+    font-size: 24rpx;
+    color: rgba(102,102,102,1);
+}
+
+.comment-title2>text {
+    font-size: 24rpx;
+    color: rgba(102,102,102,1);
+    line-height: 34rpx;
+    padding-right: 20rpx;
+    background: url('https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/moreComment.png') right center no-repeat;
+    background-size: 12rpx 20rpx;
+}

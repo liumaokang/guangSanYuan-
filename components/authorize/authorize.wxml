@@ -1,0 +1,27 @@
+<popup catchtouchmove="catchtouchmove" customClass="middle" position="middle" show="{{show.login}}">
+    <view class="popup-authorization">
+        <text class="title">登陆</text>
+        <text class="content">微信用户快速登录</text>
+        <button bindgetuserinfo="getUserInfo" class="confirm" openType="getUserInfo">确定</button>
+    </view>
+</popup>
+<popup catchtouchmove="catchtouchmove" customClass="middle" position="middle" show="{{showPhone}}">
+    <view class="popup-phone-number">
+        <text class="title">申请授权</text>
+        <view class="content">
+            <text wx:if="{{!hasPhoneNumber}}">申请获取您微信手机号快速注册</text>
+            <text wx:if="{{hasPhoneNumber}}">是否绑定当前手机号：</text>
+            <text class="phone-num" wx:if="{{hasPhoneNumber}}">{{phoneNumber}}</text>
+        </view>
+        <view class="tips" wx:if="{{hasPhoneNumber}}">
+            <view>如需更换手机号请</view>
+            <text bindtap="toBindMobile">手动绑定</text>
+        </view>
+        <view class="botton-box">
+            <button bindtap="toBindMobile" class="cancel">取消</button>
+            <button bindgetphonenumber="getPhoneNumber" class="confirm" hidden="{{phoneNumber!==''}}" openType="getPhoneNumber">确认授权</button>
+            <button bindtap="handleBindMobile" class="confirm" hidden="{{phoneNumber===''}}">确认</button>
+        </view>
+    </view>
+</popup>
+<wxs module="filters" src="../../wxs/filters.wxs" />

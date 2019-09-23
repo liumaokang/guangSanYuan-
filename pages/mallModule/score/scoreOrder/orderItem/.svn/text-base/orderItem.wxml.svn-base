@@ -1,0 +1,27 @@
+<template name="orderItem">
+    <view bindtap="toOrderDetails" class="order-item" data-id="{{item.order_id}}">
+        <view class="item-top">
+            <text class="order-num">订单号:{{item.order_sn}}</text>
+            <!-- <text class="order-status {{item.status==='CREATED'?'waitPay':''}}" wx:if="{{item.status==='CREATED'}}">待付款</text> -->
+            <text class="order-status" >兑换成功</text>
+           <!--  <text class="order-status" wx:if="{{item.status==='CANCELED'}}">已作废</text>
+            <text class="order-status" wx:if="{{item.status==='RECEIVED'}}">待评价</text>
+            <text class="order-status" wx:if="{{item.status==='WAITSHIPPED'}}">待发货</text>
+            <text class="order-status" wx:if="{{item.status==='SHIPPED'}}">配送中</text>
+            <text class="order-status" wx:if="{{item.status==='PENDING'}}">待自提</text> -->
+        </view>
+        <scroll-view scrollX class="item-middle" style="width: 100%">
+            <view class="goods-item-img" wx:for="{{item.goods_list}}" wx:for-item="itm" wx:key="itm.id">
+                <image mode="aspectFit" src="https://v.coolndns.com/{{itm.goods_img}}"></image>
+            </view>
+        </scroll-view>
+        <view class="item-total">
+            <text>共    计：1件商品</text>
+            <view>
+        抵用:
+        <text class="total-price">{{item.integral}} 积分</text>
+                <text class="freight"> (含运费:￥0)</text>
+            </view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,14 @@
+.container {
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0px 30rpx;
+}
+
+@import "pages/mallModule/template/bindMobile.wxss";
+
+@import "pages/mallModule/template/searchTemplate.wxss";
+
+@import "pages/mallModule/template/searchAddress.wxss";
+
+@import "pages/mallModule/template/teamItem.wxss";

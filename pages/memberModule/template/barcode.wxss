@@ -1,0 +1,14 @@
+.barcode-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60rpx;
+    width: 100%;
+    height: 160rpx;
+    overflow: hidden;
+}
+
+.barcode-box canvas {
+    height: 100%;
+    width: 585rpx;
+}

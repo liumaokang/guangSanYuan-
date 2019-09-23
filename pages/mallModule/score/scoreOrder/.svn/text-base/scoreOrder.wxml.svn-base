@@ -1,0 +1,7 @@
+<import src="./orderItem/orderItem.wxml"></import>
+<template is="orderItem" data="{{item:item}}" wx:for="{{orderLists}}" wx:key="{{item.log_id}}"></template>
+<view class="no-data" hidden="{{orderList.length==0?false:true}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoOrders.png"></image>
+</view>
+<button class="loading-btn" hidden="{{!loading}}" loading="{{loading}}">正在加载...</button>
+<view class="order-end" hidden="{{!noMore}}">~我也是有底线的~</view>

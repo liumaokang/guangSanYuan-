@@ -1,0 +1,22 @@
+<view class="content">
+    <view bindtap="logout" class="section">
+        <text class="label">解绑会员</text>
+        <image class="right-icon" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconPointRight.png"></image>
+    </view>
+    <navigator class="section" url="/pages/mallModule/member/about/index">
+        <text class="label">关于我们</text>
+        <image class="right-icon" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconPointRight.png"></image>
+    </navigator>
+    <view class="section">
+        <text bindlongpress="toCouponCenter" class="label">当前版本</text>
+        <text class="line">{{version}}</text>
+    </view>
+    <view bindtap="clearStorage" class="section section2">
+        <text class="label" selectable="true">清理缓存</text>
+        <image class="right-icon" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconPointRight.png"></image>
+    </view>
+    <view class="section section2">
+        <text class="label" selectable="true">当前位置 {{location.latitude+','+location.longitude}}</text>
+        <view bindtap="copyLocation" class="copy-btn">复制</view>
+    </view>
+</view>

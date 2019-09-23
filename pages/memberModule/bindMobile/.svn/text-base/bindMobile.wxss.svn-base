@@ -1,0 +1,60 @@
+page {
+    background: url("https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/bgLogin.png") no-repeat center;
+    background-size: 100% 100%;
+}
+
+image {
+    float: left;
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+    margin-top: 34rpx;
+}
+
+.btn {
+    background-color: #3CDBC0;
+    color: #fff;
+    border-radius: 6rpx;
+    text-align: center;
+}
+
+.get-code {
+    width: 208rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    margin-top: 24rpx;
+    float: right;
+    font-size: 28rpx;
+}
+
+.mobile-input-box,.code-input-box {
+    margin: 0rpx 30rpx;
+    height: 100rpx;
+    border-bottom: 2rpx solid #eee;
+    overflow: hidden;
+    line-height: 100rpx;
+}
+
+view input {
+    float: left;
+    width: 380rpx;
+    margin-top: 28rpx;
+}
+
+.agreement {
+    margin: 0rpx 30rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size: 26rpx;
+}
+
+.agreement text {
+    color: #0198ff;
+}
+
+.confirm-btn {
+    width: 690rpx;
+    height: 90rpx;
+    line-height: 90rpx;
+    margin: 0 auto;
+}

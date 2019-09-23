@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "authorize": "../../../../components/authorize/authorize",
+        "loading": "/./components/loading/index"
+    }
+}

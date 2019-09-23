@@ -1,0 +1,154 @@
+<loading showLoading="{{loading}}"></loading>
+<view wx:if="{{!loading}}">
+    <view class="top-info">
+        <view class="user-info">
+            <image class="user-portrait" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/my_avator.png" wx:if="{{!user}}"></image>
+            <image catchtap="personInfo" class="user-portrait" src="{{user.head_pic}}" wx:else></image>
+            <view class="user-grade">
+                <block wx:if="{{user}}">
+                    <text class="nick-name">{{user.nickname}}</text>
+                    <view catchtap="toMemberInfo" class="nologin-action">
+                        <text>普通会员</text>
+                        <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/moreWhite.png"></image>
+                    </view>
+                </block>
+                <block wx:else>
+                    <text class="nick-name">未登录</text>
+                    <button bindgetuserinfo="getUserInfo" class="nologin-action" openType="getUserInfo">
+                        <text>登录享会员特权</text>
+                        <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/moreWhite.png"></image>
+                    </button>
+                </block>
+            </view>
+            <view class="my-setting-label">
+            
+                <!-- <image catchtap="toSystem" class="setting" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/my_setting.png"></image> -->
+            </view>
+            <view class="vip-more">
+                <!-- <image class="logo" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/my_logo.png"></image> -->
+                <view catchtap="toVip">
+                    <text>查看会员权益</text>
+                    <image src="{{image_Url}}back01.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="my-info">
+            <view bindtap="toRecharge" class="my-info-item balance">
+                <view class="num">{{user_money}}</view>
+                <text class="name">钱包余额</text>
+            </view>
+            <view bindtap="toScore" class="my-info-item score">
+                <view class="num">{{score}}</view>
+                <text class="name">我的积分</text>
+            </view>
+            <view bindtap="toCoupon" class="my-info-item coupon">
+                <view class="num">{{couponNum}}</view>
+                <text class="name">优惠券</text>
+            </view>
+            <!-- <button bindgetuserinfo="getUserInfo" class="authorization" openType="getUserInfo" wx:if="{{!hasUserInfo}}"></button> -->
+        </view>
+    </view>
+    <view bindtap="toMyDistribution" class="sales-center" wx:if="{{systemOptions.hasDistributionCenter}}">
+        <view>
+            <image class="left-icon" src="http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconDistribution.png"></image>
+            <text>我的分销中心</text>
+        </view>
+        <image class="right-icon" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRight2.png"></image>
+    </view>
+    <!-- <view class="bind-mobile-box" hidden="{{isMember&&memberRight}}">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconBindMobile.png"></image>
+        <text>找不到订单或优惠券？绑定手机号试试</text>
+    </view> -->
+    <view class="common-body">
+        <view class="order-type-box">
+            <view class="all-order">
+                <text>我的订单</text>
+                <view bindtap="toAllOrder">
+                    <text style='font-size:24rpx;'>查看全部订单</text>
+                    <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRight2.png"></image>
+                </view>
+            </view>
+            <view class="order-type-list">
+                <view bindtap="toOrderMenu" data-inx="1">
+                    <image src="{{image_Url}}tb01.png"></image>
+                    <view class="badge" wx:if="{{unPayNum>0}}">{{unPayNum}}</view>
+                    <text>待支付</text>
+                </view>
+                <view bindtap="toOrderMenu" data-inx="2">
+                    <image src="{{image_Url}}tb02.png"></image>
+                    <view class="badge" wx:if="{{unSelftakeNum>0}}">{{unSelftakeNum}}</view>
+                    <text>待自提</text>
+                </view>
+                <view bindtap="toOrderMenu" data-inx="4">
+                    <image src="{{image_Url}}tb03.png"></image>
+                    <block wx:if="{{rejectedNum>0}}"></block>
+                    <text>已退款</text>
+                </view>
+                <view bindtap="toScoreOrder">
+                    <image src="{{image_Url}}tb04.png"></image>
+                    <text>积分订单</text>
+                </view>
+                <!-- <view bindtap="toStoreOrder">
+                    <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/storeOrder.png"></image>
+                    <text>到店订单</text>
+                </view> -->
+            </view>
+            <!-- <button bindgetuserinfo="getUserInfo" class="authorization" openType="getUserInfo" wx:if="{{!hasUserInfo}}"></button> -->
+        </view>
+        <view class="fun-list">
+            <view class="all-order">
+                <text>我的服务</text>
+                <view></view>
+            </view>
+            <view class="grid-body">
+                <view class="grid-line">
+                    <view bindtap="toScoreMall" class="grid">
+                        <image src="{{image_Url}}tb05.png"></image>
+                        <text>积分商城</text>
+                    </view>
+                    <view bindtap="toCouponCenter" class="grid">
+                        <image class="right-icon" src="{{image_Url}}tb06.png"></image>
+                        <text>优惠券中心</text>
+                    </view>
+                    <!-- <view bindtap="toRedPacket" class="grid" wx:if="{{systemOptions.hasRedPacket}}">
+                        <image class="right-icon" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/my_packet.png"></image>
+                        <text>我的红包</text>
+                    </view> -->
+                    <view bindtap="toAddress" class="grid sec">
+                        <image class="right-icon" src="{{image_Url}}tb07.png"></image>
+                        <text>收货地址</text>
+                    </view>
+                    <view bindtap="toGoodsComment" class="grid tail">
+                        <image class="right-icon" src="{{image_Url}}tb08.png"></image>
+                        <text>我的评价</text>
+                    </view>
+                </view>
+                <view class="grid-line">
+                    <!-- <view bindtap="toModifyPassword" class="grid sec">
+                        <image class="right-icon" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/my_password.png"></image>
+                        <text>支付密码</text>
+                    </view> -->
+                    <view bindtap="phoneCall" class="grid tail sec">
+                        <image class="right-icon" src="{{image_Url}}tb09.png"></image>
+                        <text>联系客服</text>
+                    </view>
+                    <view bindtap="toFeedback" wx:if="{{false}}">
+                        <image class="right-icon" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconPointRight.png"></image>
+                        <text>意见反馈</text>
+                    </view>
+                </view>
+            </view>
+            <!-- <button bindgetuserinfo="getUserInfo" class="authorization" openType="getUserInfo" wx:if="{{!hasUserInfo}}"></button> -->
+        </view>
+    </view>
+</view>
+<popup bind:close="toggleBottomPopup" customClass="middle" overlayStyle="{{overlayStyle}}" position="middle" show="{{show.middle}}">
+    <view class="popup-content">
+        <view class="popup-content-box">
+            <image mode="widthFix" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/speechAssistantStart.gif"></image>
+            <view>你来说，我来做</view>
+            <view>把你最喜欢的带给你</view>
+        </view>
+    </view>
+</popup>
+<!-- <tabbar bind:popup="recorderPopup" show="{{showTabbar}}" tabbar="{{tabbar}}"></tabbar> -->

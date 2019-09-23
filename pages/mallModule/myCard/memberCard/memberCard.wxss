@@ -1,0 +1,365 @@
+page {
+    background: #f3f6ff;
+    padding: 56rpx 0;
+}
+
+.movable-view {
+    width: 120rpx;
+    height: 120rpx;
+    position: fixed;
+    right: 0;
+    bottom: 120rpx;
+}
+
+.content {
+    background: #fff;
+    width: 700rpx;
+    padding: 60rpx 60rpx 70rpx 60rpx;
+    box-sizing: border-box;
+    margin: 0 auto;
+    box-shadow: 4rpx 6rpx 20rpx 0rpx rgba(0,0,0,0.1);
+    border-radius: 12rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member-card {
+    width: 586rpx;
+    height: 346rpx;
+    border-radius: 14rpx;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.member-card image {
+    width: 100%;
+    height: 100%;
+}
+
+.card-img-box {
+    width: 86rpx;
+    height: 86rpx;
+    background-color: transparent;
+    border-radius: 50%;
+    vertical-align: top;
+    margin-right: 24rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img {
+    width: 76rpx;
+    vertical-align: middle;
+}
+
+.card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    line-height: 36rpx;
+}
+
+.card-text>text {
+    color: #fff;
+}
+
+.card-text>text:first-of-type {
+    font-size: 26rpx;
+    margin-bottom: 6rpx;
+    margin-top: 4rpx;
+}
+
+.card-text>text:last-of-type {
+    font-size: 28rpx;
+}
+
+.member-code-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.member-code-box .barcode-box {
+    width: 586rpx;
+    height: 174rpx;
+}
+
+.member-code-box .barcode-box canvas {
+    width: 586rpx;
+    height: 174rpx;
+}
+
+.qrcode-box {
+    width: 280rpx;
+    height: 280rpx;
+}
+
+.qrcode-box canvas {
+    width: 280rpx;
+    height: 280rpx;
+}
+
+.member-code-box>text {
+    font-size: 28rpx;
+    color: #727272;
+    line-height: 36rpx;
+}
+
+.member-code-box>text:first-of-type {
+    margin-top: 30rpx;
+    margin-bottom: 24rpx;
+}
+
+.member-code-box>text:last-of-type {
+    font-size: 36rpx;
+    line-height: 42rpx;
+    color: #333;
+    margin-top: 25rpx;
+    margin-bottom: 28rpx;
+}
+
+.member-code-box .refresh {
+    font-size: 28rpx;
+    line-height: 36rpx;
+    color: #bcbcbc;
+    margin-top: -20rpx;
+    height: 48rpx;
+    display: flex;
+    align-items: center;
+}
+
+.member-code-box .refresh image {
+    width: 34rpx;
+    height: 34rpx;
+    margin-right: 12rpx;
+}
+
+.other-pay {
+    font-size: 28rpx;
+    line-height: 36rpx;
+    position: relative;
+    color: #949494;
+    padding: 0 20rpx;
+    display: inline-block;
+    margin-top: 30rpx;
+}
+
+.other-pay::after {
+    content: '';
+    position: absolute;
+    width: 154rpx;
+    height: 1px;
+    background: #949494;
+    right: -154rpx;
+    top: 18rpx;
+}
+
+.other-pay::before {
+    content: '';
+    position: absolute;
+    width: 154rpx;
+    height: 1px;
+    background: #949494;
+    left: -154rpx;
+    top: 18rpx;
+}
+
+.pay-box {
+    margin-top: 70rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.pay-item {
+    height: 50rpx;
+    line-height: 50rpx;
+    border-right: 1rpx solid #fdf0db;
+    padding-right: 80rpx;
+    padding-left: 80rpx;
+    display: flex;
+    align-items: center;
+}
+
+.pay-item:first-of-type {
+    padding-left: 0;
+}
+
+.pay-item:last-of-type {
+    border: none;
+    padding-right: 0;
+}
+
+.pay-item image {
+    width: 50rpx;
+    height: 50rpx;
+    margin-right: 9rpx;
+    vertical-align: middle;
+}
+
+.pay-item text {
+    font-size: 32rpx;
+    color: #313131;
+}
+
+.popup-content {
+    position: relative;
+    width: 613rpx;
+}
+
+.popup-content-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.popup-content-open {
+    width: 167rpx;
+    height: 167rpx;
+    margin-top: 222rpx;
+}
+
+.popup-content-box .popup-content-tips {
+    color: #e4d999;
+    font-size: 33rpx;
+    line-height: 40rpx;
+    margin-top: 145rpx;
+}
+
+.received {
+    height: 712rpx;
+    background: url('https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacket2.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.open {
+    height: 779rpx;
+    background: url('https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacketTop.png') no-repeat 0 28rpx;
+    background-size: 100% 375rpx;
+}
+
+.popup-content-top {
+    width: 529rpx;
+    height: 439rpx;
+    background: url('https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacketTop2.png') no-repeat top;
+    background-size: 100% 439rpx;
+    position: absolute;
+    top: 382rpx;
+    left: 50%;
+    margin-left: -264rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 0;
+}
+
+.popup-content-top .title {
+    font-size: 34rpx;
+    line-height: 48rpx;
+    color: #b88154;
+    position: relative;
+    margin-top: 35rpx;
+}
+
+.popup-content-top .total {
+    color: #f15f50;
+    font-size: 42rpx;
+    line-height: 76rpx;
+    height: 76rpx;
+    display: flex;
+    align-items: baseline;
+    margin: 52rpx 0 3rpx 0;
+}
+
+.popup-content-top .total text {
+    font-size: 76rpx;
+    font-weight: bold;
+    color: #f15f50;
+}
+
+.popup-content-top .tips {
+    color: #f15f50;
+    font-size: 32rpx;
+    line-height: 48rpx;
+    margin-bottom: 34rpx;
+}
+
+.popup-content-top .title::before {
+    content: '';
+    width: 19rpx;
+    height: 19rpx;
+    display: block;
+    background: url('https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacketSpot.png') no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    left: -42rpx;
+    top: 14rpx;
+}
+
+.popup-content-top .title::after {
+    content: '';
+    width: 19rpx;
+    height: 19rpx;
+    display: block;
+    background: url('https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacketSpot.png') no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    right: -42rpx;
+    top: 14rpx;
+}
+
+.red-packet-member {
+    width: 160rpx;
+    height: 51rpx;
+}
+
+.popup-content-bottom {
+    width: 613rpx;
+    height: 519rpx;
+    background: url('https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacketBottom.png') no-repeat top;
+    background-size: 100% 519rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 9;
+}
+
+.popup-content-bottom button {
+    color: #e4da99;
+    border: 3rpx solid #e4da99;
+    background: transparent;
+    border-radius: 45rpx;
+    width: 474rpx;
+    height: 90rpx;
+    margin-top: 277rpx;
+    font-size: 34rpx;
+    line-height: 90rpx;
+}
+
+.popup-content-bottom view {
+    color: #e4d999;
+    font-size: 34rpx;
+    line-height: 48rpx;
+    margin-top: 72rpx;
+}
+
+button.authorization {
+    width: 100%!important;
+    height: 100%!important;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+button.authorization::after {
+    border: none;
+}

@@ -1,0 +1,49 @@
+<import src="../../template/searchTemplate"></import>
+<view class="search">
+    <template is="searchTemplate" data="{{searchLabelShow:searchLabelShow,searchFocus:searchFocus,searchItem:searchItem,searchText:searchText,placeholderText:placeholderText}}"></template>
+    <button bindtap="toSearch" class="search-btn">搜索</button>
+</view>
+<view class="history" hidden="{{goodsList.length>0}}">
+    <view class="title">历史记录<image style="width:24rpx;height:24rpx;margin-left:392rpx;" src="/image/delete.png"></image>
+    <text bindtap="clearSearchHistory" hidden="searchHistory==0">清除历史记录</text>
+    </view>
+    <text bindtap="clickSearchItem" class="history-item" data-value="{{searchHistoryItem}}" wx:for="{{searchHistory}}" wx:for-item="searchHistoryItem" wx:key="id">{{searchHistoryItem}}</text>
+</view>
+
+<view class="goods-box">
+    <view bindtap="toGoodsDetail" class="goods-item" data-productId="{{item.goods_id}}" id="products-{{item.id}}" wx:for="{{goodlist}}" wx:key="idx">
+        <view class="goods-img-box">
+            <image mode="aspectFit" src="{{url+item.original_img}}"></image>
+            <image class="no-balance" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/sold_out_icon.png" wx:if="{{item.balance===0&&item.business!=='DISTRIBUTION'}}"></image>
+        </view>
+        <view class="goods-info">
+            <view class="goods-name">
+                <view>{{item.goods_name}}</view>
+            </view>
+            <text class="goods-desc">{{item.goods_remark}}</text>
+            <view class="goods-labels">
+                <view data-id="{{index}}" style="border-color:rgb({{item.color}})"  wx:for="{{item.promotions}}" wx:key="index">{{item.goods_remark}}</view>
+            </view>
+            <view class="goods-price"><text style="font-size:22rpx;color:#FE2A36;">￥</text>
+        <text class="nowPrice">{{item.market_price}}</text>
+                <text class="oldPrice">￥{{item.shop_price}}</text>
+            </view>
+            <form bindsubmit="addShopcart" catchtap="addShopcartCatch" reportSubmit="true">
+                        <view class="cart-control">
+                            <!-- <button bindgetuserinfo="getUserInfo" class="add-box" openType="getUserInfo" wx:if="{{!hasUserInfo}}"></button>
+                            <button class="add-box" data-addType="normal" data-balance="{{item.balance}}" data-business="{{item.business}}" data-id="{{item.id}}" data-style="{{item.style}}" data-type="add" formType="submit" hidden="{{item.balance===0&&item.business!=='DISTRIBUTION'}}" wx:else></button> -->
+                            <button class="add-box" catchtap="addShopCarts" data-id="{{item.goods_id}}" style="background-color:#fff;"></button>
+                            <image src="/image/add.png" style="width:36rpx;height:36rpx;position:absolute;top:6rpx;"></image>
+                        </view>
+                    </form>
+        </view>
+    </view>
+</view>
+<!-- <view class="hud-container" wx:if="{{toast.show}}">
+    <image mode="widthFix" src="{{toast.image}}"></image>
+    <text>{{toast.title}}</text>
+</view>
+<setMeal bind:outcome="chooseOutcome" productId="{{meals.productId}}" show="{{meals.show}}" storeId="{{meals.storeId}}"></setMeal>
+<view animation="{{animation}}" class="good_box" hidden="{{hide_good_box}}" style="left:{{bus_x}}px;top:{{bus_y}}px;">
+    <image mode="aspectFit" src="{{goodsBoxImage}}"></image>
+</view> -->

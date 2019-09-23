@@ -1,0 +1,28 @@
+<view class="choice-coupon-main" >
+ 
+    <view class="coupon-box" wx:if="{{couponList.length>0}}">
+        <view bindtap="couponClick" class="coupon-item enable {{currentItem==item.id?'active':''}}" data-id="{{item.id}}" data-type="discount" wx:for="{{couponList}}" wx:for-index="i" wx:key="id">
+            <view class="coupon-top">
+                <image src="{{imageUrl}}coup_logo.png"></image>
+                 <view class="name names" style="color:#3D3D3D;">{{item.name}}</view>
+                 <!-- <view class="name" ><text style="font-size:20rpx;font-style:normal;">￥</text>{{item.money}}</view> -->
+                <text class="time" wx:if="{{item.coupon.effectiveTime!==''}}">有效使用期：{{item.star_time}}-{{item.end_time}}</text>
+            </view>
+          
+        </view>
+      
+    </view>
+    <view class="no-data" hidden="{{allFreeship.length>0?true:false}}" wx:if="{{couponList.length==0}}">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoCoupon.png"></image>
+    </view>
+  
+</view>
+<!-- <view class="content" wx:if="{{loading}}">
+    <view class="spinner">
+        <view class="rect1"></view>
+        <view class="rect2"></view>
+        <view class="rect3"></view>
+        <view class="rect4"></view>
+        <view class="rect5"></view>
+    </view>
+</view> -->

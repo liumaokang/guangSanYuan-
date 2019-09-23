@@ -1,0 +1,59 @@
+.content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 240rpx;
+    height: 100rpx;
+    text-align: center;
+    font-size: 10rpx;
+}
+
+.spinner>view {
+    background-color: #3EDEB9;
+    height: 100%;
+    width: 8rpx;
+    margin: 0 3rpx;
+    display: inline-block;
+    animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+    0%,40%,100% {
+        -webkit-transform: scaleY(0.4);
+    }
+
+    20% {
+        -webkit-transform: scaleY(1.0);
+    }
+}
+
+@keyframes stretchdelay {
+    0%,40%,100% {
+        transform: scaleY(0.4);
+    }
+
+    20% {
+        transform: scaleY(1.0);
+    }
+}

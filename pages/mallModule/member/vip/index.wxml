@@ -1,0 +1,14 @@
+<view catchtap="showAllRight" class="readme"></view>
+<import src="../../../../wxParse/wxParse.wxml" />
+<view class="goods-imgtext">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+<!-- <view>
+    <view class="member-card">
+        <image src="{{vipImgs[gradeNo]}}"></image>
+    </view>
+    <view class="vip-title">
+        <text>当前会员权益</text>
+    </view>
+    <image class="vip-right" mode="widthFix" src="{{vipDesImgs[gradeNo]}}"></image>
+</view> -->

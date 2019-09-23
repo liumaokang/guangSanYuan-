@@ -1,0 +1,9 @@
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="page-body">
+    <!-- <view class="page-section page-section-gap">
+        <web-view src="{{webUrl}}"></web-view>
+    </view> -->
+    <view class="goods-imgtext">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+</view>

@@ -1,0 +1,503 @@
+<movable-area>
+    <view class="top-info">
+        <view class="order-status">
+            <view>
+        {{order.order_status_desc}}
+        <image class="right-icon" src="/image/groupright.png"></image>
+            </view>
+            <view class="countdown">
+                <block wx:if="{{order.order_status_desc=='待支付'}}">
+                    <image src="/image/iconOrderCountDown.png"></image>剩余时间{{time_h}}:{{time_m}}:{{time_s}}
+            </block>        
+            </view>
+        </view>
+        <block wx:if="{{order.order_status_desc=='待支付'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>请尽快支付订单</text>
+                </view>
+
+
+                 <text class="bottom" style="font-size: 20rpx;color: #9e9d9d;" wx:if="{{order.pay_status>0 && order.subscribe>0}}">提货方式：自提</text>
+                 <text class="bottom" style="font-size: 20rpx;color: #9e9d9d;" wx:else >提货方式：配送</text>
+
+            </view>
+            <view class="top-button-box">
+                <button bindtap="toCancel" class="cancel" data-id="{{order.order_id}}">取消订单</button>
+                <button bindtap="toPay" class="payment" data-id="{{order.order_id}}">去支付</button>
+            </view>
+        </block>
+        <!-- <block wx:if="{{order.order_status_desc=='待发货'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>{{filters.filtdistributionCompany(order.distributionCompany)}}骑手已在配送</text>
+                    <text bindtap="toOrderTrajectory" class="distribution" wx:if="{{false}}">查看配送信息</text>
+                </view>
+                <text class="bottom">请您耐心等待~</text>
+            </view>
+            <view class="top-button-box" hidden="{{business=='SCORE'}}">
+                <button bindtap="toRefundGoods" class="cancle" data-id="{{order.order_id}}">申请退款</button>
+            </view>
+        </block> -->
+        <view class="top-tips" wx:if="{{order.order_status_desc=='待自提'}}">
+            <view class="top">
+                <text>自提时间截止后未提货将自动退款哦～</text>
+            </view>
+        </view>
+        <!-- <block wx:if="{{order.order_status_desc=='已付款'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>请耐心等待门店接单</text>
+                </view>
+                <text class="bottom">这一份属于是你的新鲜~</text>
+            </view>
+            <view class="top-button-box" hidden="{{business=='SCORE'}}">
+                <button bindtap="toRefundGoods" class="cancle" data-id="{{order.order_id}}" wx:if="{{business!=='SCORE'&&business!=='ADVANCE_SELL'}}">申请退款</button>
+                <button bindtap="toService" class="cancle btn" wx:if="{{business=='ADVANCE_SELL'}}">联系客服</button>
+            </view>
+        </block> -->
+        <block wx:if="{{order.order_status_desc=='待发货'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>门店正在为您备货</text>
+                </view>
+                <text class="bottom">请耐心等待配送员接单~</text>
+            </view>
+            <view class="top-button-box" hidden="{{business=='SCORE'}}">
+                <button bindtap="toRefundGoods" class="cancle" data-id="{{order.order_id}}" wx:if="{{business!=='SCORE'&&business!=='ADVANCE_SELL'}}">申请退款</button>
+                <button bindtap="toService" class="cancle btn" wx:if="{{business=='ADVANCE_SELL'}}">联系客服</button>
+            </view>
+        </block>
+        <block wx:if="{{order.order_status_desc=='已发货'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>门店已经发货</text>
+                    <text bindtap="toOrderTrajectory" class="distribution" wx:if="{{false}}">查看配送信息</text>
+                </view>
+                <text class="bottom">请耐心等待配送员接单~</text>
+            </view>
+            <view class="top-button-box">
+                <button bindtap="toRefundGoods" class="cancle" data-id="{{order.order_id}}" wx:if="{{business!=='SCORE'&&business!=='ADVANCE_SELL'}}">申请退款</button>
+                <button bindtap="toService" class="cancle btn">联系客服</button>
+            </view>
+        </block>
+        <block wx:if="{{order.order_status_desc=='待配送'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>门店正在为您备货</text>
+                </view>
+                <text class="bottom">请您耐心等待~</text>
+            </view>
+            <view class="top-button-box">
+                <button bindtap="toRefundGoods" class="cancle" data-id="{{order.order_id}}" wx:if="{{business!=='SCORE'}}">申请退款</button>
+                <button bindtap="toTrackingDetails" class="cancle btn" hidden="{{isDistribution?false:true}}">查看物流</button>
+                <button bindtap="toService" class="cancle btn">联系客服</button>
+            </view>
+        </block>
+        <block wx:if="{{order.order_status_desc=='已完成'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>感谢您对鲜丰水果商城的信任</text>
+                </view>
+                <text class="bottom">期待您再次光临。</text>
+            </view>
+            <view class="top-button-box" hidden="{{business=='SCORE'}}">
+                <button bindtap="toService" class="cancle btn">联系客服</button>
+            </view>
+        </block>
+        <block wx:if="{{order.order_status_desc=='待评价'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>感谢您对鲜丰水果商城的信任</text>
+                </view>
+                <text class="bottom">您的鼓励将是我们前进的动力。</text>
+            </view>
+            <view class="top-button-box">
+                <button bindtap="toEvaluate" class="cancle" data-id="{{order.order_id}}">去评价</button>
+                <button bindtap="toService" class="cancle" data-id="{{order.order_id}}" wx:if="{{business!=='SCORE'}}">申请退款</button>
+                <button bindtap="toRefundDetails" class="cancle" data-id="{{order.order_id}}" wx:if="{{supportPartReturn&&hasRefund}}">退款详情</button>
+            </view>
+        </block>
+        <block wx:if="{{order.order_status_desc=='退款中'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>订单您已申请退款</text>
+                </view>
+                <text class="bottom">{{bank?'退款将优先原路退回，银联退款到账时间为1-7个工作日。如遇第三方支付平台账户异常，系统将自动退款至用户账户余额。':'退款将优先原路退回，如遇用户三方支付平台账户异常，系统将自动退款至用户账户余额。'}}</text>
+            </view>
+            <view class="top-button-box">
+                <button bindtap="toService" class="cancle">联系客服</button>
+                <button bindtap="toRefundDetails" class="cancle" data-id="{{order.order_id}}" wx:if="{{supportPartReturn&&hasRefund}}">退款详情</button>
+            </view>
+        </block>
+        <block wx:if="{{order.order_status_desc=='已退款'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>您的订单已退款成功</text>
+                </view>
+                <text class="bottom">{{bank?'退款将优先原路退回，银联退款到账时间为1-7个工作日。如遇第三方支付平台账户异常，系统将自动退款至用户账户余额。':'退款将优先原路退回，如遇用户三方支付平台账户异常，系统将自动退款至用户账户余额。'}}</text>
+            </view>
+            <view class="top-button-box">
+                <button bindtap="toRefundDetails" class="cancle" data-id="{{order.order_id}}" wx:if="{{hasRefund}}">退款详情</button>
+            </view>
+        </block>
+        <block wx:if="{{order.order_status_desc=='待拼团'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>订单拼团还在等待拼团</text>
+                </view>
+                <text class="bottom">拼团记得叫上小伙伴哦~</text>
+            </view>
+            <view class="top-button-box">
+                <button bindtap="toRefundGoods" class="cancle" data-id="{{order.order_id}}" wx:if="{{business!=='SCORE'&&business!=='ADVANCE_SELL'}}">申请退款</button>
+                <button class="to-invitation btn" hidden="{{teamMemberCount-joinMemberCount==0||teamBuyEnd}}" openType="share">邀请好友</button>
+            </view>
+        </block>
+        <block wx:if="{{order.order_status_desc=='已成团'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>订单拼团已经成团</text>
+                </view>
+                <text class="bottom">拼团记得叫上小伙伴哦~</text>
+            </view>
+            <view class="top-button-box">
+                <button bindtap="toRefundGoods" class="cancle" data-id="{{order.order_id}}" wx:if="{{business!=='SCORE'&&business!=='ADVANCE_SELL'}}">申请退款</button>
+                <button class="to-invitation btn" hidden="{{teamMemberCount-joinMemberCount==0||teamBuyEnd}}" openType="share">邀请好友</button>
+            </view>
+        </block>
+        <view class="top-tips" wx:if="{{order.order_status_desc=='已取消'}}">
+            <view class="top">
+                <text>订单已支付超时</text>
+            </view>
+            <text class="bottom">超出支付时间订单已自动取消。</text>
+        </view>
+        <block wx:if="{{order.order_status_desc=='待付尾款'}}">
+            <view class="top-tips">
+                <view class="top">
+                    <text>订单已支付</text>
+                </view>
+                <text class="bottom" wx:if="{{shipmentType==='EXPRESS'}}">支付尾款后配送~</text>
+                <text class="bottom" wx:if="{{shipmentType==='SELF'}}">支付尾款后自提~</text>
+            </view>
+            <view class="top-button-box">
+                <button bindtap="toPayTail" class="payment" data-id="{{order.order_id}}">待付尾款</button>
+            </view>
+        </block>
+    </view>
+    
+    <view wx:if="{{order.subscribe==1 && pay_status>0}}" style="padding: 0 20rpx 0 20rpx;background-color:#fff;line-height:52rpx;margin:8rpx 0;">
+        <view style="font-size:28rpx;font-weight:bold;">{{addresss}}</view>
+        <view style="font-size:24rpx; color:#8b8b8c;">提货时间：{{order.pay_time}}-{{order.add_time}}</view>
+    </view>
+
+    <view class="receive-box" wx:if="{{shipmentType==='EXPRESS'}}">
+        <view class="icon-box">
+            <image src="/image/location_03.png"></image>
+        </view>
+        <view class="receive-info">
+            <view>
+        {{order.consignee}}
+        <text>{{order.mobile}}</text>
+            </view>
+            <view>{{order.address}}</view>
+        </view>
+    </view>
+    <block>
+        <block>
+           
+            <!-- 自提地 -->
+            <view class="code-box"  wx:if="{{order.pay_status>0 && order.subscribe>0}}">
+                <text class="using-tips">请准时至门店收银台，凭提货码取货</text>
+                <view class="selftake-store">
+                    <image src="/image/gohome.png"></image>{{order.province+order.city+order.district}}
+        </view>
+                <view class="barcode-box">
+                    <block wx:if="{{showBarcode}}">
+                        <view bindtap="refreshBarcode" style="text-align:center;line-height:140rpx" wx:if="{{!barcodeImageUrl}}">{{order.order_id}}</view>
+                        <image binderror="codeImgError" bindload="codeImgLoad" bindtap="refreshBarcode" src="{{barcodeImageUrl}}" wx:else></image>
+                    </block>
+                    <image mode="widthFix" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconOrderCode.png" wx:else></image>
+                </view>
+            </view>
+
+          
+
+
+            <view class="button-box" hidden="{{business=='SCORE'}}" wx:if="{{order.subscribe==1 && pay_status>0}}">
+                <button bindtap="toRefundGoods" class="cancle" data-id="{{order.order_id}}" wx:if="{{business!=='SCORE'&&business!=='ADVANCE_SELL'}}">申请退款</button>
+                <!-- <button bindtap="toService" class="cancle btn" wx:if="{{business=='ADVANCE_SELL'}}">联系客服</button> -->
+                <button bindtap="toRefundDetails" class="cancle" data-id="{{order.order_id}}" wx:if="{{supportPartReturn&&hasRefund}}">退款详情</button>
+            </view>
+        </block>
+    </block>
+    <view class="invite-join" wx:if="{{isTeamShare}}">
+        <view class="group-title">
+            <view wx:if="{{!teamBuyEnd}}">
+                <block wx:if="{{teamorder_status_desc=='success'}}">拼团成功</block>
+                <block wx:else>还差 {{teamMemberCount-joinMemberCount}} 人拼团成功</block>
+            </view>
+            <view wx:if="{{teamBuyEnd}}">当前团购活动已过期</view>
+            <view wx:if="{{!teamBuyEnd}}">
+                <block wx:if="{{teamStatus!='success'}}">剩余时间
+          <text>{{countDownList.hou}}:{{countDownList.min}}:{{countDownList.sec}}</text>
+                </block>
+            </view>
+            <view wx:if="{{teamBuyEnd}}"></view>
+        </view>
+        <view class="group-people-list">
+            <block wx:if="{{teamBuyingType!=='THOUSAND'}}">
+                <view class="people-item leader" hidden="{{joinPeopleCount==0}}" wx:if="{{idx==0}}" wx:for="{{joinMbrs}}" wx:for-index="idx" wx:key="idx">
+                    <image src="{{item.avatar}}"></image>
+                    <text class="leader-label">团长</text>
+                </view>
+            </block>
+            <block wx:if="{{teamBuyingType==='THOUSAND'}}">
+                <view class="people-item" wx:if="{{teamPeopleCount>10?index<9:index<teamPeopleCount}}" wx:for="{{joinMbrs}}" wx:key="index">
+                    <image src="{{item.avatar}}"></image>
+                </view>
+                <view class="people-item" wx:if="{{teamPeopleCount>10?index<9-joinPeopleCount:teamPeopleCount-joinPeopleCount}}" wx:for="{{teamPeopleCount-joinPeopleCount}}" wx:key="index">
+                    <text>?</text>
+                </view>
+            </block>
+            <block wx:if="{{teamBuyingType!=='THOUSAND'}}">
+                <view class="people-item" hidden="{{index==0}}" wx:if="{{teamPeopleCount>10?index<8:index<teamPeopleCount}}" wx:for="{{joinMbrs}}" wx:key="index">
+                    <image src="{{item.avatar}}"></image>
+                </view>
+                <view class="people-item" wx:if="{{teamPeopleCount>10?index<9-joinPeopleCount:teamPeopleCount-joinPeopleCount}}" wx:for="{{teamPeopleCount-joinPeopleCount}}" wx:key="index">
+                    <text>?</text>
+                </view>
+            </block>
+            <view class="people-more" wx:if="{{teamPeopleCount>10}}">
+                <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconCollageMore.png"></image>
+            </view>
+        </view>
+        <block wx:if="{{teamMemberCount-joinMemberCount==0||teamBuyEnd?false:true}}">
+            <button class="join-group usable" hidden="{{teamMemberCount-joinMemberCount==0||teamBuyEnd}}" openType="share">邀请好友参团</button>
+            <view class="group-share-text" hidden="{{teamBuyEnd||teamorder_status_desc=='success'}}">分享到3个群，有95%的机会在5分钟内成团</view>
+        </block>
+        <block wx:else>
+            <view class="group-success" wx:if="{{teamorder_status_desc=='success'}}">
+                <icon color="#3CDBC0" size="20" type="success"></icon>
+                <text>门店正在配货  请耐心等待片刻</text>
+            </view>
+        </block>
+    </view>
+    <view class="selftake-time color-454545" wx:if="{{shipmentType==='SELF'}}">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconSelfTake.png"></image>{{selfTimeScope}}</view>
+    <view   style="padding: 20rpx 19rpx;background-color: #fff;margin: 20rpx 0;box-shadow: 0px 2rpx 8rpx 0px rgba(217,217,217,0.75);">
+         <image src="/image/location_04.png" style="width: 30rpx;height: 26rpx;"></image>
+        <text style="font-size: 28rpx;color: #2b2b2b;padding:0 10rpx;" >{{order.consignee}}</text>
+        <text style="font-size: 28rpx;color: #2b2b2b;" >{{order.mobile}}</text>
+        <view  style="font-size: 28rpx;color: #2b2b2b;line-height:33rpx;" class="receive-address">
+         <text style="padding-right: 7rpx;">{{order.province+order.address}}</text>
+        </view>
+    </view>
+    <view class="goods-box">
+        <view bindtap="toGoodsDetail" class="goods-item" data-item="{{item}}" wx:for="{{order.goods_list}}" wx:key="index">
+            <view class="goods-img">
+                <image mode="widthFix" src="{{item.goods_img}}"></image>
+            </view>
+            <view class="goods-info">
+                <view class="goods-left">
+                    <text class="goods-name">{{item.goods_name}}</text>
+                    <text class="goods-desc">{{item.description}}</text>
+                </view>
+                <view class="goods-right">
+                    <view class="goods-count">x{{item.goods_num}}</view>
+                    <view class="goods-price" wx:if="{{order.business==='SCORE'}}">
+                        <text class="nowPrice">￥{{item.exchangeScores}}</text>积分
+          </view>
+                    <view class="goods-price" wx:else>
+                        <text class="nowPrice">￥{{item.goods_price}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="section-box dispatching-fee">
+            <view class="left-icon">配送费</view>
+            <!-- <view>￥{{order.shipmentAmount}}</view> -->
+            <view style="font-weight:normal;">￥{{sendPrice}}</view>
+             <!-- <view wx:else>免邮</view> -->
+        </view>
+    </view>
+    <view class="bill-details">
+        <view bindtap="toggleMiddlePopup">账单明细
+    <!--   <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconOrderTips.png"></image> -->
+        </view>
+        <view class="balance-accounts">合计：
+      <text>￥{{total_fee}}</text>
+        </view>
+    </view>
+    <view class="store-box" wx:if="{{order.subscribe>0}}">
+        <view class="title">门店信息</view>
+        <view class="section-box">
+            <text class="color-454545">门店地址：</text>
+            <view>{{order.province}}{{order.city}}{{order.district}}{{order.address}}</view>
+        </view>
+        <view bindtap="contactStore" data-mobile="{{order.mobile}}" class="section-box contact-store">
+            <image class="tel" src="/image/phone.jpg" style="width: 28rpx;height: 24rpx;"></image>
+            <text class="color-009F55">联系门店</text>
+        </view>
+    </view>
+    <view class="order-box">
+        <view class="title">订单信息</view>
+        <view class="section-box">
+            <text class="color-454545">订   单   号：</text>
+            <text selectable="true">{{order.order_sn}}</text>
+        </view>
+        <view class="section-box">
+            <text class="color-454545">支付方式：</text>
+            <text>{{payType}}</text>
+        </view>
+        <view class="section-box">
+            <text class="color-454545">下单时间：</text>
+            <text>{{order.add_time}}</text>
+        </view>
+        <view class="section-box num-express" wx:if="{{trackingNumber}}">
+            <text class="color-454545">运单号：</text>
+            <text>{{order.invoice_no}}</text>
+            <text bindtap="toTrackingDetails" class="trackingDetails" wx:if="{{trackingNumber}}">查看详情 ></text>
+        </view>
+        <view class="section-box" wx:if="{{order.payorder_status_desc==='FINISHED'||order.payorder_status_desc==='RECEIVED'}}">
+            <text class="color-454545">核销门店：</text>
+            <text>{{order.storeName}}</text>
+        </view>
+        <view class="section-box" wx:if="{{(order.payorder_status_desc==='FINISHED'||order.payorder_status_desc==='RECEIVED')&&order.finishedTime}}">
+            <text class="color-454545">核销时间：</text>
+            <text>{{order.finishedTime}}</text>
+        </view>
+        <view class="section-box remarks">
+            <text class="color-454545">订单备注：</text>
+            <text class="remarks-info" selectable="true">{{beizhu}}</text>
+        </view>
+    </view>
+    <movable-view  x="{{x}}" y="{{y}}" direction='all'>
+      <image bindtap="toHome" class="movable-view" src="/image/tohome.png"></image>
+        </movable-view>
+</movable-area>
+    <view class="share-raffle" wx:if="{{canRaffle}}">
+        <button data-shareType="raffle" openType="share"></button>
+    </view>
+<popup bind:close="toggleMiddlePopup" customClass="middle" position="middle" show="{{show.middle}}">
+    <view class="popup-content">
+        <view class="title">账单明细</view>
+        <view class="popup-content-box">
+            <view class="price-detail">
+                <view>
+                    <text class="color-454545" wx:if="{{orderType!=='advanceSell'}}">商品金额</text>
+                    <text class="color-454545" wx:if="{{orderType==='advanceSell'}}">预付定金</text>
+                    <text class="color-ff7171">￥{{order.order_amount}}</text>
+                </view>
+               <!--  <view>
+                    <text class="color-454545">运费</text>
+                    <text class="color-454545" hidden="{{deductibleShipmentAmonut===0}}">(运费券已减{{deductibleShipmentAmonut}}元)</text>
+                    <text class="color-ff7171">+￥{{shipmentAmount-deductibleShipmentAmonut}}</text>
+                </view> -->
+                <view>
+                    <text class="color-454545">积分抵扣</text>
+                    <text class="color-ff7171">-￥{{order.integral_money}}</text>
+                </view>
+                <view>
+                    <text class="color-454545">优惠券</text>
+                    <text class="color-ff7171">-￥{{order.coupon_price}}</text>
+                </view>
+                <view hidden="{{giftCardAmount>0?false:true}}">
+                    <text class="color-454545">礼品卡</text>
+                    <text class="color-ff7171">-￥{{giftCardAmount}}</text>
+                </view>
+                <view hidden="{{cardPrice>0?false:true}}">
+                    <text class="color-454545">储值余额</text>
+                    <text class="color-ff7171">-￥{{order.user_money}}</text>
+                </view>
+                <view hidden="{{cashDeductTotal>0?false:true}}">
+                    <text class="color-454545">活动优惠</text>
+                    <text class="color-ff7171">-￥{{cashDeductTotal}}</text>
+                </view>
+            </view>
+            <view class="realpay" wx:if="{{balanceEnable}}">
+        实付款:
+        <text>￥{{order.total_amount}}</text>
+            </view>
+            <view class="realpay" wx:if="{{!balanceEnable}}">
+        已付定金:￥{{order.order_amount}} 需付尾款:
+        <text>￥{{balanceTotal}}</text>
+            </view>
+        </view>
+        <view bindtap="toggleMiddlePopup" class="button">确 定</view>
+    </view>
+</popup>
+<popup bind:close="payTogglePayPopup" customClass="bottom" position="bottom" show="{{show.pay}}">
+    <view class="payshow-content">
+        <view class="pay-title">
+            <image src=""></image>
+            <text>选择支付方式</text>
+            <image catchtap="payTogglePayPopup" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconLuckDrawClose.png"></image>
+        </view>
+        <view class="pay-totalcash">
+            <text>待支付</text>
+            <text class="bold">￥{{total_fee}}</text>
+        </view>
+        <view class="pay-content">
+           <radio-group class="radio-group" bindchange="radioChange">
+            <view class="section {{item.checked?'active':''}}" data-id="{{item.id}}" data-name="{{item.name}}"  wx:for="{{payPayMethods}}" wx:key="index">
+                <view class="left">
+                    <image style="width:38rpx;height:38rpx;" src="{{item.imageUrl}}"></image>
+                </view>
+                <view class="right" wx:if="{{item.name=='CARDPAY'}}">
+                    <text>{{item.value}}</text>
+                    <text class="money">可用余额：￥{{user_money}}</text>
+                </view>
+                <view class="right" wx:if="{{item.name=='WXPAY'}}">
+                    <text>{{item.value}}</text>
+                    <block wx:if="{{!notUseWxpay}}">
+                        <text class="money">还需支付：￥{{total_fee}}</text>
+                    </block>
+                </view>
+                <view style="position:absolute;right:0;top:50%;transform:translate(0,-50%)">
+                   <label class="radio" > 
+                    <radio checked="{{item.id=='0'?true:false}}"  value="{{item.value}}" />
+                  </label>
+                </view>
+            </view>
+          </radio-group>
+        </view>
+        <view class="pay-bottom-box">
+          <button bindtap="payToPayment" class="pay-btn">支付</button>
+          </view>
+    </view>
+</popup>
+<view bindtap="payClickBlank" class="modal-box" hidden="{{!payModal}}">
+    <view catchtap="payClickBody" class="modal-body">
+        <view class="modal-content card">
+            <view class="title">请输入支付密码</view>
+            <view class="close">
+                <image catchtap="payClickBlank" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconCloseImg2.png"></image>
+            </view>
+            <view class="content">
+                <view class="input_main">
+                    <view catchtap="getFocus" class="input_row">
+                        <view class="pwd_item" wx:for="{{6}}" wx:for-index="i" wx:key="item">
+                            <text wx:if="{{payPassword.length>i}}"></text>
+                        </view>
+                    </view>
+                    <input password bindinput="payHandlePassword" class="input_control" confirmType="done" focus="{{payFocus}}" maxlength="6" type="number"></input>
+                    <view class="pay-tip">为获得更好购物体验，建议使用6位数字密码</view>
+                    <view bindtap="payHandleResetPassword" class="forget-password">修改密码</view>
+                </view>
+            </view>
+            <view class="button-box2">
+                <button bindtap="payToCardPay" class="confirm">确认支付</button>
+            </view>
+        </view>
+    </view>
+</view>
+<popup bind:close="payToggleMiddlePopup" customClass="middle" position="middle" show="{{show.payMiddle}}">
+    <view class="paypopup-content">
+        <view class="paypopup-content-box">
+            <image mode="widthFix" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconNetworkTimeout.png"></image>
+        </view>
+        <view bindtap="payToggleMiddlePopup" class="button">我知道了</view>
+    </view>
+</popup>
+
+<wxs module="filters" src="../../wxs/filters.wxs" />

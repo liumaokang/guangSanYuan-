@@ -1,0 +1,127 @@
+.top-info {
+    height: 240rpx;
+    border-bottom: 20rpx solid #f1f1f1;
+    text-align: center;
+    overflow: hidden;
+}
+
+.stored-pass-text {
+    text-align: right;
+    font-size: 24rpx;
+    color: #f1b400;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-top: 20rpx;
+    margin-right: 40rpx;
+}
+
+.stored-pass-text image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-top: -6rpx;
+}
+
+.value-text {
+    color: #ff8561;
+    font-size: 48rpx;
+}
+
+.current-text {
+    color: #454545;
+    font-size: 24rpx;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.watch-detail {
+    color: #f1b400;
+    font-size: 24rpx;
+}
+
+.watch-detail image {
+    width: 24rpx;
+    height: 27rpx;
+    vertical-align: middle;
+    margin-top: -6rpx;
+    margin-right: 10rpx;
+}
+
+.content {
+    padding: 0rpx 40rpx;
+    box-sizing: border-box;
+    border-bottom: 20rpx solid #f1f1f1;
+}
+
+.content .content-top-text {
+    height: 90rpx;
+    line-height: 90rpx;
+    font-size: 28rpx;
+    color: #1b1b1d;
+    border-bottom: 1rpx solid #dcdcdc;
+    margin-bottom: 30rpx;
+}
+
+.price-box {
+    overflow: hidden;
+}
+
+.price-box>view {
+    width: 210rpx;
+    height: 160rpx;
+    border: 1rpx solid #454545;
+    border-radius: 10rpx;
+    text-align: center;
+    box-sizing: border-box;
+    float: left;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+    color: #454545;
+    overflow: hidden;
+}
+
+.price-box>view:nth-of-type(3n+3) {
+    margin-right: 0rpx;
+}
+
+.price-box>view.active {
+    border: 4rpx solid #f1b400;
+}
+
+.price-box>view .price-text {
+    height: 100rpx;
+    line-height: 100rpx;
+    border-bottom: 1rpx solid #ededed;
+    font-size: 36rpx;
+}
+
+.price-box>view .price-text text {
+    font-size: 24rpx;
+}
+
+.price-box>view .welfare {
+    height: 59rpx;
+    line-height: 59rpx;
+    font-size: 24rpx;
+}
+
+.price-box>view .welfare text {
+    color: #ffa300;
+}
+
+.confirm-btn {
+    width: 100%;
+    background: #f1b400;
+    color: #fff;
+    margin: 30rpx 0rpx;
+}
+
+.remain {
+    padding: 30rpx 40rpx;
+    font-size: 24rpx;
+    color: #8b8b8c;
+}
+
+.remain>view:first-of-type {
+    font-size: 28rpx;
+}

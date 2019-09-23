@@ -1,0 +1,38 @@
+<view class="banner-box">
+    <swiper autoplay="true"  interval="5000" >
+        <swiper-item bindtap="bannerJumping" class="swiper-item"  wx:for="{{banners}}" wx:key="index">
+            <image class="slide-image" src="{{imgurl}}{{item.ad_code}}"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="column-box">
+    <view class="column-item">
+        <image mode="widthFix" src="https://v.coolndns.com/upload/wxapi/jifen_center01.png"></image>积分<text wx:if="{{scores}}">{{scores}}</text><text wx:else>0</text>
+    </view>
+    <view bindtap="jump1" class="column-item">
+        <image mode="widthFix" src="https://v.coolndns.com/upload/wxapi/jifen_center02.png"></image>兑换记录
+    </view>
+</view>
+<view style='padding:0 20rpx;box-sizing:border-box;'>
+  <view bindtap="toGoodsDetail" class="goods-item" data-goodsId="{{item.goods_id}}" wx:for="{{goodlist}}" wx:key="{{item.goods_id}}">
+      <view class="goods-img-box">
+          <image mode="widthFix" src="{{imgurl+item.original_img}}"></image>
+          <!-- <image class="qiangguang" hidden="{{item.balance>0?true:false}}" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/sold_out_icon.png"></image> -->
+      </view>
+      <view class="goods-info">
+          <view class="goods-introduce" wx:if="{{item.produtlabel.length>0||item.specifications}}">
+              <text style="background:rgb({{item.color}})" wx:if="{{index<3}}" wx:for="{{item.produtlabel}}" wx:key="index">{{item.labelName}}</text>{{item.specifications}}</view>
+          <text class="goods-name">{{item.goods_name}}</text>
+          <text class="goods-desc">{{item.description?item.description:''}}</text>
+          <view class="goods-price">
+              <text class="nowPrice">{{item.shop_price}}积分</text>
+              <text class="oldPrice" wx:if="{{item.originalPrice&&item.sellPrice<item.originalPrice}}">￥{{item.originalPrice}}</text>
+          </view>
+          <view>
+            <block>
+            <button bindtap="go_goodsDetail" class="{{scores>=item.shop_price?'enable':'unable'}}" data-goodsid="{{item.goods_id}}">{{scores>=item.shop_price?'立即兑换':'积分不足'}}</button>
+            </block>
+          </view>
+      </view>
+  </view>
+</view>

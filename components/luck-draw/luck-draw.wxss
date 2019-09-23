@@ -1,0 +1,172 @@
+.luckdraw {
+    text-align: center;
+}
+
+.text {
+    width: 609rpx;
+    height: 196rpx;
+    margin-top: 100rpx;
+    margin-bottom: 60rpx;
+}
+
+.main {
+    width: 618rpx;
+    height: 505rpx;
+    position: relative;
+    text-align: center;
+}
+
+.main .luckdraw-box {
+    width: 750rpx;
+    height: 505rpx;
+}
+
+.btn {
+    position: relative;
+    top: -150px;
+    width: 415rpx;
+    height: 300rpx;
+    opacity: 0;
+    background-size: 100% 100%;
+}
+
+.btn::after {
+    border: none;
+}
+
+.luckdraw-text {
+    position: absolute;
+    width: 424rpx;
+    height: 60rpx;
+    left: 95rpx;
+    bottom: 80rpx;
+    font-size: 36rpx;
+    color: #ffffff;
+}
+
+.content {
+    width: 518rpx;
+    height: 170rpx;
+    position: absolute;
+    top: 46rpx;
+    left: 113rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .line {
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 14rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.content .line image {
+    width: 170rpx;
+    height: 510rpx;
+    border-radius: 14rpx;
+    position: absolute;
+    left: 0px;
+    top: -510rpx;
+}
+
+.content .line .default {
+    top: 0rpx;
+}
+
+.content .line .default-img {
+    top: 0rpx;
+}
+
+button.disabled {
+    opacity: 0;
+}
+
+.flicker {
+    animation: flicker 2s ease-in-out infinite;
+}
+
+@-webkit-keyframes flicker {
+    0% {
+        transform: scale(1,1);
+    }
+
+    25% {
+        transform: scale(1.08,1.08);
+    }
+
+    50% {
+        transform: scale(1,1);
+    }
+
+    75% {
+        transform: scale(1.08,1.08);
+    }
+
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+@keyframes flicker {
+    0% {
+        transform: scale(1,1);
+    }
+
+    25% {
+        transform: scale(1.08,1.08);
+    }
+
+    50% {
+        transform: scale(1,1);
+    }
+
+    75% {
+        transform: scale(1.08,1.08);
+    }
+
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+.flicker2 {
+    animation: flicker2 1.5s ease-in-out infinite;
+}
+
+@-webkit-keyframes flicker2 {
+    0% {
+        transform: scale(1,1);
+    }
+
+    25% {
+        transform: scale(1,1);
+    }
+
+    50% {
+        transform: scale(1,1);
+    }
+
+    100% {
+        transform: scale(1.08,1.08);
+    }
+}
+
+@keyframes flicker2 {
+    0% {
+        transform: scale(1,1);
+    }
+
+    25% {
+        transform: scale(1,1);
+    }
+
+    50% {
+        transform: scale(1,1);
+    }
+
+    100% {
+        transform: scale(1.08,1.08);
+    }
+}

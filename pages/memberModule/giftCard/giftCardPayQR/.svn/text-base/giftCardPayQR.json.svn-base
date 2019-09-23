@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "礼品卡支付",
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    }
+}

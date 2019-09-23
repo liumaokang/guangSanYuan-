@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "分销员中心",
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    }
+}

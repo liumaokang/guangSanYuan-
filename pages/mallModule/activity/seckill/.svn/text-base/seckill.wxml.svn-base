@@ -1,0 +1,104 @@
+<movable-area>
+    <view class="page-content">
+        <view class="banner-box">
+            <swiper autoplay="true" circular="true" class="swiper" indicatorDots="{{false}}" interval="5000">
+                <swiper-item bindtap="toAdPage" class="swiper-item" data-id="{{item.id}}" data-type="banner" wx:for="{{timeLists}}" wx:key="index">
+                    <image class="slide-image" src="{{imgurl+item.ad_code}}"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="time-body">
+            <scroll-view scrollX class="time-list" style="width: 100%" wx:if="{{timeList.length>0}}">
+                <view bindtap="clickCategory" class="time-item {{tabSelected==idx?'active':''}}" data-idx="{{idx}}" wx:for="{{timeList}}"   wx:for-index="idx" wx:key="index">
+                    <view class="center">
+                        <text>{{item}}</text>
+                        <text wx:if="{{status=='ahead' }}">
+                                <text wx:if="{{tabSelected<idx }}">即将开始</text>
+                                <text wx:if="{{tabSelected>idx }}">结束</text>
+                                <text wx:if="{{tabSelected==idx}}">抢购中</text>
+                        </text>
+                        <text wx:if="{{status=='end' }}">
+                                      <text wx:if="{{tabSelected<idx }}">即将开始</text>
+                                      <text wx:if="{{tabSelected>idx }}">结束</text>
+                                      <text wx:if="{{tabSelected==idx}}">抢购中</text>
+                        </text>
+                        
+                        <text wx:if="{{status=='start'}}">
+                            <text wx:if="{{tabSelected<idx }}">即将开始</text>
+                            <text wx:if="{{tabSelected>idx }}">结束</text>
+                            <text wx:if="{{tabSelected==idx}}">抢购中</text>
+                       </text>
+
+                    </view>
+                    <image class="triangle" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/skill_acitve.png"></image>
+                </view>
+            </scroll-view>
+        </view>
+        <view class="time-down">
+            <view class="label">
+                <text wx:if="{{goodsStatus=='start'}}">正在抢购中</text>
+                <text wx:if="{{goodsStatus=='end'}}">本场抢购已结束</text>
+                <text wx:if="{{goodsStatus=='ahead'}}">即将开始抢购</text>
+            </view>
+            <view class="time-box" wx:if="{{goodsStatus=='ahead'}}">
+        即将开始
+        </view>
+       <view class="time-box" wx:if="{{goodsStatus=='end'}}">
+          快去下一场抢购吧
+      </view>
+            <!-- <view class="time-box" wx:if="{{secKillStatus==='ahead'?true:false}}">
+        距离开始 :
+                <text class="last-hour txt">{{00}}</text>
+                <text class="colon">:</text>
+                <text class="last-minute txt">{{time_m}}</text>
+                <text class="colon">:</text>
+                <text class="last-second txt">{{time_s}}</text>
+        </view> -->
+            <view class="time-box"  wx:if="{{goodsStatus=='start'}}">
+        距离结束 :
+        <text class="last-hour txt">{{time_h}}</text>
+                <text class="colon">:</text>
+                <text class="last-minute txt">{{time_m}}</text>
+                <text class="colon">:</text>
+                <text class="last-second txt">{{time_s}}</text>
+            </view>
+        </view>
+        <view class="goods-content"  >
+
+            <view bindtap="flash_Goods_Detail" class="goods-item" wx:for="{{firstgoodlist}}" wx:key="id" data-productid="{{item.goods_id}}" data-saleid="{{item.id}}">
+                <view class="goods-img-box">
+                    <image src="{{imgurl+item.original_img}}"></image>
+                    <image class="sold-out" mode="aspectFit" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/sold_out_icon.png" wx:if="{{item.balance<=0}}"></image>
+                </view>
+                <view class="goods-info">
+                    <view class="goods-name">
+                        <view>{{item.goods_name}}</view>
+                    </view>
+                    <text class="goods-desc">{{item.grabDescribe}}</text>
+                    <view class="progress-box">
+                        <progress active activeColor="#FFDDB1" backgroundColor="#ffffff" percent="{{(item.goods_num-item.order_num)/item.goods_num*100}}" strokeWidth="8"></progress>
+                        <text>仅剩{{(item.goods_num-item.order_num)/item.goods_num*100}}%</text>
+                    </view>
+                    <view class="goods-price">
+                        <view class="price">
+                            <text class="nowPrice"><text style="font-size:22rpx">￥</text>{{item.price}}</text>
+                            <text class="oldPrice">￥{{item.shop_price}}</text>
+                        </view>
+                        <view class="btn skill-ahead" wx:if="{{goodsStatus=='ahead'}}"><image src="/image/kill.png" style="width:16rpx;height:27rpx;margin-right:4rpx;vertical-align:middle;"></image>未开始</view>
+                        <view class="btn skill-start" wx:if="{{goodsStatus=='start'?'enable':able}}" ><image src="/image/kill.png" style="width:16rpx;height:27rpx;margin-right:4rpx;vertical-align:middle;"></image>立刻抢购</view>
+                        <view class="btn skill-end" wx:if="{{goodsStatus=='end'}}"><image src="/image/kill.png" style="width:16rpx;height:27rpx;margin-right:4rpx;vertical-align:middle;"></image>已结束</view>
+                    </view>
+                </view>
+            </view>
+            <view class="no-data" wx:if="{{firstgoodlist.length==0}}" >
+                <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoData.png"></image>
+                <button bindtap="toHome" size="mini">随便逛逛</button>
+            </view>
+        </view>
+    </view>
+    <tabbar bind:popup="recorderPopup" show="{{showTabbar}}" tabbar="{{tabbar}}"></tabbar>
+    <movable-view direction="all" x="{{x}}" y="{{y}}" wx:if="{{homeBack}}">
+        <image bindtap="toHome" class="movable-view" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/toHome.png"></image>
+    </movable-view>
+</movable-area>
+<wxs module="filters" src="filters.wxs" />

@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "余额支付",
+    "navigationBarBackgroundColor": "#3CDBC0",
+    "navigationBarTextStyle": "white",
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    }
+}

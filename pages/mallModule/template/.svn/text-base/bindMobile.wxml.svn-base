@@ -1,0 +1,7 @@
+<template name="bindMobile">
+    <view class="bind-mobile-box" hidden="{{isMember}}">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconBindMobile.png"></image>
+        <text>找不到订单或优惠券？绑定手机号试试</text>
+        <navigator class="bind-btn" url="/pages/mallModule/member/bindMobile/bindMobile">立即绑定</navigator>
+    </view>
+</template>

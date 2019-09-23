@@ -1,0 +1,30 @@
+<view class="cell">
+    <text>适用门店</text>
+    <view bindtap="toStoreList" class="btn">查看全部门店</view>
+</view>
+<view class="cell">
+    <text>活动时段</text>
+    <view>{{timeRange}}</view>
+</view>
+<view class="cell">
+    <text>商户电话</text>
+    <view bindtap="handelCall" class="mobile">{{mobile}}</view>
+</view>
+<view class="cell">
+    <text>有效期</text>
+    <view>激活之日起{{validityTime}}</view>
+</view>
+<view class="cell">
+    <text>使用须知</text>
+    <view>
+        <view wx:for="{{remark}}" wx:key="index">{{item}}</view>
+    </view>
+</view>
+<view class="cell">
+    <text>购买说明</text>
+    <view>
+        <view>1、您可以在小程序中时时关注领取情况；</view>
+        <view>2、礼品卡购买后无法退款，购买后24小时内未被好友领取则自动退回我的礼品卡中；</view>
+        <view>3、该礼品卡无法校验您的好友关系，因此如无特殊用途请勿将礼品卡链接发送BBS论坛等公关平台社区；</view>
+    </view>
+</view>

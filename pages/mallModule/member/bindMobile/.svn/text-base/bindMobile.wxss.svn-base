@@ -1,0 +1,70 @@
+page {
+    background-size: 100% 100%;
+}
+
+.logo {
+    text-align: center;
+    padding: 60rpx 0 84rpx 0;
+}
+
+.logo image {
+    width: 240rpx;
+    height: 56rpx;
+}
+
+.btn {
+    color: #fff;
+    text-align: center;
+    width: 570rpx;
+    height: 100rpx;
+    background: linear-gradient(270deg,rgba(60,219,192,1) 0%,rgba(65,240,143,1) 100%);
+    border-radius: 4rpx;
+    font-size: 36rpx;
+    font-weight: bold;
+    line-height: 100rpx;
+}
+
+.get-code {
+    font-size: 28rpx;
+    font-weight: bold;
+    line-height: 110rpx;
+    float: right;
+}
+
+.mobile-input-box,.code-input-box {
+    margin: 0rpx 90rpx;
+    height: 110rpx;
+    border-bottom: 1rpx solid rgba(0,0,0,0.1);
+    overflow: hidden;
+    line-height: 110rpx;
+}
+
+view input {
+    float: left;
+    width: 380rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #000;
+    height: 110rpx;
+    line-height: 110px;
+}
+
+.agreement {
+    margin: 102rpx 90rpx 30rpx;
+    width: 528px;
+    height: 34rpx;
+    font-size: 24rpx;
+    color: #666;
+    line-height: 34rpx;
+}
+
+.agreement image {
+    width: 24rpx;
+    height: 24rpx;
+    position: relative;
+    top: 5rpx;
+}
+
+.agreement text {
+    color: #41f08f;
+}

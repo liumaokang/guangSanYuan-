@@ -1,0 +1,79 @@
+.content {
+    padding: 0 30rpx;
+}
+
+.profit-item {
+    border-bottom: 1rpx solid #ebebeb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 140rpx;
+}
+
+.profit-item .info {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 36rpx;
+}
+
+.profit-item .info text {
+    display: block;
+}
+
+.profit-item .info .genre {
+    font-size: 30rpx;
+    color: #000;
+    margin-bottom: 12rpx;
+}
+
+.profit-item .info .time {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.profit-item .total {
+    font-size: 36rpx;
+    color: #ff8561;
+}
+
+.no-data {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    margin-top: 50%;
+}
+
+.no-data image {
+    width: 242rpx;
+    height: 261rpx;
+}
+
+.loading-btn {
+    color: #454545;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 0;
+}
+
+.loading-btn::after {
+    border: 0;
+}
+
+.order-end {
+    color: #009136;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    text-align: center;
+}

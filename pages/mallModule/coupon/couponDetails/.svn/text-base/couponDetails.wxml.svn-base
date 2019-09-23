@@ -1,0 +1,110 @@
+<movable-area>
+    <view class="content" >
+        <!-- <block wx:if="{{'coupon.function'=='PACKAGE'}}"> -->
+        <block wx:if="{{'PACKAGE'=='PACKAGE'}}">
+            <view class="coupon-box">
+                <view class="coupon-top">
+                    <image src="{{imageUrl}}coup_logo.png"></image>
+                    <view class="name">满{{coupon.condition}}减{{coupon.money}}</view>
+                    <text class="time">有效使用期：{{coupon.user_start_time}}-{{coupon.user_end_time}}</text>
+                </view>
+                <view class="coupon-bottom">
+                    <text class="condition">{{coupon.type}}</text>
+                    <block wx:if="{{false}}">
+                        <view bindtap="toIndex" class="use" wx:if="{{type==='discount'}}">去购物</view>
+                        <view bindtap="toIndex" class="use" wx:else>去购物</view>
+                    </block>
+                </view>
+            </view>
+            <!-- <view class="coupon-box" wx:for="{{coupon.childCouponActivity}}" wx:key="{{item.id}}">
+                <view class="coupon-top">
+                    <image src="{{imageUrl}}coup_logo.png"></image>
+                    <view class="name">{{item.name}}满100减50</view>
+                    <text class="time" wx:if="{{item.effectiveTime!==''}}">有效使用期：{{item.effectiveTime}} 2019-10-10 20:30:00</text>
+                </view>
+                <view class="coupon-bottom">
+                    <text class="condition">{{item.allProduct?'该优惠券对全部商品(不包括秒杀/拼团等促销商品)适用':'该优惠券只针对特定商品使用'}}</text>
+                    <block wx:if="{{false}}">
+                        <view bindtap="toIndex" class="use" wx:if="{{type==='discount'}}">去购物</view>
+                        <view bindtap="toIndex" class="use" wx:else>去购物</view>
+                    </block>
+                </view>
+            </view> -->
+        </block>
+        <view class="coupon-box" wx:else>
+            <view class="coupon-top">
+                <image src="{{imageUrl}}coup_logo.png"></image>
+                <block wx:if="{{type==='assign'}}">
+                    <view class="name" wx:if="{{coupon.function!='DISCOUNT'&&coupon.function!=='FREESHIP'}}">{{coupon.name}}</view>
+                    <view class="name" wx:if="{{coupon.function=='DISCOUNT'&&coupon.function!=='FREESHIP'}}">{{coupon.name}}</view>
+                    <view class="name" wx:if="{{coupon.function==='FREESHIP'}}">{{coupon.couponActivityName}}</view>
+                </block>
+                <block wx:if="{{type==='discount'||type==='freeship'}}">
+                    <view class="name" wx:if="{{coupon.function!='DISCOUNT'&&type==='discount'}}">{{coupon.name}}</view>
+                    <view class="name" wx:if="{{coupon.function=='DISCOUNT'&&type==='discount'}}">{{coupon.name}}</view>
+                    <view class="name" wx:if="{{coupon.rate!=0&&type==='freeship'}}">{{coupon.name}}</view>
+                </block>
+                <text class="time" wx:if="{{coupon.effectiveTime!==''}}">{{type==='assign'?'抢券时间：':'有效使用期：'}}{{coupon.effectiveTime}}</text>
+            </view>
+            <view class="coupon-bottom">
+                <text class="condition">{{coupon.allProduct?'该优惠券对全部商品(不包括秒杀/拼团等促销商品)适用':'该优惠券只针对特定商品使用'}}</text>
+                <block wx:if="{{false}}">
+                    <view bindtap="toIndex" class="use" wx:if="{{type==='discount'}}">去购物</view>
+                    <view bindtap="toIndex" class="use" wx:else>去购物</view>
+                </block>
+            </view>
+        </view>
+        <view class="coupon-code-box" wx:if="{{showCode}}">
+            <view class="barcode-box">
+                <canvas canvasId="couponbarcode"></canvas>
+            </view>
+            <text>{{codeText}}</text>
+        </view>
+        <view class="coupon-details">
+            <view class="section">
+                <view>使用条件</view>
+                <!-- <text>{{coupon.useRule}} 限小程序内使用</text> -->
+                <text>满{{coupon.condition}}减{{coupon.money}}</text>
+            </view>
+            <view class="section">
+                <view>{{type==='assign'?'抢券时间':'有效期限'}}</view>
+                <!-- <text>{{coupon.validityTime}} 2019-09-10 20:30:00 --- 2019-10-10 20:30:00</text> -->
+                <text>{{coupon.user_start_time}}-{{coupon.user_end_time}}</text>
+
+            </view>
+           <!--  <view class="section">
+                <view>使用说明</view>
+                <text>{{coupon.description}} 1.单笔订单限用1张,拼团/秒杀除外</text>
+            </view> -->
+        </view>
+        <view class="button-box">
+            <block wx:if="{{type==='assign'}}">
+                <block wx:if="{{isExternal}}">
+                    <button bindtap="toAssign" class="btn {{hasAssign?'nonsupport':''}}" wx:if="{{!isAssign}}">{{hasUserInfo?'立即抢券':'授权登录'}}</button>
+                    <button bindtap="toIndex" class="btn" wx:if="{{isAssign}}">{{hasUserInfo?'立即使用':'授权登录'}}</button>
+                </block>
+                <block wx:else>
+                    <block wx:if="{{coupon.function=='PACKAGE'}}">
+                        <button bindtap="toAssign" class="btn bold" wx:if="{{!isAssign}}">{{hasUserInfo?'￥'+coupon.price+'购买':'授权登录'}}</button>
+                    </block>
+                    <button bindtap="toAssign" class="btn" wx:else>{{hasUserInfo?'立即抢券':'授权登录'}}</button>
+                </block>
+            </block>
+            <button bindtap="toIndex" class="btn" hidden="{{coupon.status!=='OPEN'}}">立即使用</button>
+            <button bindgetuserinfo="getUserInfo" class="authorization" openType="getUserInfo" wx:if="{{!hasUserInfo}}"></button>
+            <button catchtap="toAuthorize" class="authorization" wx:elif="{{!isMember}}"></button>
+        </view>
+    </view>
+    <view class="content-box" wx:if="{{loading}}">
+        <view class="spinner">
+            <view class="rect1"></view>
+            <view class="rect2"></view>
+            <view class="rect3"></view>
+            <view class="rect4"></view>
+            <view class="rect5"></view>
+        </view>
+    </view>
+    <!-- <movable-view direction="all" x="{{x}}" y="{{y}}" wx:if="{{homeBack}}">
+        <image bindtap="toIndex" class="movable-view" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/toHome.png"></image>
+    </movable-view> -->
+</movable-area>

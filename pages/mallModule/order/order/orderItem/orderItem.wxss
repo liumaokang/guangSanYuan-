@@ -1,0 +1,146 @@
+.order-item {
+    background-color: #fff;
+    font-size: 28rpx;
+    min-height: 308rpx;
+    margin-top: 20rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.order-item:first-of-type {
+    margin-top: 0rpx;
+}
+
+.item-top {
+    padding: 0px 30rpx;
+    height: 93rpx;
+    line-height: 93rpx;
+    border-bottom: 1px solid #F3F3F3;
+}
+
+.group-icon,.kill-icon {
+    display: inline-block;
+    line-height: 36rpx;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 20rpx;
+    margin-right: 10rpx;
+    margin-top: -4rpx;
+    width: 72rpx;
+    height: 36rpx;
+    background: linear-gradient(90deg,rgba(255,51,78,1) 0%,rgba(255,71,152,1) 100%);
+    border-radius: 4rpx;
+    color: #fff;
+}
+
+.order-num {
+    line-height: 93rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(102,102,102,1);
+}
+
+.group-icon {
+    background: linear-gradient(90deg,rgba(60,219,192,1) 0%,rgba(66,229,172,1) 100%);
+}
+
+.kill-icon {
+    color: #ff002e;
+    border: solid 2rpx #ff002e;
+}
+
+.order-status {
+    float: right;
+    line-height: 93rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: #F8C41F;
+    margin-bottom: 15rpx;
+}
+
+.item-middle {
+    height: 140rpx;
+    padding: 0rpx 30rpx;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.goods-item-img {
+    width: 126rpx;
+    height: 126rpx;
+    /* border-radius: 6rpx; */
+    box-sizing: border-box;
+    border: 1rpx solid #EFEFEF;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 10rpx;
+}
+
+.goods-item-img image {
+    height: 100%;
+    width: 100%;
+}
+
+.item-total {
+    padding: 0rpx 30rpx;
+    text-align: right;
+    height: 65rpx;
+    line-height: 65rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(102,102,102,1);
+}
+
+.item-body {
+}
+
+.item-total text:first-of-type {
+    margin-right: 10rpx;
+}
+
+/* .item-total .freight {
+    font-size: 26rpx;
+} */
+
+.item-total .total-price {
+    color:rgba(44,43,43,1);
+    /* font-weight: bolder; */
+}
+
+.btn-body {
+    padding: 0 30rpx;
+}
+
+.btn-box {
+    height: 89rpx;
+    text-align: right;
+    /* border-top: 1rpx solid rgba(229,229,229,1); */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn-box button {
+    font-size: 24rpx;
+    font-family: PingFangSC-Medium;
+    color: #545454;
+    line-height: 50rpx;
+    height: 50rpx;
+    background: rgba(255,255,255,1);
+    border-radius: 30rpx;
+    border:2rpx solid rgba(84,84,84,1);
+    margin: 0;
+    margin-left: 20rpx;
+}
+
+.btn-box button::after {
+    color: #999;
+    border: 1rpx solid rgba(153,153,153,1);
+}
+
+.btn-box button:last-of-type {
+    margin-right: 0;
+}

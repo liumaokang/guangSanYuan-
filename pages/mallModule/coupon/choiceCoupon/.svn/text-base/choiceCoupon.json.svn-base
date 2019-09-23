@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "选择优惠券",
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    }
+}

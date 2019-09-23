@@ -1,0 +1,107 @@
+<view class="content">
+    <view class="prompt-box">
+        <image class="success-icon" src="/image/qianbao.png" style="margin-top: {{successIconTop}};" style='width:173rpx;height:124rpx;'></image>
+        <text class="success-text">支付成功</text>
+    </view>
+    <view class="delivery-box" wx:if="{{showCode}}">
+        <text class="title">您的订单提货码为</text>
+        <view class="code-box">
+            <view class="barcode-box">
+                <canvas canvasId="barcode" hidden="{{show.luckDraw||show.middle}}"></canvas>
+                <image hidden="{{!show.middle&&!show.luckDraw}}" src="{{barcodeImageUrl}}"></image>
+            </view>
+            <text>{{codeText}}</text>
+        </view>
+        <text class="tips" wx:if="{{orderType=='normal'}}">请至收银台，凭订单提货码取货</text>
+        <text class="tips" wx:if="{{orderType=='advanceSell'}}">全款支付成功，您可根据提货码在规定时间内到指定门店取货</text>
+    </view>
+    <view class="delivery-box" wx:if="{{!showCode}}">
+        <text class="tips" wx:if="{{orderType=='advanceSell'&&type==='SELF'&&(orderStatus==='PAID'||orderStatus==='PENDING')}}">全款支付成功，您可根据提货码在规定时间内到指定门店取货</text>
+        <text class="tips" wx:if="{{type==='SELF'&&orderStatus==='WAITPAYBALANCE'}}">定金支付成功，提货码将于尾款支付成功后展示。</text>
+        <text class="tips" wx:if="{{type==='EXPRESS'&&orderStatus==='WAITPAYBALANCE'}}">定金支付成功，我们将于尾款支付后{{deliveryTime}}天发货。</text>
+        <text class="tips" wx:if="{{type==='EXPRESS'&&orderStatus==='PAID'}}">我们将于{{deliveryTime}}天后发货。</text>
+    </view>
+    <view class="btn-box" style="margin-top:106rpx;">
+        <button bindtap="toHome" class="btn" type="default">返回首页</button>
+        <button bindtap="toOrderDetails" class="btn" type="default">查看订单</button>
+    </view>
+
+    <view class="recommending-box">
+        <view class="recommending-title"><image src="/image/left.png" style="width: 84rpx;height:16rpx;margin-right:10rpx;" alt=""></image> 更多推荐<image src="/image/right.png" style="width: 84rpx;height:16rpx;margin-left:20rpx;" alt=""></image></view>
+        <view class="goods-list">
+            <view class="goods-item" wx:for="{{group_goods}}"  data-goodsid="{{item.goods_id}}"  data-id="{{item.id}}"  bindtap="go_pingtuan" wx:key="index">
+                <view class="img-box">
+                    <view class="group-icon" wx:if="{{item.isTeam}}">{{item.humansum}}人团</view>
+                    <image mode="aspectFit" src="{{url}}/{{item.original_img}}"></image>
+                </view>
+                <view class="goods-info">
+                    <text class="goods-name">{{item.goods_name}}</text>
+                    <text class="goods-discription">{{item.goods_remark}}</text>
+                    <view class="goods-price">
+                        <block wx:if="{{item.isTeam}}">
+                            <text class="sell-price"><text>￥</text>{{item.market_price}}</text>
+                            <text class="old-price" ><text>￥</text>{{item.goods.shop_price}}</text>
+                        </block>
+                        <block wx:else>
+                            <text class="sell-price"><text>￥</text>{{item.market_price}}</text>
+                            <text class="old-price" wx:if="{{item.originalPrice&&item.sellPrice<item.originalPrice}}">￥{{item.goods.shop_price}}</text>
+                             
+                        </block>
+                        <view class="button-box" wx:if="{{item.isTeam}}">{{item.teamBuyingType==='THOUSAND'?'去参团':'去开团'}}</view>
+                    <view class="button-box" wx:else>立即购买</view>
+                    </view>
+                   
+                </view>
+            </view>
+        </view>
+    </view>
+
+</view>
+<popup bind:close="toggleLuckDrawPopup" customClass="top" overlayStyle="{{luckDrawImageBg}}" position="top" show="{{show.luckDraw}}">
+    <view class="popup-luckdraw-box">
+        <luckdraw-game bind:draw="getUserClickDraw" bind:fans="getUserIsFans" luckDrawText="{{luckDrawTextImage}}" onClickLuckDraw="{{isMember}}" status="{{raffleResult}}"></luckdraw-game>
+        <view bindtap="toggleLuckDrawPopup" class="popup-luckdraw-close">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconIndexPopupClose.png"></image>
+        </view>
+    </view>
+</popup>
+<popup bind:close="toggleMiddlePopup" customClass="middle" position="middle" show="{{show.middle}}">
+    <view class="popup-box">
+        <view class="popup-title">抽奖结果</view>
+        <view bind:tap="toggleMiddlePopup" class="popup-close">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconLuckDrawClose.png"></image>
+        </view>
+        <block wx:if="{{hasRaffleCoupon}}">
+            <view class="popup-content">
+                <text class="popup-tips">恭喜您成功领取</text>
+                <text class="popup-text">{{raffleInfo.rafflePrizeName}}</text>
+            </view>
+            <view class="popup-button">
+                <text>券已放入您的账户</text>
+                <button class="share-btn" openType="share">把好运气分享给小伙伴</button>
+            </view>
+        </block>
+        <block wx:if="{{!hasRaffleCoupon}}">
+            <block wx:if="{{activeState==='end'}}">
+                <view class="popup-content">
+                    <text class="popup-text">您来晚了</text>
+                    <text class="popup-text">活动已经结束了！</text>
+                </view>
+                <view class="popup-button">
+                    <text>敬请期待下次活动哦</text>
+                    <button bindtap="toggleluckDrawResultPopup" class="share-btn">去商城逛逛</button>
+                </view>
+            </block>
+            <block wx:if="{{activeState==='start'}}">
+                <view class="popup-content">
+                    <text class="popup-text-end">您来晚了</text>
+                    <text class="popup-text-end">奖品已被抽光了！</text>
+                </view>
+                <view class="popup-button">
+                    <text>活动期间扫码可获得抽奖机会</text>
+                    <button bindtap="toggleluckDrawResultPopup" class="share-btn">去商场逛逛</button>
+                </view>
+            </block>
+        </block>
+    </view>
+</popup>

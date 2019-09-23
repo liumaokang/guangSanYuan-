@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    },
+    "navigationBarTitleText": "到店订单详情"
+}

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "订单列表",
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    }
+}

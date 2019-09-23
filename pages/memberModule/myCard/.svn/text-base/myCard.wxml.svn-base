@@ -1,0 +1,17 @@
+<import src="../template/couponBalanceScore.wxml"></import>
+<import src="../template/barcode.wxml"></import>
+<view class="content">
+    <view class="userinfo-box">
+        <image src="{{userInfo.wxaUser.avatarUrl}}"></image>
+    </view>
+    <text class="nickName">{{userInfo.wxaUser.nickName}}</text>
+    <template is="barcode" data></template>
+    <text>{{filters.filtQRNumber(userInfo.member.id)}}</text>
+    <template is="couponBalanceScore" data="{{couponCount:couponCount,storedValue:storedValue,score:score}}"></template>
+    <view class="bottom-btn">
+        <view bindtap="toBalancePay" class="balance-btn">
+            <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/advertImages/payYE.png"></image>
+      余额支付</view>
+    </view>
+</view>
+<wxs module="filters" src="../wxs/filters.wxs" />

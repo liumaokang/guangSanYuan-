@@ -1,0 +1,234 @@
+page {
+    background-color: #f5f5f5;
+}
+
+.top-info,.choose-address,.contact-info {
+    padding: 0 19rpx;
+    background: #fff;
+}
+
+.top-info {
+    border-top: 20rpx solid #f5f5f5;
+    border-top-left-radius: 10rpx;
+    border-top-right-radius: 10rpx;
+    overflow: hidden;
+}
+.box1{
+   width: 710rpx;
+    margin: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.top-info .lable-box {
+    height: 50rpx;
+    padding: 30rpx 0 30rpx 162rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.top-info .lable-box .lable-item {
+    font-size: 24rpx;
+    line-height: 50rpx;
+    height: 50rpx;
+    color: #8b8b8c;
+    border: 1rpx solid #8b8b8c;
+    border-radius: 5rpx;
+    display: inline-block;
+    padding: 0 24rpx;
+    margin-right: 30rpx;
+}
+
+.top-info .lable-box .lable-item.active {
+    color: #F85D62;
+    border: 1rpx solid #F85D62;
+}
+
+.top-info .lable-box .lable-item:last-of-type {
+    margin-right: 0;
+}
+
+.section {
+    background: #fff;
+    border-bottom: 1rpx solid #f1f1f1;
+    font-size: 28rpx;
+    height: 98rpx;
+    line-height: 98rpx;
+    overflow: auto;
+    display: flex;
+    position: relative;
+}
+
+.choose-address {
+    margin-bottom: 40rpx;
+    border-bottom-left-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+}
+
+.choose-address .section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    color: #454545;
+    width: 164rpx;
+    float: left;
+    text-align: left;
+}
+
+.section picker {
+    text-align: left;
+    position: relative;
+}
+
+.address-picker {
+    color: #000;
+}
+
+.region {
+    width: 506rpx;
+    position: relative;
+}
+
+.right {
+    float: left;
+    width: 524rpx;
+    position: relative;
+}
+
+.right input {
+    font-size: 28rpx;
+    height: 98rpx;
+    width: 90%;
+    line-height: 36rpx;
+    padding: 27rpx 0;
+    box-sizing: border-box;
+    color: #313131;
+}
+
+.right image {
+    width: 16rpx;
+    height: 28rpx;
+    position: absolute;
+    right: 0;
+    top: 34rpx;
+}
+
+.choose-city image {
+    width: 16rpx;
+    height: 28rpx;
+    position: absolute;
+    right: 0;
+    top: 35rpx;
+}
+
+.contact-info .section .section-title {
+    color: #313131;
+}
+
+.detailed {
+    height: 142rpx;
+    position: relative;
+    overflow: hidden;
+}
+
+.detailed .right {
+    height: 142rpx;
+}
+
+.detailed .section-title {
+    padding-top: 26rpx;
+    line-height: 36rpx;
+    font-size: 28rpx;
+}
+
+.detailed .right textarea {
+    height: 142rpx;
+    width: 100%;
+    padding: 26rpx 0 0 0;
+    font-size: 28rpx;
+    line-height: 36rpx;
+    color: #333;
+}
+
+.placeholder {
+    font-size: 28rpx;
+    line-height: 36rpx;
+    color: #8b8b8c;
+    height: 98rpx;
+    display: block;
+}
+
+.detailed label image {
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: middle;
+    margin-top: -4rpx;
+}
+
+.default text {
+    margin-right: 20rpx;
+}
+
+.choose-address .lable-box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #fff;
+    font-size: 28rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    overflow: hidden;
+    padding: 40rpx 0;
+    margin-bottom: 20rpx;
+}
+
+.lable-box .lable-item {
+    font-size: 24rpx;
+    color: #666;
+    border: 1rpx solid #e5e5e5;
+    display: inline-block;
+    margin-right: 30rpx;
+    width: 140rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    background: rgba(255,255,255,1);
+    border-radius: 4rpx;
+}
+
+.lable-box .lable-item.active {
+    color: #F85D62;
+    border: 1rpx solid #F85D62;
+}
+
+.lable-box .space {
+    width: 1rpx;
+    height: 100%;
+    display: inline-block;
+}
+
+.btn {
+    color: #fff;
+    font-size: 32rpx;
+    font-weight: bold;
+    height: 100rpx;
+    line-height: 100rpx;
+    width: 670rpx;
+    border-radius: 6rpx;
+    border: none;
+    background: #F85D62;
+}
+
+.btn-delelte {
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(102,102,102,1);
+    line-height: 88rpx;
+    margin-top: 30rpx;
+    margin-bottom: 60rpx;
+    height: 88rpx;
+    background: rgba(255,255,255,1);
+    text-align: center;
+}

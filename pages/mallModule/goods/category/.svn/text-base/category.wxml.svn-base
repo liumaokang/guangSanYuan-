@@ -1,0 +1,53 @@
+<view class="top-info container">
+    <view class="index-search-box">
+        <view bindtap="handleConfirm" class="search-hot-box">
+            <image class="search" src="/image/search1.png" style="width:26rpx;height:26rpx;"></image>
+            <text>请输入您要搜索的商品</text>
+        </view>
+    </view>
+</view>
+
+
+
+<view class="contain">
+  <view class="left">
+    <!-- <view class="{{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">热门推荐</view> -->
+    <view wx:for="{{cartlist}}" wx:key="index" class="{{currentTab==item.id?'active':''}}" data-current="{{item.id}}" bindtap="clickTab">{{item.name}}</view>
+    <!-- <view class="{{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">数码产品</view>
+    <view class="{{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">汽车配件</view> -->
+  </view>
+  <view class="right">
+    <view style="height: 155rpx;">
+       <image lazyLoad="true" style="width:100%;height:100%;border-radius:10rpx;" src="{{url+goodsBanner}}"></image>
+    </view>
+    <view class="list" wx:for="{{goodsLists}}" wx:key="index" wx:if="{{list_show}}" data-id="{{item.goods_id}}">
+      <view class="shop_img" bindtap="go_pingtuan" data-goodsid="{{item.goods_id}}">
+          <image src="{{url+item.original_img}}"></image>
+      </view>
+      <view class="shop_info">
+          <view class="name" bindtap="go_pingtuan" data-goodsid="{{item.goods_id}}">
+            <view style="white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{item.goods_name}}</view>
+          </view>
+          <view class="shopping" bindtap="go_pingtuan" data-goodsid="{{item.goods_id}}">            
+            <text>{{item.goods_remark}}</text>
+          </view>
+          <view class="price">
+              <view bindtap="go_pingtuan" data-goodsid="{{item.goods_id}}">
+                  <text style="font-size:20rpx">￥<text class="txt">{{item.shop_price}}</text></text>
+                  <text style="font-size:20rpx">￥<text class="txt">{{item.market_price}}</text></text>
+              </view>
+              <view class="buy_enter" bindtap="addShopCarts" data-id="{{item.goods_id}}">
+              <image style="width:36rpx;height:36rpx;"  src="/image/add.png"></image>
+              </view>
+          </view>            
+      </view>     
+    </view>
+  </view>
+</view>
+
+<!-- <loading showLoading="{{loading}}"></loading>
+<tabbar bind:popup="recorderPopup" show="{{showTabbar}}" tabbar="{{tabbar}}"></tabbar>
+<setMeal bind:outcome="chooseOutcome" productId="{{meals.productId}}" show="{{meals.show}}" storeId="{{meals.storeId}}"></setMeal>
+<view animation="{{animation}}" class="good_box" hidden="{{hide_good_box}}" style="left:{{bus_x}}px;top:{{bus_y}}px;">
+    <image mode="aspectFit" src="{{goodsBoxImage}}"></image>
+</view> -->

@@ -1,0 +1,176 @@
+@import "../template/couponBalanceScore.wxss";
+
+.banner-box {
+    width: 100%;
+    height: 375rpx;
+    margin: 0 auto;
+    margin-bottom: 20rpx;
+}
+
+.banner-box .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-box .swiper-item {
+    width: 100%;
+    height: 100%;
+}
+
+.banner-box image {
+    width: 100%;
+    height: 100%;
+}
+
+.info-box,.online-mall,.recharge-center,.coupon-center,.gift-box,.score-mall {
+    box-shadow: 1px 2px 5px 0px #dedede;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.info-box {
+    width: 670rpx;
+    height: 290rpx;
+    margin: 0 auto;
+    margin-bottom: 30rpx;
+    overflow: hidden;
+}
+
+.user-info {
+    overflow: hidden;
+    width: 370rpx;
+    float: left;
+    margin-top: 45rpx;
+    margin-left: 30rpx;
+}
+
+.user-info image {
+    float: left;
+    width: 100rpx;
+    height: 100rpx;
+    margin-right: 10rpx;
+    position: relative;
+    background: #eee;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-info image button {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.user-info .name-mobile {
+    float: left;
+    width: 260rpx;
+    height: 100rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 50rpx;
+}
+
+.name-mobile .member-name {
+    font-size: 32rpx;
+    display: block;
+}
+
+.name-mobile .member-mobile {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.member-qr-box {
+    width: 130rpx;
+    height: 130rpx;
+    margin-top: 30rpx;
+    margin-right: 30rpx;
+    background: #f1b400;
+    border-radius: 10rpx;
+    float: right;
+    color: #fff;
+    font-size: 22rpx;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.member-qr-box image {
+    width: 58rpx;
+    height: 58rpx;
+    margin-bottom: 4rpx;
+}
+
+.content-box {
+    margin: 0 auto;
+    margin-bottom: 40rpx;
+    width: 670rpx;
+}
+
+.content-box>view {
+    display: flex;
+    justify-content: space-between;
+}
+
+.online-mall {
+    width: 440rpx;
+    height: 210rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20rpx;
+    float: left;
+    color: #454545;
+}
+
+.online-mall image {
+    width: 73rpx;
+    height: 65rpx;
+    margin-right: 40rpx;
+}
+
+.recharge-center,.coupon-center,.gift-box,.score-mall {
+    width: 210rpx;
+    height: 210rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    float: left;
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+    color: #454545;
+}
+
+.recharge-center image {
+    width: 69rpx;
+    height: 69rpx;
+    margin-bottom: 20rpx;
+}
+
+.coupon-center image {
+    width: 78rpx;
+    height: 65rpx;
+    margin-bottom: 20rpx;
+}
+
+.gift-box image {
+    width: 78rpx;
+    height: 65rpx;
+    margin-bottom: 20rpx;
+}
+
+.score-mall image {
+    width: 65rpx;
+    height: 65rpx;
+    margin-bottom: 20rpx;
+}
+
+.online-mall:active,.recharge-center:active,.coupon-center:active,.gift-box:active,.score-mall:active {
+    background: #ececec;
+}

@@ -1,0 +1,22 @@
+.cell {
+    font-size: 30rpx;
+    margin: 0rpx 40rpx;
+    border-bottom: 1rpx solid #EFEFEF;
+    padding: 40rpx 0rpx;
+    overflow: hidden;
+}
+
+.cell text {
+    color: #333;
+    float: left；;
+}
+
+.cell view {
+    float: right;
+    width: 530rpx;
+    color: #909090;
+}
+
+.cell .btn,.cell .mobile {
+    color: #576B95;
+}

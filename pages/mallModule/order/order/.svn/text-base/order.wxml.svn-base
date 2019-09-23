@@ -1,0 +1,64 @@
+<import src="./orderItem/orderItem.wxml"></import>
+<movable-area>
+    <view class="order-box">
+        <view class='top'>
+            <scroll-view scrollX class="top-tab" style="width: 100%">
+            <!-- 五种订单状态 -->
+                <view bindtap="switchTab" class="tab-item {{tabSelected==idx?'active':''}}" data-idx="{{idx}}" wx:for="{{tabType}}" wx:for-index="idx" wx:key="index">
+                    <view class="tab-wrap">
+                        <text class="item-text">{{item}}</text>
+                    </view>
+                </view>
+            </scroll-view>
+        </view>        
+        <view class="order-list">
+            <!-- 全部订单 -->
+            <view class="order-content" hidden="{{tabSelected!==0}}">
+                <template is="orderItem"  data="{{item:item,sendPrice}}" wx:for="{{allOrders}}" wx:key="{{item.order_id}}"></template>
+                <view class="no-data" hidden="{{allOrders.length==0?false:true}}">
+                    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoOrders.png"></image>
+                </view>
+            </view>
+            <!-- 待支付 -->
+            <view class="order-content" hidden="{{tabSelected!==1}}">
+                <template is="orderItem" data="{{item:item,sendPrice}}" wx:for="{{unpayedOrders}}" wx:key="{{item.order_id}}"></template>
+                <view class="no-data" hidden="{{unpayedOrders.length==0?false:true}}">
+                    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoOrders.png"></image>
+                </view>
+            </view>
+            <!-- 已退款 -->
+            <view class="order-content" hidden="{{tabSelected!==4}}">
+                <template is="orderItem" data="{{item:item,sendPrice}}" wx:for="{{payBack}}" wx:key="{{item.id}}"></template>
+                <view class="no-data" hidden="{{payBack.length==0?false:true}}">
+                    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoOrders.png"></image>
+                </view>
+            </view>
+            <!-- 待自提 -->
+            <view class="order-content" hidden="{{tabSelected!==2}}">
+                <template is="orderItem" data="{{item:item,sendPrice}}" wx:for="{{untakeOrders}}" wx:key="{{item.id}}"></template>
+                <view class="no-data" hidden="{{untakeOrders.length==0?false:true}}">
+                    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoOrders.png"></image>
+                </view>
+            </view>
+            <!-- 待评价 -->
+            <view class="order-content" hidden="{{tabSelected!==3}}">
+                <template is="orderItem" data="{{item:item,sendPrice}}" wx:for="{{unEvaluateOrders}}" wx:key="{{item.id}}"></template>
+                <view class="no-data" hidden="{{unEvaluateOrders.length==0?false:true}}">
+                    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoOrders.png"></image>
+                </view>
+            </view>
+            <!-- 待支付 -->
+            <view class="order-content" hidden="{{tabSelected!==5}}">
+                <template is="orderItem" data="{{item:item,sendPrice}}" wx:for="{{unPayedTailOrders}}" wx:key="{{item.id}}"></template>
+                <view class="no-data" hidden="{{unPayedTailOrders.length==0?false:true}}">
+                    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoOrders.png"></image>
+                </view>
+            </view>
+            <button class="loading-btn" hidden="{{!loading}}" loading="{{loading}}">正在加载...</button>
+            <view class="order-end" wx:if="{{noMore&&pageIndex!=1}}">~我也是有底线的~</view>
+        </view>
+    </view>
+    <movable-view direction="all" x="{{x}}" y="{{y}}" wx:if="{{homeBack}}">
+        <image bindtap="toHome" class="movable-view" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/toHome.png"></image>
+    </movable-view>
+</movable-area>

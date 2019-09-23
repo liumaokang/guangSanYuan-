@@ -1,0 +1,37 @@
+<view class="coupon-item-box use-box" hidden="{{couponList.length===0}}" wx:if="{{type==='DISCOUNT'}}">
+    <view bindtap="toCouponDetails" class="coupon-item" data-activityId="{{item.couponActivityId}}" data-external="{{item.isExternal}}" data-id="{{item.id}}" data-type="discount" wx:for="{{couponList}}" wx:key="index">
+        <view class="coupon-top">
+            <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconLogoXf.png"></image>
+            <view class="name" wx:if="{{item.function!=='DISCOUNT'}}">{{item.couponActivityName}}</view>
+            <view class="name" wx:if="{{item.function==='DISCOUNT'}}">{{item.couponActivityName}}</view>
+            <text class="time" wx:if="{{item.effectiveTime!==''}}">有效使用期：{{item.effectiveTime}}</text>
+        </view>
+        <view class="coupon-bottom">
+            <text class="condition">{{item.allProduct?'该优惠券对全部商品(不包括秒杀/拼团等促销商品)适用':'该优惠券只针对特定商品使用'}}</text>
+            <view class="use">{{item.statusDesc}}</view>
+        </view>
+    </view>
+</view>
+<view class="coupon-item-box use-box" hidden="{{couponList===0}}" wx:if="{{type==='FREESHIP'}}">
+    <view bindtap="toCouponDetails" class="coupon-item" data-activityId="{{item.couponActivityId}}" data-external="{{item.isExternal}}" data-id="{{item.id}}" data-type="freeship" wx:for="{{couponList}}" wx:key="index">
+        <view class="coupon-top">
+            <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconLogoXf.png"></image>
+            <view class="name" wx:if="{{item.rate!=0}}">
+                <text>{{item.rate}}</text>折运费优惠券</view>
+            <view class="name" wx:if="{{item.rate==0}}">全价运费优惠券</view>
+            <text class="time" wx:if="{{item.effectiveTime!==''}}">有效使用期：{{item.effectiveTime}}</text>
+        </view>
+        <view class="coupon-bottom">
+            <text class="condition">该优惠券只针对配送使用</text>
+            <view class="use">{{item.statusDesc}}</view>
+        </view>
+    </view>
+</view>
+<view class="no-data" hidden="{{couponList.length==0?false:true}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoCoupon.png"></image>
+    <button bindtap="toHome" size="mini">随便逛逛</button>
+</view>
+<view class="coupon-bottom-box" hidden="{{!noCouponData||couponList.length==0}}">
+    <view class="coupon-data">没有更多数据</view>
+</view>
+<view class="loading" hidden="{{!load}}">正在加载...</view>

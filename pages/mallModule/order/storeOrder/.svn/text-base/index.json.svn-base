@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    },
+    "enablePullDownRefresh": true,
+    "navigationBarTitleText": "到店订单"
+}

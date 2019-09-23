@@ -1,0 +1,15 @@
+view {
+    margin: 0rpx 40rpx;
+    border-bottom: 1rpx solid #f1f1f1;
+    line-height: 90rpx;
+    color: #454545;
+    font-size: 28rpx;
+}
+
+.store-item {
+    font-weight: bold;
+}
+
+.all {
+    text-align: center;
+}

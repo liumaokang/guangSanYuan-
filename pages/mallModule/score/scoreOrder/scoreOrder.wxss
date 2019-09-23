@@ -1,0 +1,104 @@
+@import "orderItem/orderItem.wxss";
+
+page {
+    height: 100%;
+    width: 100%;
+    border-top: 1rpx solid #f1f1f1;
+}
+
+.no-data {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-data image {
+    width: 242rpx;
+    height: 261rpx;
+}
+
+.loading-btn {
+    color: #454545;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    width: 100%;
+    background: #fff;
+    border-radius: 0;
+}
+
+.loading-btn::after {
+    border: 0;
+}
+
+.order-end {
+    color: #FE2A36;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    text-align: center;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 240rpx;
+    height: 100rpx;
+    text-align: center;
+    font-size: 10rpx;
+}
+
+.spinner>view {
+    background-color: #3CDBC0;
+    height: 100%;
+    width: 8rpx;
+    margin: 0 3rpx;
+    display: inline-block;
+    animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+    0%,40%,100% {
+        -webkit-transform: scaleY(0.4);
+    }
+
+    20% {
+        -webkit-transform: scaleY(1.0);
+    }
+}
+
+@keyframes stretchdelay {
+    0%,40%,100% {
+        transform: scaleY(0.4);
+    }
+
+    20% {
+        transform: scaleY(1.0);
+    }
+}

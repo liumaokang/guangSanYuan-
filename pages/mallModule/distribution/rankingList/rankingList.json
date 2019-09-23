@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "龙虎榜",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "authorize": "../../components/authorize/authorize",
+        "loading": "/./components/loading/index"
+    }
+}

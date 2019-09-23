@@ -1,0 +1,12 @@
+<template name="searchTemplate">
+    <view class="search-box">
+        <view bindtap="handleFocus" class="search-main">
+            <image src='/image/search1.png' style="width:26rpx;height:26rpx;position:absolute;left:0;top:0;left:23rpx;top:15rpx;"></image>
+            <input bindblur="handleBlur" bindconfirm="handleConfirm" bindfocus="handleInputFocus" bindinput="handleInput" confirmType="search" focus="{{searchFocus}}" id="search" placeholder="{{placeholderText}}" value="{{searchItem}}"></input>
+            <label for="search" hidden="{{searchLabelShow}}">
+                <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/indexIconSearch.png"></image>
+                <text>{{searchText}}</text>
+            </label>
+        </view>
+    </view>
+</template>

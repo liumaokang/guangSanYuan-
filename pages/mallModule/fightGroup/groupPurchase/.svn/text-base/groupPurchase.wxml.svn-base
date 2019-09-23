@@ -1,0 +1,124 @@
+<movable-area>
+    <view class="page-content">
+        <view class="group-purchase-box" hidden="{{!groupActivity}}">
+            <view bindtap="toGoodsDetail" class="group-goods-item" data-productId="{{id}}" data-type="group">
+                <view class="group-goods-img-box">
+                    <image mode="aspectFit" src="{{productDetails.imageUrl}}"></image>
+                </view>
+                <view class="group-goods-info">
+                    <text class="goods-name">{{name}}</text>
+                    <text class="goods-desc">{{description}}</text>
+                    <text class="group-number">{{teamMemberCount}}人团</text>
+                    <view class="goods-price">
+            ￥
+            <text class="nowPrice">{{teamMemberPrice}}</text>
+                        <text class="oldPrice" hidden="{{originalPrice===''}}">￥{{originalPrice}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="group-people-list">
+                <block wx:if="{{teamBuyingType!=='THOUSAND'}}">
+                    <view class="people-item leader" hidden="{{joinPeopleCount==0}}" wx:if="{{idx==0}}" wx:for="{{joinMbrs}}" wx:for-index="idx" wx:key="idx">
+                        <image src="{{item.avatar}}"></image>
+                        <text class="leader-label">团长</text>
+                    </view>
+                </block>
+                <block wx:if="{{teamBuyingType==='THOUSAND'}}">
+                    <view class="people-item" wx:if="{{teamPeopleCount>10?index<9:index<teamPeopleCount}}" wx:for="{{joinMbrs}}" wx:key="index">
+                        <image src="{{item.avatar}}"></image>
+                    </view>
+                    <view class="people-item" wx:if="{{teamPeopleCount>10?index<9-joinPeopleCount:teamPeopleCount-joinPeopleCount}}" wx:for="{{teamPeopleCount-joinPeopleCount}}" wx:key="index">
+                        <text>?</text>
+                    </view>
+                </block>
+                <block wx:if="{{teamBuyingType!=='THOUSAND'}}">
+                    <view class="people-item" hidden="{{index==0}}" wx:if="{{teamPeopleCount>10?index<8:index<teamPeopleCount}}" wx:for="{{joinMbrs}}" wx:key="index">
+                        <image src="{{item.avatar}}"></image>
+                    </view>
+                    <view class="people-item" wx:if="{{teamPeopleCount>10?index<9-joinPeopleCount:teamPeopleCount-joinPeopleCount}}" wx:for="{{teamPeopleCount-joinPeopleCount}}" wx:key="index">
+                        <text>?</text>
+                    </view>
+                </block>
+                <view class="people-more" wx:if="{{teamPeopleCount>10}}">
+                    <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconCollageMore.png"></image>
+                </view>
+            </view>
+            <block wx:if="{{pageFrom=='normal'}}">
+                <text class="group-tips" wx:if="{{!teamBuyEnd}}">
+                    <text hidden="{{teamMemberCount-joinMemberCount==0}}">拼单中，还差{{teamMemberCount-joinMemberCount>0?teamMemberCount-joinMemberCount:0}}人，还剩{{countDownList.hou}}:{{countDownList.min}}:{{countDownList.sec}}</text>
+                    <text wx:if="{{teamMemberCount-joinMemberCount==0||teamStatus=='success'}}">该团购已成团</text>
+                </text>
+                <text class="group-tips" wx:if="{{teamBuyEnd}}">当前团购活动已过期...</text>
+                <button bindgetuserinfo="getUserInfo" class="join-group {{teamMemberCount-joinMemberCount==0?'unavailable':'usable'}}" hidden="{{teamBuyEnd||teamStatus!=='normal'}}" openType="getUserInfo" wx:if="{{!hasUserInfo}}">一键参团</button>
+                <button bindtap="joinGroup" class="join-group {{teamMemberCount-joinMemberCount==0?'unavailable':'usable'}}" hidden="{{teamBuyEnd||teamStatus!=='normal'}}" wx:else>一键参团</button>
+            </block>
+            <button class="share-group" hidden="{{teamMemberCount-joinMemberCount==0||teamBuyEnd}}" openType="share" wx:if="{{pageFrom=='orderPay'}}">邀请好友拼单 {{countDownList.hou}}:{{countDownList.min}}:{{countDownList.sec}} 后结束</button>
+            <view class="group-share-text" wx:if="{{!teamBuyEnd&&teamStatus=='normal'}}">分享到3个群，有95%的机会在5分钟内成团</view>
+        </view>
+        <view class="recommending-box" hidden="{{recommendingList.length==0}}" style="{{groupActivity?'':'padding-top:20rpx'}}">
+            <view class="recommending-title">更多推荐</view>
+            <view class="goods-list">
+                <view bindtap="toGoodsDetail" class="goods-item" data-productId="{{item.id}}" data-type="{{item.isTeam?'group':'normal'}}" wx:for="{{recommendingList}}" wx:key="index">
+                    <view class="img-box">
+                        <view class="group-icon" wx:if="{{item.isTeam}}">{{item.memberCount}}人团</view>
+                        <image mode="aspectFit" src="{{item.productUrl}}"></image>
+                    </view>
+                    <view class="goods-info">
+                        <text class="goods-name">{{item.name}}</text>
+                        <view class="goods-price">
+                            <block wx:if="{{item.isTeam}}">
+                                <text class="sell-price">￥{{item.teamLeaderPrice}}</text>
+                                <text class="old-price" wx:if="{{item.sellPrice&&item.teamLeaderPrice<item.sellPrice}}">￥{{item.sellPrice}}</text>
+                            </block>
+                            <block wx:else>
+                                <text class="sell-price">￥{{item.sellPrice}}</text>
+                                <text class="old-price" wx:if="{{item.originalPrice&&item.sellPrice<item.originalPrice}}">￥{{item.originalPrice}}</text>
+                            </block>
+                        </view>
+                        <view class="button-box" wx:if="{{item.isTeam}}">{{item.teamBuyingType==='THOUSAND'?'去参团':'去开团'}}</view>
+                        <view class="button-box" wx:else>立即购买</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <popup bind:close="toggleLuckDrawPopup" customClass="top" overlayStyle="{{luckDrawImageBg}}" position="top" show="{{show.luckDraw}}">
+        <view class="popup-luckdraw-box">
+            <luckdraw-game bind:draw="getUserClickDraw" bind:fans="getUserIsFans" luckDrawText="{{luckDrawTextImage}}" onClickLuckDraw="{{isMember}}" status="{{raffleResult}}"></luckdraw-game>
+            <view bindtap="toggleLuckDrawPopup" class="popup-luckdraw-close">
+                <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconIndexPopupClose.png"></image>
+            </view>
+        </view>
+    </popup>
+    <popup bind:close="toggleMiddlePopup" customClass="middle" position="middle" show="{{show.middle}}">
+        <view class="popup-box">
+            <view class="popup-title">抽奖结果</view>
+            <view bind:tap="toggleMiddlePopup" class="popup-close">
+                <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconLuckDrawClose.png"></image>
+            </view>
+            <block wx:if="{{hasRaffleCoupon}}">
+                <view class="popup-content">
+                    <text class="popup-tips">恭喜您成功领取</text>
+                    <text class="popup-text">{{raffleInfo.rafflePrizeName}}</text>
+                </view>
+                <view class="popup-button">
+                    <text>分享给朋友即可领取</text>
+                    <button class="share-btn" data-shareType="raffle" openType="share">把好运气分享给小伙伴</button>
+                </view>
+            </block>
+            <block wx:if="{{!hasRaffleCoupon}}">
+                <view class="popup-content">
+                    <text class="popup-text-end">您来晚了</text>
+                    <text class="popup-text-end">奖品已被抽光了！</text>
+                </view>
+                <view class="popup-button">
+                    <text>活动期间下单可获得抽奖机会</text>
+                    <button bindtap="toIndex" class="share-btn">去商场逛逛</button>
+                </view>
+            </block>
+        </view>
+    </popup>
+    <movable-view direction="all" x="{{x}}" y="{{y}}" wx:if="{{homeBack}}">
+        <image bindtap="toHome" class="movable-view" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/toHome.png"></image>
+    </movable-view>
+</movable-area>

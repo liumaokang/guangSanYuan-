@@ -1,0 +1,57 @@
+<import src="../../template/searchAddress"></import>
+<template is="searchAddress" data="{{searchLabelShow:searchLabelShow,searchText:searchText,searchItem:searchItem}}"></template>
+<view class="content">
+    <view bindtap="toSelectAddress" class="current-position">
+        <view class="loc-section">
+            <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/loc.png"></image>
+            <text>当前位置</text>
+        </view>
+        <view class="loc-detail">
+            <view>
+                <text class="address-title">{{currentAddress}}</text>
+                <text>{{currentAddressDetail}}</text>
+            </view>
+            <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/locMore.png"></image>
+        </view>
+    </view>
+    <view class="separate" wx:if="{{frequencyStore.code}}">
+        <text>常去门店</text>
+    </view>
+    <view bindtap="clickStore" class="store-item  {{frequencyStore.active==true?'active':''}}" data-key="{{frequencyStore.code}}" wx:if="{{frequencyStore.code}}">
+        <view class="address">
+            <view>{{frequencyStore.name}}</view>
+            <view>
+                <text wx:if="{{frequencyStore.distance>=0.5}}">{{frequencyStore.distance}}km | {{filters.shortAddress(frequencyStore.address)}}</text>
+                <text wx:else>{{'0.5'}}km | {{filters.shortAddress(frequencyStore.address)}}</text>
+            </view>
+        </view>
+        <view catchtap="navToStore" class="distance" data-item="{{frequencyStore}}">
+            <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/locNav.png"></image>
+            <text>到这去</text>
+        </view>
+        <image class="select" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/locSelect.png"></image>
+    </view>
+    <view class="separate">
+        <text>附近门店</text>
+    </view>
+    <view bindtap="clickStore" class="store-item {{item.active==true?'active':''}}" data-key="{{item.code}}" hidden="{{noStoreData}}" wx:for="{{storeList}}" wx:key="{{item.code}}">
+        <view class="address">
+            <view>{{item.name}}</view>
+            <view>
+                <text wx:if="{{item.distance>=0.5}}">{{item.distance}}km | {{filters.shortAddress(item.address)}}</text>
+                <text wx:if="{{item.distance<0.5}}">{{'0.5'}}km | {{filters.shortAddress(item.address)}}</text>
+            </view>
+        </view>
+        <view catchtap="navToStore" class="distance" data-item="{{item}}">
+            <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/locNav.png"></image>
+            <text>到这去</text>
+        </view>
+        <image class="select" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/locSelect.png"></image>
+    </view>
+</view>
+<view class="loading" hidden="{{refresh||storeList.length==0}}">已为您匹配最近的门店</view>
+<view class="loading" hidden="{{loading}}">正在加载中...</view>
+<view class="no-data" hidden="{{storeList.length>0}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoData.png"></image>
+</view>
+<wxs module="filters" src="../../wxs/filters.wxs" />

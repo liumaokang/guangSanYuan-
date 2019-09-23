@@ -1,0 +1,9 @@
+<image class="card-img" src="{{imageUrl}}"></image>
+<view class="card-act-name">{{name}}</view>
+<image class="icon-succ" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconGiftBuySucc.png" wx:if="{{!fromSend}}"></image>
+<view class="tig" wx:if="{{!fromSend}}">礼品卡购买成功</view>
+<button openType="share" wx:if="{{allowPresent&&!fromSend}}">快赠送给好友吧</button>
+<text bindtap="handelActivate" wx:if="{{state==='UNACTIVATED'&&!fromSend}}">激活自用</text>
+<view catchtap="handelActivate" class="active-btn" wx:if="{{fromSend}}">激活</view>
+<text class="remain" wx:if="{{fromSend}}">礼品卡激活自用后不能再被转赠</text>
+<button class="sendother-btn" openType="share" wx:if="{{fromSend}}">转赠给朋友</button>

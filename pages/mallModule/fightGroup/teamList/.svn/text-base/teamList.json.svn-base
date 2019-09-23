@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "正在开团",
+    "usingComponents": {
+        "xf-model": "../../../../components/xf-model/index",
+        "loading": "/./components/loading/index"
+    }
+}

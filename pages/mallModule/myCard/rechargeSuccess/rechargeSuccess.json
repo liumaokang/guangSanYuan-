@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "充值成功",
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    }
+}

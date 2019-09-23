@@ -1,0 +1,48 @@
+<form bindsubmit="handleSave">
+    <view class="top-info">
+        <image src="{{member.avatar?member.avatar:userInfo.avatarUrl}}">
+            <button bindgetuserinfo="getUserInfo" hidden="{{hasUserInfo}}" openType="getUserInfo"></button>
+        </image>
+        <text>{{userInfo.nickName?userInfo.nickName:'鲜果迷'}}</text>
+    </view>
+    <!-- <view class="info">
+        <view class="section">
+            <view class="section-title">当前账号</view>
+            <view class="right">
+                <text>{{memberTel}}</text>
+            </view>
+        </view>
+    </view> -->
+    <view class="info first">
+        <view class="section">
+            <view class="section-title">昵　　称</view>
+            <view class="right">
+                <input bindinput="inputNiceName" maxlength="10" name="nickName" placeholder="未填写" type="text" value="{{nickName}}"></input>
+            </view>
+        </view>
+        <view class="lable-box">
+            <text bindtap="genderClick" class="lable-item {{userGenders==index?'active':''}}" data-id="{{item.id}}" data-index="{{index}}" wx:for="{{genders}}" wx:key="index">{{item.name}}</text>
+        </view>
+    </view>
+    <view class="info">
+        <view class="section">
+            <view class="section-title">生　　日</view>
+            <view class="right">
+                <picker bindchange="bindDateChange" disabled="{{picker_switch}}" end="{{endDate}}" mode="date" name="date" start="1900-01-01" value="{{date}}">
+                    <view class="picker">
+            {{date}}
+          </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="info last">
+        <view class="section">
+            <view class="section-title">会员等级</view>
+            <view class="right">
+                <text>{{gradeName?gradeName:''}}</text>
+            </view>
+        </view>
+    </view>
+    <button class="btn" formType="submit">保存信息</button>
+</form>

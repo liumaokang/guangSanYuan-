@@ -1,0 +1,15 @@
+<view class="logo">
+    <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/check_phone_icon.png"></image>
+    <text>为了保障您的资金安全</text>
+    <text>请设置您的支付密码</text>
+</view>
+<form bindsubmit="bindMobile" reportSubmit="true">
+    <view catchtap="bindbox" class="mobile-input-box">
+        <input disabled bindinput="bindMobileInput" maxlength="11" placeholder="请输入手机号" style="width:100%;" type="number" value="{{mobile}}"></input>
+    </view>
+    <view class="code-input-box">
+        <input bindinput="bindcaptchaInput" maxlength="6" placeholder="请输入验证码" type="password"></input>
+        <view catchtap="getCaptcha" class="get-code" style="color: {{getCodeBgColor}}">{{getCodeBtn}}</view>
+    </view>
+    <button class="confirm-btn btn" disabled="{{!captcha}}" formType="submit" style="{{agree?'':'background:#E5E5E5'}}">下一步</button>
+</form>

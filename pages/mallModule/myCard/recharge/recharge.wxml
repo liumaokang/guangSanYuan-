@@ -1,0 +1,64 @@
+<movable-area>
+    <!-- <button bindgetuserinfo="getUserInfo" class="recharge-btn" openType="getUserInfo" wx:if="{{!hasUserInfo}}">授权登录</button> -->
+    <view>
+        <view bindtap="toBalances" class="balance-more">
+        <image src='/image/wall_icon.png'></image>
+        余额明细
+      <!-- <button bindgetuserinfo="getUserInfo" class="authorization" openType="getUserInfo" wx:if="{{!hasUserInfo}}"></button> -->
+        </view>
+        <view class="balance-box">
+            <text class="balance-tips">钱包余额(元)</text>
+            <view class="money-box">
+                <view class="line line-left"></view>
+                <view class="money">
+          {{user_money}}
+        </view>
+                <view class="line line-right"></view>
+            </view>
+        </view>
+        <view class="banner-box" style="width:100%;margin-top:0;">
+            <swiper bindchange="swiperChange" class="swiper" indicatorDots="{{false}}" nextMargin="162rpx" previousMargin="40rpx">
+                <swiper-item class="swiper-item" data-id="{{item.id}}" wx:for="{{goods}}" wx:key="index">
+                    <image class="{{index==current?'swiperActive':'slide-image'}}" src="{{url+item.image}}"></image>
+                    <!-- <view>
+                        <text>{{item.price}}</text>
+                        <text class="yuan"> 元</text>
+                    </view> -->
+                </swiper-item>
+            </swiper>
+             <view class="custom-indicator">
+                    <text class="dots {{index==current?'active':''}}" wx:for="{{goods}}" wx:key="index"></text>
+              </view>
+        </view>
+        <view class="recharge-tips">
+            <view>充值即送好礼</view>
+            <view wx:if="{{chooseItem.type=='COMPOSE'}}">
+                <view bindtap="chooseItem" class="choose-item {{preferenceType=='DONATE'?'active':''}}" data-type="DONATE">
+                    <text>储值{{chooseItem.amount}}元，即赠送{{chooseItem.donationAmount}}元；</text>
+                    <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/miniprogram/check.png" wx:if="{{preferenceType=='DONATE'}}"></image>
+                    <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/miniprogram/uncheck.png" wx:else></image>
+                </view>
+                <view bindtap="chooseItem" class="choose-item {{preferenceType=='GIFT'?'active':''}}" data-type="GIFT">
+                    <text>储值{{chooseItem.amount}}元，即{{chooseItem.discountMessage}}；</text>
+                    <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/miniprogram/check.png" wx:if="{{preferenceType=='GIFT'}}"></image>
+                    <image src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/miniprogram/uncheck.png" wx:else></image>
+                </view>
+            </view>
+            <text>· 储值{{gifts.price}}元，即赠送{{gifts.give}}元；</text>
+            <text wx:if="{{chooseItem.type=='DISCOUNT'}}">· 储值{{chooseItem.amount}}元，即优惠{{chooseItem.discountAmount}}元；</text>
+            <text wx:if="{{chooseItem.type=='GIFT'}}">· 储值{{chooseItem.amount}}元，即{{chooseItem.discountMessage}}；</text>
+        </view>
+        <button bindtap="toPayRecharge" class="recharge-btn" disabled="{{disabled}}">确认充值 ￥{{gifts.price}}</button>
+    </view>
+    <view class="recharge-tips" style="background-color:transparent;">
+        <view>温馨提示</view>
+        <text>· 余额不可提现;
+</text>
+        
+        <text>· 如有疑问请致电{{serviceTel}};
+</text>
+    </view>
+    <!-- <movable-view direction="all" x="{{x}}" y="{{y}}" wx:if="{{homeBack}}">
+        <image bindtap="toHomes" class="movable-view" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/toHome.png"></image>
+    </movable-view> -->
+</movable-area>

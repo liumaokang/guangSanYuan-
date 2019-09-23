@@ -1,0 +1,40 @@
+<view class="top-info">
+    <text class="balance">{{balance}}</text>
+    <text>可用红包(元)</text>
+    <text>有效期至：{{termValidity}}</text>
+    <view bindtap="toggleMiddlePopup" class="use">使用说明</view>
+</view>
+<view class="content">
+    <view class="title">红包明细</view>
+    <view class="content-item" wx:for="{{balanceList}}" wx:key="index">
+        <view class="status">
+            <text>{{item.action}}</text>
+            <text>{{item.tranTime}}</text>
+        </view>
+        <view class="num {{item.state?'recharge':'consume'}}">{{item.occurTotal}}</view>
+    </view>
+    <view class="no-data" hidden="{{balanceList.length>0}}">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoData.png"></image>
+    </view>
+</view>
+<popup bind:close="toggleMiddlePopup" customClass="middle" position="middle" show="{{show.middle}}">
+    <view class="popup-content">
+        <view bindtap="toggleMiddlePopup" class="close-btn">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacketClose.png"></image>
+        </view>
+        <text class="popup-content-title">使用说明</text>
+        <view class="popup-content-box">
+            <view class="popup-content-header" hidden="{{step==='second'}}">红包使用场景</view>
+            <view class="popup-content-header" hidden="{{step==='first'}}">红包使用场景二</view>
+            <view class="popup-content-tips" hidden="{{step==='second'}}">在门店购物时
+        <text>出示会员码支付</text>即可使用红包抵扣部分金额</view>
+            <view class="popup-content-tips" hidden="{{step==='first'}}">线上支付时选择
+        <text>储值余额支付</text>即可使用红包抵扣部分金额</view>
+            <view class="popup-content-img">
+                <image hidden="{{step==='second'}}" mode="widthFix" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacketUse1.png"></image>
+                <image hidden="{{step==='first'}}" mode="widthFix" src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconRedPacketUse2.png"></image>
+            </view>
+        </view>
+        <view bindtap="toggleMiddlePopup" class="next-btn" hidden="{{step==='second'}}">我知道了</view>
+    </view>
+</popup>

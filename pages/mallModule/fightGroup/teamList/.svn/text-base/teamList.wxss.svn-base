@@ -1,0 +1,185 @@
+.content {
+}
+
+page {
+    min-height: 100vh;
+    background-color: #F5F5F5;
+    padding-top: 20rpx;
+}
+
+.no-data {
+    font-size: 24rpx;
+    line-height: 48rpx;
+    color: #666666;
+    text-align: center;
+    margin-top: 30%;
+}
+
+.bottom-tips {
+    font-size: 24rpx;
+    line-height: 48rpx;
+    color: #666666;
+    text-align: center;
+    margin-top: 20rpx;
+    margin-bottom: 30rpx;
+}
+
+.modal-box {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+}
+
+.modal-body {
+    position: relative;
+}
+
+.modal-content {
+    background: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.join-group {
+    position: relative;
+    width: 670rpx;
+    min-height: 620rpx;
+    margin: 40% auto;
+    border-radius: 6rpx;
+    padding-bottom: 100rpx;
+}
+
+.join-group .title {
+    font-size: 32rpx;
+    color: #454545;
+    border-bottom: 1rpx solid #f1f1f1;
+    height: 130rpx;
+    width: 100%;
+    text-align: center;
+    padding-top: 10rpx;
+    line-height: 130rpx;
+}
+
+.join-group .group-info {
+    border-bottom: 20rpx solid #f1f1f1;
+}
+
+.join-group .group-info view:first-of-type {
+    font-size: 26rpx;
+    line-height: 88rpx;
+    height: 88rpx;
+    color: #454545;
+    text-indent: 40rpx;
+}
+
+.join-group .group-info view:first-of-type text {
+    color: #3CDBC0;
+    font-size: 32rpx;
+}
+
+.join-group .group-info view:last-of-type {
+    height: 72rpx;
+    padding-bottom: 8rpx;
+    text-indent: 40rpx;
+    font-size: 24rpx;
+    line-height: 72rpx;
+    color: #8b8b8c;
+}
+
+.join-group .group-info view:last-of-type text {
+    font-size: 28rpx;
+    color: #1b1b1d;
+    font-weight: bold;
+    vertical-align: middle;
+    margin: 0 26rpx 0 23rpx;
+}
+
+.join-group .group-info view image {
+    width: 23rpx;
+    height: 29rpx;
+    vertical-align: middle;
+    margin-top: -3rpx;
+    margin-right: 14rpx;
+}
+
+.group-people-list {
+    padding: 33rpx 50rpx;
+    min-height: 100rpx;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.people-item {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 5rpx 0;
+    border-radius: 50%;
+    border: 3rpx dashed #adadad;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.group-people-list .leader {
+    border: 3rpx solid #3CDBC0;
+}
+
+.people-item image {
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 50%;
+}
+
+.people-item text {
+    font-size: 28rpx;
+    line-height: 101rpx;
+    color: #999;
+}
+
+.people-item:first-of-type {
+    margin-left: 0;
+}
+
+.people-more {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 5rpx 0;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.people-more image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.join-group .button-box {
+    width: 100%;
+    height: 100rpx;
+    background: #3CDBC0;
+    font-size: 32rpx;
+    line-height: 100rpx;
+    color: #fff;
+    font-weight: Medium;
+    border: 0;
+    border-radius: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+button[class="button-box"]::after {
+    border: 0;
+}

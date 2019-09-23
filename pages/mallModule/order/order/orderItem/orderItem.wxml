@@ -1,0 +1,76 @@
+<template name="orderItem">
+    <view bindtap="toOrderDetails" class="order-item" data-id="{{item.order_id}}">
+        <view class="item-top">
+            <text class="group-icon" wx:if="{{item.team_id>0}}">拼团</text>
+            <text class="kill-icon" wx:if="{{item.type=='秒杀'}}">{{item.type}}</text>
+
+            <text class="order-num">订单编号:{{item.order_sn}}</text>
+            <text class="order-status" >{{item.order_status_desc}}</text>
+           <!--  <text class="order-status" wx:if="{{item.order_status_desc=='已付尾款'}}">{{item.order_status_desc}}</text>
+            <text class="order-status" wx:if="{{item.order_status_desc=='待收货'}}">待自提</text>
+            <text class="order-status" wx:if="{{item.order_status_desc=='待发货'}}">待配送</text>
+            <text class="order-status" wx:if="{{item.order_status_desc=='待评价'}}">待评价</text>
+            <text class="order-status" wx:if="{{item.order_status_desc=='已评价'}}">已评价</text> -->
+        </view>
+        <scroll-view scrollX class="item-middle" style="width: 100%">
+            <view class="goods-item-img" wx:for="{{item.goods_list}}" wx:for-item="itm" wx:key="itm.order_id">
+                <image mode="aspectFit" src="https://v.coolndns.com{{itm.goods_img}}"></image>
+            </view>
+        </scroll-view>
+        <view class="item-total">
+            <view class="item-body">
+        实付:
+         <text class="total-price">￥{{item.order_amount}} </text>
+                <text class="freight"> (含运费:￥{{sendPrice}})</text> 
+            </view>
+        </view>
+        <view class="btn-body">
+            <view class="btn-box" wx:if="{{item.order_status_desc=='待付尾款'}}">
+                <button plain catchtap="toPayTail" data-id="{{item.order_id}}" size="mini" style="color:#FB5F68;border-color:#FB5F68;" type="default">支付尾款</button>
+            </view>
+            <view class="btn-box" wx:if="{{item.order_status_desc=='待支付'}}">
+                <button plain catchtap="toCancel" data-id="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default">取消订单</button>
+                <button plain catchtap="toPay" data-id="{{item.order_id}}" size="mini" style="color:#FB5F68;border-color:#FB5F68;font-weight:bolder" type="default">立即支付</button>
+            </view>
+            <view class="btn-box" wx:if="{{item.order_status_desc=='待退款'}}">
+                <button plain catchtap="toRefundGoods" data-id="{{item.order_id}}" data-orderid="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default" wx:if="{{item.business!=='ADVANCE_SELL'}}">申请退款</button>
+                <button plain catchtap="toService" data-id="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default" wx:else>联系客服</button>
+            </view>
+            <view catchtap="shareGroup" class="btn-box" wx:if="{{item.status=='待拼团'}}">
+                <button plain catchtap="toRefundGoods" data-id="{{item.order_id}}" data-orderid="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default" wx:if="{{item.business!=='ADVANCE_SELL'}}">申请退款</button>
+                <button plain catchtap="toService" data-id="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default" wx:else>联系客服</button>
+                <button plain data-id="{{item.order_id}}" data-teamId="{{item.teamId}}" data-teamLeaderRecordId="{{item.teamLeaderRecordId}}" hidden="{{item.teamStatus==='overdue'||item.teamStatus==='success'}}" openType="share" size="mini" style="color:#FB5F68;border-color:#FB5F68;" type="default">邀请好友</button>
+            </view>
+            <view class="btn-box" wx:if="{{item.order_status_desc=='待评价'}}">
+                <button plain catchtap="pingjia" data-id="{{item.order_id}}" data-recid="{{item.goods_list[0].rec_id}}" data-order_id="{{item.order_id}}" data-goods_sn="{{item.goods_list[0].goods_sn}}" data-img="{{item.goods_img}}"  size="mini" type="default">评价订单</button>
+                <button plain catchtap="toRefundGoods" data-id="{{item.order_id}}" data-orderid="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default">申请退款</button>
+            </view>
+            <view class="btn-box" wx:if="{{item.order_status_desc=='待发货'}}">
+                <button plain catchtap="toRefundGoods" data-id="{{item.order_id}}" data-orderId="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default" wx:if="{{item.business!=='ADVANCE_SELL'}}">申请退款</button>
+                <button plain catchtap="toService" data-id="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default" wx:else>联系客服</button>
+                <!-- <button plain catchtap="toCancel" data-id="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default">取消订单</button> -->
+            </view>
+            <view class="btn-box" wx:if="{{item.order_status_desc=='待配送'}}">
+                <button plain catchtap="toRefundGoods" data-id="{{item.order_id}}" data-orderid="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default" wx:if="{{item.business!=='ADVANCE_SELL'}}">申请退款</button>
+                <button plain catchtap="toService" data-id="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default" wx:else>联系客服</button>
+            </view>
+            <view class="btn-box" wx:if="{{item.order_status_desc=='已退款'}}">
+                <button plain catchtap="toService" data-id="{{item.order_id}}" data-orderid="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default">申请退款</button>
+            </view>
+            <view class="btn-box" wx:if="{{item.order_status_desc=='配送中'&&item.business==='DISTRIBUTION'}}">
+                <button plain catchtap="makeSure" data-id="{{item.order_id}}" size="mini" style="color:#FB5F68;border-color:#FB5F68;" type="default">确认提货</button>
+            </view>
+            <!-- <view class="btn-box" wx:if="{{item.order_status_desc=='待收货'}}">
+                <button plain catchtap="toRefundGoods" data-id="{{item.order_id}}" data-orderid="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default">申请退款</button>
+                <button plain catchtap="makeSure" data-id="{{item.order_id}}" size="mini" style="color:#FB5F68;border-color:#FB5F68;" type="default">确认提货</button>
+            </view> -->
+            <view class="btn-box" wx:if="{{item.order_status_desc=='待自提'}}">
+                <button plain data-id="{{item.order_id}}" data-orderid="{{item.order_id}}" size="mini" style="color:#545454; border-color:#545454;" type="default">待自提</button>
+                <button plain catchtap="toRefundGoods" data-id="{{item.order_id}}" data-orderid="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default">申请退款</button>
+            </view>
+            <view class="btn-box" wx:if="{{item.order_status_desc=='退款中'}}">
+                <button plain catchtap="toService" data-id="{{item.order_id}}" size="mini" style="color:#999; border-color:#999;" type="default">联系客服</button>
+            </view>
+        </view>
+    </view>
+</template>

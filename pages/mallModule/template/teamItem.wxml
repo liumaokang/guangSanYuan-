@@ -1,0 +1,14 @@
+<template name="teamItem">
+    <view class="team-item" hidden="{{item.time.hou==0&&item.time.min==0&&item.time.sec==0?true:false}}">
+        <view class="team-img" >
+            <image src="{{item.head_pic}}"></image>
+        </view>
+        <view class="team-info">
+            <view class="info">
+                <view hidden="{{item.teamMemberCount==10000}}">还差<text>{{item.num}}</text>人成团</view>
+                <view class="time">{{item.time.hou}}:{{item.time.min}}:{{item.time.sec}}</view>
+            </view>
+            <view bindtap="openTeamBuyModal" class="btn" data-teamBuyId="{{item.id}}" data-teamLeaderRecordId="{{item.teamLeaderRecordId}}">一起拼</view>
+        </view>
+    </view>
+</template>

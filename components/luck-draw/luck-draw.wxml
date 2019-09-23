@@ -1,0 +1,24 @@
+<view class="luckdraw">
+    <image class="text" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/text.png?t=1"></image>
+    <view class="main">
+        <image class="luckdraw-box" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/luckdraw.png?t=1"></image>
+        <view class="content">
+            <view class="line">
+                <image animation="{{animationData2}}" class="img2" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/line1.png?t=1" style="{{defaultStyle}}"></image>
+                <image animation="{{animationData1}}" class="img1" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/line1.png?t=1" style="{{defaultStyle}}"></image>
+                <image class="default" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/line1.png?t=1" wx:if="{{showDefault}}"></image>
+            </view>
+            <view class="line">
+                <image animation="{{animationData4}}" class="img2" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/line2.png?t=1" style="{{defaultStyle}}"></image>
+                <image animation="{{animationData3}}" class="img1" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/line2.png?t=1" style="{{defaultStyle}}"></image>
+                <image class="default" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/line2.png?t=1" wx:if="{{showDefault}}"></image>
+            </view>
+            <view class="line">
+                <image animation="{{animationData6}}" class="img2" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/line3.png?t=1" style="{{defaultStyle}}"></image>
+                <image animation="{{animationData5}}" class="img1" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/line3.png?t=1" style="{{defaultStyle}}"></image>
+                <image class="default" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/line3.png?t=1" wx:if="{{showDefault}}"></image>
+            </view>
+        </view>
+    </view>
+    <button bindgetuserinfo="getUserInfo" class="btn {{disabled?'disabled':'flicker'}}" disabled="{{disabled}}" openType="getUserInfo" wx:if="{{status==='UNSTART'||status==='FALSE'}}"></button>
+</view>

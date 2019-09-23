@@ -1,0 +1,10 @@
+var fix = (function(d, n) {
+    n = undefined === n ? 2 : n;
+    if (d <= 0) {
+        return ('0.00')
+    };
+    return (d.toFixed(n))
+});
+module.exports = ({
+    fix: fix,
+});

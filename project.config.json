@@ -1,0 +1,318 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.0",
+	"appid": "wx50a7d8768b049b6d",
+	"projectname": "%E6%B0%B4%E6%9E%9C1",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 36,
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/mallModule/order/perfectOrder/perfectOrder",
+					"pathName": "pages/mallModule/order/perfectOrder/perfectOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户备注",
+					"pathName": "pages/mallModule/order/addRemarks/addRemarks",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提交订单",
+					"pathName": "pages/mallModule/order/perfectOrder/perfectOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/mallModule/goods/shopcart/shopcart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/mallModule/member/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的优惠券",
+					"pathName": "pages/mallModule/coupon/myCoupon/myCoupon",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "拼团",
+					"pathName": "pages/mallModule/fightGroup/fightGroup/fightGroup",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "及时送",
+					"pathName": "pages/mallModule/goods/category/category",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单",
+					"pathName": "pages/mallModule/order/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分兑换",
+					"pathName": "pages/mallModule/score/scoreMall/scoreMall",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "积分商城",
+					"pathName": "pages/mallModule/score/scoreMall/scoreMall",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "限时抢购",
+					"pathName": "pages/mallModule/activity/seckill/seckill",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价",
+					"pathName": "pages/mallModule/member/address/addressList/addressList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收货地址",
+					"pathName": "pages/mallModule/member/address/addressList/addressList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择优惠券",
+					"pathName": "pages/mallModule/coupon/choiceCoupon/choiceCoupon",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/coupon/myCoupon/myCoupon",
+					"pathName": "pages/mallModule/coupon/myCoupon/myCoupon",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/coupon/myCoupon/myCoupon",
+					"pathName": "pages/mallModule/coupon/myCoupon/myCoupon",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/goods/goodsDetail/goodsDetail",
+					"pathName": "pages/mallModule/goods/goodsDetail/goodsDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/score/scoreMall/scoreMall",
+					"pathName": "pages/mallModule/score/scoreMall/scoreMall",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/memberModule/giftCard/giftCardPaysuccess/giftCardPaysuccess",
+					"pathName": "pages/mallModule/member/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/memberModule/giftCard/giftCardPaysuccess/giftCardPaysuccess",
+					"pathName": "pages/memberModule/giftCard/giftCardPaysuccess/giftCardPaysuccess",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/pay/payment/payment",
+					"pathName": "pages/mallModule/pay/payment/payment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/order/refund/refund",
+					"pathName": "pages/mallModule/order/refund/refund",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/order/refund/refundSuccess/refundSuccess",
+					"pathName": "pages/mallModule/order/refund/refundSuccess/refundSuccess",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/order/refundDetails/refundDetails",
+					"pathName": "pages/mallModule/order/refundDetails/refundDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "gdfg",
+					"pathName": "pages/mallModule/coupon/couponDetails/couponDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "gdfg",
+					"pathName": "pages/mallModule/goods/goodsComment/goodsComment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "gdfg",
+					"pathName": "pages/mallModule/goods/shopcart/shopcart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付成功",
+					"pathName": "pages/mallModule/pay/payment/payment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "全部拼团",
+					"pathName": "pages/mallModule/fightGroup/teamList/teamList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "退款",
+					"pathName": "pages/mallModule/order/refund/refund",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/pay/payment/payment",
+					"pathName": "pages/mallModule/pay/payment/payment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/myCard/recharge/refundSuccess/refundSuccess",
+					"pathName": "pages/mallModule/myCard/recharge/recharge",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/myCard/recharge/refundSuccess/refundSuccess",
+					"pathName": "pages/mallModule/myCard/recharge/refundSuccess/refundSuccess",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/coupon/choiceCoupon/choiceCoupon",
+					"pathName": "pages/mallModule/coupon/choiceCoupon/choiceCoupon",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/myCard/recharge/recharge",
+					"pathName": "pages/mallModule/myCard/recharge/recharge",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mallModule/goods/goodsComment/goodsComment",
+					"pathName": "pages/mallModule/goods/goodsComment/goodsComment",
+					"scene": null
+				}
+			]
+		}
+	}
+}

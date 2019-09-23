@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "储值余额",
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    }
+}

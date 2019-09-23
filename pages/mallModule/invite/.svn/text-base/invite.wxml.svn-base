@@ -1,0 +1,32 @@
+<view class="page">
+    <image catchtap="test" mode="widthFix" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/miniprogram/invite.png" style="width:100%;"></image>
+    <view style="height:410rpx;" wx:if="{{entrance==='invitee'||entrance==='success'}}"></view>
+    <view class="activity-body invitee" wx:if="{{entrance==='invitee'||entrance==='success'}}">
+        <view class="mobile-box">
+            <view class="section">
+                <input focus bindblur="handleBindBlur" bindfocus="handleBindFocus" bindinput="bindMobileInput" maxlength="11" placeholder="请输入手机号码" type="number"></input>
+                <label catchtap="getCaptcha" style="color:{{getCodeColor}};">{{getCodeBtn}}</label>
+            </view>
+            <view class="section">
+                <input bindblur="handleBindBlur" bindfocus="handleBindFocus" bindinput="bindcaptchaInput" maxlength="6" placeholder="请输入验证码" type="password"></input>
+            </view>
+        </view>
+        <view bindtap="bindMobile" class="voucher">立即红包领取</view>
+    </view>
+    <view class="bottom-button" wx:if="{{entrance==='inviter'}}">
+        <button class="activity-btn" openType="share" wx:if="{{hasUserInfo}}">邀请好友得奖励</button>
+        <button bindtap="toShare" class="activity-btn" wx:if="{{!hasUserInfo}}">邀请好友得奖励</button>
+    </view>
+</view>
+<view bindtap="clickPrompt" class="prompt-box" hidden="{{!prompt}}">
+    <view catchtap="clickPromptBody" class="prompt-body">
+        <view class="prompt-content normal">
+            <view class="prompt-title" wx:if="{{inviteStatus==='again'}}">您已经是鲜丰水果会员</view>
+            <view class="prompt-text" wx:if="{{inviteStatus==='again'}}">快去看看新上市的水果吧</view>
+            <view class="prompt-title" wx:if="{{inviteStatus==='success'}}">恭喜您领取成功</view>
+            <view class="prompt-text" wx:if="{{inviteStatus==='success'}}">优惠券已放进账号：{{showMobile}}</view>
+            <image mode="widthFix" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/miniprogram/coupon45.png" style="width:334rpx;margin-top:30rpx;" wx:if="{{inviteStatus==='success'}}"></image>
+            <view bindtap="toIndex" class="prompt-btn">去小程序逛逛</view>
+        </view>
+    </view>
+</view>

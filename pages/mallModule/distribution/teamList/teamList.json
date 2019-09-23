@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "我的团队",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "loading": "/./components/loading/index"
+    }
+}

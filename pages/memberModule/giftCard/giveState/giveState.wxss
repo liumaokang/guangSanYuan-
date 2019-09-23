@@ -1,0 +1,69 @@
+page {
+    background: #ababab;
+}
+
+.content {
+    width: 650rpx;
+    height: 760rpx;
+    border-radius: 10rpx;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 20%;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.content icon {
+    position: absolute;
+    right: 30rpx;
+    top: 30rpx;
+}
+
+.content .giver-info {
+    margin-top: 70rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #999;
+    font-size: #999;
+}
+
+.content .giver-info image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-top: -6rpx;
+    margin-right: 20rpx;
+}
+
+.card-name {
+    font-size: 48rpx;
+    margin: 40rpx 0rpx;
+}
+
+.text {
+    font-size: 32rpx;
+    color: #999;
+    margin: 80rpx 0rpx 30rpx;
+}
+
+.card-img {
+    width: 430rpx;
+    height: 258rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+button.btn {
+    width: 430rpx;
+    height: 94rpx;
+    overflow: hidden;
+    line-height: 94rpx;
+    font-size: 34rpx;
+    margin-top: 40rpx;
+    background: #fff;
+    color: #f1b400;
+    border: 1rpx solid #f1b400;
+}

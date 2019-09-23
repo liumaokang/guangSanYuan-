@@ -1,0 +1,25 @@
+<view class="content" wx:if="{{type==='normal'}}">
+    <form bindsubmit="formSubmit">
+        <view class="feedback-box">
+            <textarea bindinput="handelTextArea" focus="{{focus}}" id="feedback" maxlength="50" name="feedback" placeholder="您的每一次反馈都是我们前进的动力" placeholderClass="placeholder" value="{{feedback}}"></textarea>
+            <label for="feedback">{{wordCount}}/50</label>
+        </view>
+        <view class="image-box">
+            <view class="image-item" wx:for="{{feedbackImages}}" wx:key="index">
+                <image bindtap="previewImage" data-id="{{index}}" mode="aspectFill" src="{{item.url}}"></image>
+                <image bindtap="deleteImg" class="close-icon" data-id="{{index}}" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconEvaluateClose.png"></image>
+            </view>
+            <view bindtap="chooseImage" class="image-item image-add">
+                <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/iconAddImg2.png"></image>
+            </view>
+        </view>
+        <view class="btn-box">
+            <button class="confirm" disabled="{{disabled}}" formType="submit">提交</button>
+        </view>
+    </form>
+</view>
+<view class="feedback-success" wx:if="{{type==='success'}}">
+    <icon color="rgb(0,145,54)" size="100" type="success"></icon>
+    <text class="success-tips">感谢您的反馈，我们会继续努力~</text>
+    <button bindtap="backPrePage" class="retuen-btn">返回</button>
+</view>

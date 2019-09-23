@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "商品详情",
+    "disableScroll": true,
+    "usingComponents": {
+        "authorize": "../../../../components/authorize/authorize",
+        "setMeal": "../../../../components/setMeal/setMeal",
+        "xf-model": "../../../../components/xf-model/index",
+        "loading": "/./components/loading/index"
+    }
+}

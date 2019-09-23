@@ -1,0 +1,366 @@
+<view class="page" style="padding-top:{{paddingTop}}">
+    <view class="top-tips" hidden="{{!tips}}">{{tips}}</view>
+    <view class="top-info {{tips?'margin-60':''}}">
+
+        <view class="color-8B8B8C" wx:if="{{orderType!=='group'&&orderType!=='distribution'}}"><image src="/image/sendtype.png" style="width:31rpx;height:26rpx;margin-right: 8rpx;position: relative;top: 5rpx;"></image>配送方式</view>
+        <image class="group-bg" hidden="{{orderType!=='group'}}" src="/image/group_liu.png"></image>
+        <view class="type-check-box" hidden="{{orderType==='distribution'||orderType==='advanceSell'||orderType==='group'}}">
+            <view bindtap="handleClick" class="self-take {{type=='selftake'?'active':''}}" data-type="selftake">
+                <image src="/image/lock1.png" style="width: 27rpx;height: 31rpx;" wx:if="{{type!='selftake'}}"></image>
+                <image src="/image/lock.png" style="width: 27rpx;height: 31rpx;" wx:if="{{type=='selftake'}}"></image>
+                <text>预约自提</text>
+            </view>
+            <view bindtap="handleClick" class="dispatch {{type=='dispatch'?'active':''}}" data-type="dispatch">
+                <image src="/image/send.png" style=" width: 33rpx; height: 23rpx;"  wx:if="{{type!='dispatch'}}"></image>
+                <image src="/image/send1.png" style=" width: 33rpx; height: 23rpx;"  wx:if="{{type=='dispatch'}}"></image>
+                <text>配送</text>
+            </view>
+        </view>
+        <!-- <view class="type-tip" wx:if="{{type!=='selftake'}}"></view> -->
+        <view bindtap="toChooseAddress" class="receive-box" hidden="{{type=='selftake'?true:false}}" wx:if="{{team_id==0}}">
+              <view style="color: #cf8e90;padding-top: 23rpx;padding-bottom: 29rpx;" >
+            配送范围：曲江{{hav}}</view>
+        <!--     <view style="color: #cf8e90;padding-top: 23rpx;padding-bottom: 29rpx;" wx:if="{{hav=='0'}}">
+            配送范围：{{sendAdress.pickup_address}}|{{sendAdress.pickup_phone}}</view> -->
+          <!--   <view style="color: #cf8e90;padding-top: 23rpx;padding-bottom: 29rpx;"  wx:if="{{hav=='1'}}">配送范围：{{sendAdress.province+sendAdress.address}} | {{sendAdress.mobile}}</view>
+            <view style="color: #cf8e90;padding-top: 23rpx;padding-bottom: 29rpx;"  wx:if="{{hav=='2'}}">配送范围：{{sendAdress.province+sendAdress.address}} | {{sendAdress.mobile}}</view> -->
+            <view style="position:relative;padding-bottom:29rpx;">
+                 <view class="icon-box">
+                <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconOrderPosition.png"></image>
+                </view>
+
+                <view  class="receive-info" style='width:90%;'  class="q" wx:if="{{hav=='0'}}">
+                    <view wx:if="{{sendAdress!=undefined}}">
+                        <text>{{sendAddress.address}}{{sendAdress.pickup_address}}|{{sendAdress.pickup_phone}}</text>
+                    </view>
+                    <view wx:if="{{sendAdress!=undefined}}"  class="receive-address">
+                        {{sendAdress.pickup_name}}
+                    </view>
+                    <view wx:else>请选择收货地址</view>
+                </view>
+                <view  class="receive-info" class="w"  wx:if="{{hav=='1'}}">
+                    <view>
+                        <text>{{sendAdress.province+sendAdress.address}} | {{sendAdress.mobile}}</text>
+                    </view>
+                    <view  class="receive-address">
+                        {{sendAdress.consignee}}
+                    </view>
+                </view>
+                <view  class="receive-info" class="e" wx:if="{{hav=='2'}}">
+                    <view>
+                        <text>{{sendAdress.province+sendAdress.address}} | {{sendAdress.mobile}}</text>
+                    </view>
+                    <view  class="receive-address">
+                        {{sendAdress.consignee}}
+                    </view>
+                </view>
+
+                   <view  class="receive-info" class="e" wx:if="{{hav=='4'}}">
+                    <view>
+                        <text>{{xAdress.province+xAdress.address}} | {{xAdress.mobile}}</text>
+                    </view>
+                    <view  class="receive-address">
+                        {{xAdress.consignee}}
+                    </view>
+                </view>
+
+
+
+                <view class="iconright-box">
+                    <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRight2.png"></image>
+                </view>
+            </view>
+           
+        </view>
+    </view>
+    <view class="selftake-remind" wx:if="{{hasStockWarning&&multiIndex[0]===0}}">门店当日库存变化较大，推荐提前联系门店确认是否有货。</view>
+    <view class="store-box" wx:if="{{orderType==='group'}}">
+        <text class="color-5a5a5a">提货门店</text>
+        <view class="store-details" wx:key="shop">
+            <text>自提点联系人：{{shop[shop_id].pickup_contact}}</text>
+            <view>
+              <text style="font-size:28rpx;color:#666;">自提点名称：{{shop[shop_id].pickup_name}}</text>
+              <text style="font-size:28rpx;color:#666;">自提点地址：{{shop[shop_id].pickup_address}}</text>
+            </view>
+        </view>
+        <view bindtap="phoneCall" data-phone="{{shop[0].pickup_phone}}"  class="section-box contact-store">
+            <image class="tel" src="/image/phone.jpg" style="width:29rpx;height: 24rpx;"></image>
+            <text class="color-ffbf00">联系门店</text>
+        </view>
+    </view>
+    <view class="goods-box">
+        <!-- 商品信息 -->
+        <view class="goods-item" wx:for="{{goodsList}}" wx:key="index" wx:if="{{team_id==0 && sale_id==0 }}">
+            <view class="goods-img">
+                <image mode="aspectFit" src="{{url+item.goods.original_img}}" ></image>
+        
+                
+                <!-- <view class="stop-sell" hidden="{{item.businessStatus}}">暂停售卖</view> -->
+            </view>
+            <view class="goods-info">
+                <view class="goods-left">
+                    <text class="goods-name">{{item.goods_name}}</text>
+                    <text class="goods-desc">{{item.goods_remark}}</text>
+                </view>
+                <view class="goods-right">
+                    <view class="goods-count">x{{item.goods_num}}</view>
+                    <view class="goods-price" wx:if="{{orderType==='scoreMall'}}">
+                        <text class="nowPrice">￥{{integral}}</text> 积分
+          </view>
+                    <view class="goods-price" wx:else>
+                        <text class="nowPrice">￥{{item.goods_price}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <!-- 限时抢购商品 -->
+         <view class="goods-item" wx:for="{{goodsList}}" wx:key="index" wx:if="{{sale_id>0 && team_id==0}}">
+            <view class="goods-img">
+                <image mode="aspectFit" src="{{item.goods_img}}" ></image>
+                <!-- <view class="stop-sell" hidden="{{item.businessStatus}}">暂停售卖</view> -->
+            </view>
+            <view class="goods-info">
+                <view class="goods-left">
+                    <text class="goods-name">{{item.goods_name}}</text>
+                    <text class="goods-desc">{{item.goods_remark}}</text>
+                </view>
+                <view class="goods-right">
+                    <view class="goods-count">x{{item.goods_num}}</view>
+                    <view class="goods-price" wx:if="{{orderType==='scoreMall'}}">
+                        <text class="nowPrice">￥{{integral}}</text> 积分
+          </view>
+                    <view class="goods-price" wx:else>
+                        <text class="nowPrice">￥{{item.goods_price}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+
+
+
+
+
+
+        <view class="goods-item"   wx:if="{{team_id>0 && sale_id==0}}">
+            <view class="goods-img">
+                <image mode="aspectFit" src="{{url+team.original_img}}"></image>
+                <!-- <view class="stop-sell" hidden="{{item.businessStatus}}">暂停售卖</view> -->
+            </view>
+            <view class="goods-info">
+                <view class="goods-left">
+                    <text class="goods-name">{{team.goods_name}}</text>
+                    <text class="goods-desc">{{team.goods_remark}}</text>
+                </view>
+                <view class="goods-right">
+                    <view class="goods-count">x1</view>
+                    <!-- <view class="goods-price" wx:if="{{orderType==='scoreMall'}}">
+                        <text class="nowPrice">￥{{integral}}</text> 积分
+          </view> -->
+                   <!--  <view class="goods-price" wx:else>
+                        <text class="nowPrice">￥{{item.goods_price}}</text>
+                    </view> -->
+                </view>
+            </view>
+        </view>
+
+
+
+
+
+
+
+
+
+
+        <view bindtap="contactStore" class="section-box contact-store" wx:if="{{orderType!=='group'&&orderType!=='distribution'}}">
+            <image class="tel" src="/image/phone.jpg" style="width: 28rpx;height: 24rpx;"></image>
+            <text class="color-ffbf00" style="25rpx;color: #2c2b2b;">联系门店</text>
+        </view>
+        <view wx:if="{{type=='selftake'}}" class="section-box contact-store">
+            <text class="color-ffbf00" bindtap="slectShop" style="padding:0 16rpx;color:#f38e91;background-color: #fde7ec;">选择门店</text>
+        </view>
+        <view  class="section-box contact-store" style="padding-bottom: 30rpx;"  wx:if="{{type=='selftake'}}" >
+                <text class="color-ffbf00" style="color: #2c2b2b;font-size: 26rpx;">{{addresss}}</text>
+        </view>
+        <view class="section-box dispatching-fee" wx:if="{{type==='dispatch'}}">
+            <view class="left-icon">配送费</view>
+            <view wx:if="{{shipmentAmount!=0}}">{{shipmentAmount>0?'￥'+shipmentAmount:'0'}}</view>
+            <view wx:else>￥{{sendPrice}}</view>
+        </view>
+        <view hidden="{{orderType!=='group'}}" class="fixshop" bindtap="slectShop">修改门店</view>
+    </view>
+    <view class="score-coupon" wx:if="{{orderType!=='group'&&orderType!=='scoreMall'}}">
+        <!-- <view class="coupon-box" wx:if="{{orderType!=='scoreMall'&&orderType!=='advanceSell'}}">
+            <text class="color-666666">优惠券</text>
+            <view bindtap="toChoiceCoupon" class="right-info" data-type="discount">
+                <text class="coupon-text" wx:if="{{orderType=='group'}}">活动不可用券</text>
+                <block wx:else>
+                    
+                    <text class="coupon-text" hidden="{{sta0==0?false:true}}" >请选择优惠券</text>
+                </block>
+                <text class="coupon-amount" style='color:#F3CB4B;' hidden="{{sta1==1?false:true}}">-￥{{zhekouPrice}}</text>
+                 <text class="coupon-amount" hidden="{{sta2==2?false:true}}">该优惠券不可用</text>
+              
+                <image class="right-point" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRight2.png"></image>
+            </view>
+        </view> --> 
+        <!-- <view class="coupon-box" hidden="{{type==='selftake'}}" wx:if="{{orderType!=='scoreMall'&&orderType!=='advanceSell'}}">
+            <text class="color-666666">运费券</text>
+            <view bindtap="toChoiceCoupon" class="right-info" data-type="freeship">
+                <text class="coupon-text" wx:if="{{orderType=='group'}}">活动不可用券</text>
+                <block wx:else>
+                    <text class="coupon-text" hidden="{{usable_num===0?false:true}}" wx:if="{{hasAvailableCoupon}}">{{usable_num>0?usable_num+'张可用运费券':'暂无可用运费券'}}</text>
+                </block>
+                <text class="coupon-amount" hidden="{{freeshipCoupon!==0?false:true}}">-￥{{freeshipCoupon}}</text>
+                <image class="right-point" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRight2.png"></image>
+            </view>
+        </view> -->
+        <view class="coupon-box" wx:if="{{false}}">
+            <text class="color-5a5a5a">礼品卡</text>
+            <view bindtap="toChoiceGiftCard" class="right-info">
+                <text hidden="{{orderGiftCard.maxUseTotal>0?true:false}}" wx:if="{{hasAvailableGiftCard}}">选择礼品卡</text>
+                <text class="coupon-amount" hidden="{{orderGiftCard.maxUseTotal!==0?false:true}}">-￥{{orderGiftCard.maxUseTotal}}</text>
+                <image class="right-point" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRight2.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="bill-details">
+        <view bindtap="toggleMiddlePopup">账单明细
+      <!-- <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconOrderTips.png"></image> -->
+        </view>
+        <view class="balance-accounts">合计： <text>￥{{total_fee}}</text>
+      <!-- <text>￥{{filters.toFix(allPrice-couponPrice+shipmentAmount-freeshipCoupon-cardInfo.useAmount-scoreAmount-orderGiftCard.maxUseTotal)}}</text> -->
+        </view>
+    </view>
+   <view class="remarks-box">
+        <view class="remarks-title">
+            <text>添加备注</text>
+            <view class="right-icon">
+                <image bindtap="clk" src="/image/adds.png"></image>
+            </view>
+        </view>
+        <!-- <view class="remarks-info">{{remarks}}</view> -->
+        <view class="child{{!isShow?' hide':''}}" >
+            <view class="lis">
+              <textarea bindinput="handelTextArea" id="remark" maxlength="50" name="remark" placeholder="请输入您要备注的信息..." value="{{remark}}"></textarea>
+          </view>
+        </view>
+        <!-- <view class="remarks-info">{{remarks}}</view> -->
+    </view>
+    <view class="bottom-box">
+        <view class="order-price">
+            <text>￥{{total_fee}}</text>
+            <text style='color:#6F6F6F;font-size:24rpx;'>已优惠:￥{{youhui}}</text>
+        </view>
+        <form bindsubmit="createOrder" reportSubmit="true">
+            <button class="btn usable" formType="submit" hidden="{{canBuy?false:true}}">提交订单</button>
+        </form>
+
+        <!--  <form bindsubmit="createOrder" reportSubmit="true">
+            <button class="btn usable" data-address="{{addresss}}" formType="submit"  wx:if="{{orderType=='group'}}">提交订单</button>
+        </form> -->
+
+        <!-- <view class="btn unavailable" hidden="{{!canBuy?false:true}}">提交订单</view> -->
+        
+    </view>
+    <view class="modal-box" hidden="{{!modal}}">
+        <view class="modal-body">
+            <view class="modal-content card">
+                <view class="title">储值余额抵扣</view>
+                <view class="content">
+                    <text class="uesd">本次使用: {{cardInfo.useAmount}}元</text>
+                    <text>余额剩余: {{cardInfo.balance}}元</text>
+                </view>
+                <view class="button-box">
+                    <button bindtap="onCancel" class="cancel">取消</button>
+                    <button bindtap="onConfirm" class="confirm">确认</button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="modal-box" hidden="{{!integralModal}}">
+        <view class="modal-body">
+            <view class="modal-content score">
+                <view class="title">积分抵扣</view>
+                <view class="content">
+                    <text class="uesd">可用积分: {{memberScore}}</text>
+                    <text>本次使用最高可抵用{{scoreInfo.orderAmount}}积分</text>
+                    <picker bindchange="bindScoreChange" class="score-picker" range="{{scoreArray}}" value="{{scoreIndex}}">
+                        <view class="picker">{{scoreArray[scoreIndex]}}</view>
+                    </picker>
+                    <view class="score-amount">
+            本次节省了
+            <text>￥{{scoreInfo.scoreAmount}}</text>
+                    </view>
+                    <text class="score-explain">积分抵扣说明</text>
+                    <text class="score-rule">{{scoreInfo.scoreRule}}</text>
+                </view>
+                <view class="button-box">
+                    <button bindtap="onCancel" class="cancel">取消</button>
+                    <button bindtap="onConfirm" class="confirm">确认</button>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<popup bind:close="toggleMiddlePopup" customClass="middle" position="middle" show="{{show.middle}}">
+    <view class="popup-content">
+        <view class="title">账单明细</view>
+        <view class="popup-content-box">
+            <view class="price-detail">
+                <view>
+                    <text class="color-454545" wx:if="{{orderType!=='advanceSell'}}">商品金额</text>
+                    <text class="color-454545" wx:if="{{orderType==='advanceSell'}}">预付定金</text>
+                    <text class="color-ff7171">￥{{result.total_fee}}</text>
+                </view>
+                <view>
+                    <text class="color-454545">配送费</text>
+                    <text class="color-454545" hidden="{{freeshipCoupon===0}}">(运费券已减{{freeshipCoupon}}元)</text>
+                    <text class="color-ff7171">+￥{{shipmentDiscount}}</text>
+                </view>
+                <view>
+                    <text class="color-454545">积分抵扣</text>
+                    <text class="color-ff7171">-￥{{scoreAmount>=0?scoreAmount:0}}</text>
+                </view>
+                <view>
+                    <text class="color-454545">优惠券</text>
+                    <text class="color-ff7171">-￥{{allPrice>couponPrice?couponPrice:allPrice}}</text>
+                </view>
+                <view wx:if="{{false}}">
+                    <text class="color-454545">礼品卡</text>
+                    <text class="color-ff7171">-￥{{orderGiftCard.maxUseTotal>=0?orderGiftCard.maxUseTotal:0}}</text>
+                </view>
+                <view hidden="{{discount>0?false:true}}">
+                    <text class="color-454545">活动优惠</text>
+                    <text class="color-ff7171">-￥{{discount}}</text>
+                </view>
+            </view>
+            <view class="realpay">
+        实付款:
+        <text>￥{{result.total_fee}}</text>
+            </view>
+        </view>
+        <view bindtap="toggleMiddlePopup" class="button" style="background-color: #fa888b">确 定</view>
+    </view>
+</popup>
+<view class="overlay-class popup__overlay" wx:if="{{hide}}">
+      <view class="popup-content custom-class popup popup--middle">
+        <view class="title">选择门店自提<text bindtap="closepopup" style="float:right;margin-right:15px;">x</text></view>
+        <view class="popup-content-box">
+          <radio-group class="radio-group" bindchange="radioChange">
+            <view class="price-detail">     
+                <view wx:for="{{shop}}" wx:key="{{item.pickup_id}}" >
+                    <text  style="float:left;color:#333;" >{{item.pickup_address}}</text>
+                  <label class="radio" style="float:right">
+                    <radio value="{{item.pickup_address}}" bindtap="radio" data-id="{{item.pickup_id}}" checked="{{item.pickup_id==shop_id?true:false}}" />
+                  </label>
+                </view>
+            </view>
+          </radio-group>
+        </view>
+        <view bindtap="selected" class="button" style="background-color: #fa888b">确 定</view>
+    </view>
+  </view>
+<wxs module="filters" src="filters.wxs" />

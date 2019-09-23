@@ -1,0 +1,12 @@
+<template name="titleStore">
+    <view class="top-info container">
+        <view bindtap="changeStore" class="location {{shopCart?'shop-cart':''}}">
+            <image class="shop-img" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/logoTxt.png?t=1557828701738"></image>
+            <text wx:if="{{!shopCart}}">{{store||storeName||'--'}}</text>
+        </view>
+        <view class="index-search-box">
+            <image bindtap="handleConfirm" class="search" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/search.png" wx:if="{{titleSearch}}"></image>
+            <text bindtap="handleDelete" class="delete" wx:else>删除</text>
+        </view>
+    </view>
+</template>

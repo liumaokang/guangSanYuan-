@@ -1,0 +1,52 @@
+<import src="../template/couponBalanceScore.wxml"></import>
+<view class="banner-box">
+    <swiper autoplay="true" circular="true" class="swiper" indicatorDots="true" interval="5000">
+        <swiper-item bindtap="handelBannerClick" class="swiper-item" data-id="{{item.id}}" wx:for="{{banners}}" wx:key="index">
+            <image class="slide-image" src="{{item.pictureUrl}}"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="info-box">
+    <view class="user-info">
+        <image src="{{userInfo.avatarUrl}}">
+            <button bindgetuserinfo="getUserInfo" hidden="{{hasUserInfo}}" openType="getUserInfo"></button>
+        </image>
+        <view class="name-mobile">
+            <text class="member-name">{{userInfo.nickName}}</text>
+            <text class="member-mobile" hidden="{{!mobile}}">{{filters.filtMobile(mobile)}}</text>
+        </view>
+    </view>
+    <view bindtap="toMyCard" class="member-qr-box">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconMemberQR.png"></image>
+        <text>会员码</text>
+    </view>
+    <template is="couponBalanceScore" data="{{couponCount:couponCount,storedValue:storedValue,score:score}}"></template>
+</view>
+<view class="content-box">
+    <view class="col-one">
+        <view bindtap="toMallModule" class="online-mall">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconOnlineMall.png"></image>
+            <text>线上商城</text>
+        </view>
+        <view bindtap="toStoredValue" class="recharge-center">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconRechargeCenter.png"></image>
+            <text>充值中心</text>
+        </view>
+    </view>
+    <view class="col-two">
+        <view bindtap="toCouponCenter" class="coupon-center">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconCouponCenter.png"></image>
+            <text>领券中心</text>
+        </view>
+        <view bindtap="toGiftCard" class="gift-box">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconGiftCard.png"></image>
+            <text>礼品卡</text>
+        </view>
+        <view bindtap="toScoreMall" class="score-mall">
+            <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/MemberImgs/iconScoreMall.png"></image>
+            <text>积分商城</text>
+        </view>
+    </view>
+</view>
+<authorize bind:login="handleUserLogin" bind:phone="handleBindPhone" bind:tabBar="handleTabbar" showPhone="{{showPhone}}"></authorize>
+<wxs module="filters" src="../wxs/filters.wxs" />

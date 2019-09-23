@@ -1,0 +1,14 @@
+<view class="pay-item" wx:for="{{payList}}" wx:key="{{idx}}">
+    <view class="status">
+        <text wx:if="{{item.state}}">{{filtAction.filtAction(item.action)}}</text>
+        <text class="consume" wx:if="{{!item.state}}">{{filtAction.filtAction(item.action)}}</text>
+        <text>{{item.tranTime}}</text>
+    </view>
+    <view class="count" wx:if="{{item.state}}">
+    +{{item.occurTotal}}
+  </view>
+    <view class="count consume" wx:if="{{!item.state}}">
+    {{item.occurTotal}}
+  </view>
+</view>
+<wxs module="filtAction" src="filtAction.wxs" />

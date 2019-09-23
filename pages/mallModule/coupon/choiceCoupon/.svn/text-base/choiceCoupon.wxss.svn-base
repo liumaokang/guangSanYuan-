@@ -1,0 +1,236 @@
+page {
+    background: #fff;
+    height: 100%;
+}
+
+.choice-coupon-main {
+    width: 100%;
+    padding-bottom: 131rpx;
+}
+
+.coupon-box{
+  margin-top: 25rpx;
+}
+.coupon-item {
+    height: 205rpx;
+    width: 710rpx;
+    border-radius:10px;
+    box-sizing: border-box;
+     background: url('https://v.coolndns.com/upload/wxapi/yuanjiao.png') no-repeat center;
+    margin: auto;
+    background-size: 100% 100%;
+    padding: 22rpx 40rpx 39rpx 40rpx;
+    position: relative;
+    margin-bottom: 10rpx;
+}
+
+.coupon-item:last-of-type {
+    margin-bottom: 0;
+}
+
+
+.coupon-top image {
+    width: 175rpx;
+    height: 37rpx;
+    display: block;
+    margin-bottom: 13rpx;
+}
+
+.coupon-top>text {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.coupon-top .name {
+    font-size: 36rpx;
+    height: 40rpx;
+    line-height: 38rpx;
+    color: #F66A74;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5rpx;
+}
+ .coupon-top .names{
+  font-size: 33rpx;
+  font-weight: bold;
+  margin-top: 27rpx;
+  margin-bottom: 25rpx;
+}
+.coupon-top .name text {
+    color: #F66A74;
+    font-size: 40rpx;
+    font-style: italic;
+}
+
+.coupon-top .time {
+    font-size: 20rpx;
+    line-height: 26rpx;
+    color: #8b8b8c;
+    margin-bottom: 39rpx;
+}
+
+.coupon-bottom {
+    position: absolute;
+    height: 70rpx;
+    line-height: 70rpx;
+    bottom: 24rpx;
+    left: 60rpx;
+    width: 629rpx;
+}
+
+.coupon-bottom .condition {
+    font-size: 20rpx;
+    line-height: 70rpx;
+    display: inline-block;
+    color: #8b8b8c;
+    width: 512rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.coupon-bottom .use {
+    margin-right: 42rpx;
+    padding-right: 27rpx;
+    font-size: 24rpx;
+    float: right;
+    color: #3CDBC0;
+    background: url('http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRight1.png') no-repeat right;
+    background-size: 12rpx 21rpx;
+}
+
+.coupon-title {
+    font-size: 24rpx;
+    color: #1b1b1d;
+    padding-top: 22rpx;
+    line-height: 62rpx;
+    height: 62rpx;
+    border-bottom: 1rpx solid #dcdcdc;
+    margin-bottom: 11rpx;
+    margin-right: 19rpx;
+    margin-left: 19rpx;
+}
+
+.coupon-title text {
+    font-size: 20rpx;
+    color: #666;
+}
+
+.active {
+    background: url('http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/ticket1.png') no-repeat center;
+    background-size: 708rpx 338rpx;
+}
+
+.unable .coupon-top .name,.unable .coupon-top .name>text {
+    color: #8b8b8c;
+}
+
+.unable .coupon-bottom .use {
+    background: transparent;
+    padding-right: 0;
+    color: #8b8b8c;
+}
+
+.bottom-box {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    height: 120rpx;
+    border-top: 1rpx solid #dcdcdc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    z-index: 999;
+}
+
+.bottom-box button.btn {
+    height: 100rpx;
+    width: 100%;
+    background: #3CDBC0;
+    color: #fff;
+    font-size: 32rpx;
+    font-weight: bold;
+    line-height: 100rpx;
+    border-radius: 6rpx;
+}
+
+.no-data {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-data image {
+    width: 242rpx;
+    height: 261rpx;
+    margin-top: 40%;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 240rpx;
+    height: 100rpx;
+    text-align: center;
+    font-size: 10rpx;
+}
+
+.spinner>view {
+    background-color: #3CDBC0;
+    height: 100%;
+    width: 8rpx;
+    margin: 0 3rpx;
+    display: inline-block;
+    animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+    0%,40%,100% {
+        -webkit-transform: scaleY(0.4);
+    }
+
+    20% {
+        -webkit-transform: scaleY(1.0);
+    }
+}
+
+@keyframes stretchdelay {
+    0%,40%,100% {
+        transform: scaleY(0.4);
+    }
+
+    20% {
+        transform: scaleY(1.0);
+    }
+}

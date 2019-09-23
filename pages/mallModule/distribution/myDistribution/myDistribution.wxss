@@ -1,0 +1,370 @@
+page {
+    background: #f4f5f9;
+}
+
+.top-info {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 30rpx;
+    height: 182rpx;
+    color: #fff;
+    align-items: center;
+    background: url('http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconBusinessBg.png') top;
+    background-size: 100% 100%;
+}
+
+.top-info .portrait {
+    width: 104rpx;
+    height: 104rpx;
+    border-radius: 50%;
+}
+
+.top-info .info {
+    margin-left: 22rpx;
+    line-height: 36rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.top-info .info text {
+    font-size: 32rpx;
+}
+
+.top-info .info image {
+    width: 31rpx;
+    margin-right: 12rpx;
+}
+
+.top-info .info view {
+    margin-top: 18rpx;
+    display: flex;
+    align-items: center;
+}
+
+.top-info .info view text {
+    font-size: 28rpx;
+}
+
+.profit-box,.billboard-box,.module-box {
+    padding-top: 10rpx;
+    background: #fff;
+}
+
+.profit-box .title,.billboard-box .title,.module-box .title {
+    font-size: 32rpx;
+    color: #1b1b1d;
+    height: 78rpx;
+    line-height: 78rpx;
+    padding: 0 38rpx;
+    border-bottom: 1rpx solid #dcdcdc;
+}
+
+.profit-content {
+    padding: 0 40rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.put-forward-box {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1rpx solid #dcdcdc;
+    padding: 32rpx 0 35rpx 0;
+    width: 100%;
+}
+
+.put-forward-box text:first-of-type {
+    color: #999;
+    font-size: 30rpx;
+    line-height: 48rpx;
+}
+
+.put-forward-box text:last-of-type {
+    font-size: 60rpx;
+    line-height: 80rpx;
+}
+
+.put-forward-btn {
+    width: 170rpx;
+    height: 66rpx;
+    background: #f50;
+    box-shadow: 5rpx 0rpx 8rpx rgba(255,140,106,0.4);
+    border-radius: 33rpx;
+    font-size: 30rpx;
+    color: #fff;
+    line-height: 66rpx;
+    text-align: center;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    bottom: 41rpx;
+}
+
+.profit-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 30rpx 0 34rpx 0;
+    width: 50%;
+    padding-left: 32rpx;
+    box-sizing: border-box;
+}
+
+.profit-item text:first-of-type {
+    color: #999;
+    font-size: 30rpx;
+    line-height: 48rpx;
+}
+
+.profit-item text:last-of-type {
+    font-size: 48rpx;
+    line-height: 70rpx;
+}
+
+.my-profit,.my-more {
+    font-size: 26rpx;
+    color: #666;
+    line-height: 36rpx;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20rpx;
+    padding-bottom: 27rpx;
+}
+
+.billboard-content {
+    padding: 30rpx 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.billboard-tab {
+    width: 499rpx;
+    height: 54rpx;
+    background: #fff;
+    border-radius: 27rpx;
+    display: flex;
+    font-size: 28rpx;
+    line-height: 52rpx;
+    color: #999;
+    justify-content: center;
+}
+
+.billboard-tab .tab-item {
+    flex: 1;
+    text-align: center;
+    line-height: 52rpx;
+    border: 1rpx solid #999;
+}
+
+.billboard-tab .tab-item:first-of-type {
+    border-top-left-radius: 27rpx;
+    border-bottom-left-radius: 27rpx;
+}
+
+.billboard-tab .tab-item:nth-of-type(2) {
+    border-left: 0;
+    border-right: 0;
+    position: relative;
+}
+
+.billboard-tab .tab-item:last-of-type {
+    border-top-right-radius: 27rpx;
+    border-bottom-right-radius: 27rpx;
+}
+
+.billboard-tab .active {
+    background: #f50;
+    color: #fff;
+    border: 1rpx solid #f50;
+}
+
+.billboard-tab .tab-item.active:nth-of-type(2)::after {
+    content: '';
+    background: #f50;
+    height: 54rpx;
+    width: 1rpx;
+    right: -1rpx;
+    top: -1rpx;
+    position: absolute;
+}
+
+.billboard-tab .tab-item.active:nth-of-type(2)::before {
+    content: '';
+    background: #f50;
+    height: 54rpx;
+    width: 1rpx;
+    left: -1rpx;
+    top: -1rpx;
+    position: absolute;
+}
+
+.swiper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 342rpx;
+    overflow: hidden;
+    display: block;
+}
+
+.swiper swiper-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.portrait-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 19rpx;
+    width: 159rpx;
+    padding: 73rpx 0 38rpx 0;
+}
+
+.portrait-item:nth-of-type(2) {
+    width: 221rpx;
+}
+
+.portrait-item .portrait-img {
+    position: relative;
+    width: 105rpx;
+    height: 116rpx;
+}
+
+.portrait-item .portrait-img::before {
+    content: '';
+    width: 68rpx;
+    height: 56rpx;
+    position: absolute;
+    left: -15rpx;
+    top: -28rpx;
+    background-size: 68rpx 56rpx;
+}
+
+.portrait-item .portrait-img image {
+    width: 105rpx;
+    height: 105rpx;
+    position: relative;
+}
+
+.portrait-item .portrait-img::after {
+    content: '';
+    width: 159rpx;
+    height: 34rpx;
+    position: absolute;
+    top: 82rpx;
+    left: 50%;
+    margin-left: -79rpx;
+}
+
+.portrait-item:first-of-type .portrait-img:before {
+    background: url('http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconRunnerUp.png') left top;
+    background-size: 68rpx 56rpx;
+}
+
+.portrait-item:first-of-type .portrait-img:after {
+    background: url('http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconNoTwo.png') left top;
+    background-size: 159rpx 34rpx;
+}
+
+.portrait-item:nth-of-type(2) .portrait-img {
+    width: 146rpx;
+    height: 159rpx;
+}
+
+.portrait-item:nth-of-type(2) .portrait-img image {
+    width: 146rpx;
+    height: 146rpx;
+}
+
+.portrait-item:nth-of-type(2) .portrait-img:before {
+    left: 5rpx;
+    top: -33rpx;
+    background: url('http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconChampion.png') left top;
+    background-size: 68rpx 56rpx;
+}
+
+.portrait-item:nth-of-type(2) .portrait-img:after {
+    width: 221rpx;
+    height: 46rpx;
+    background: url('http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconNoOne.png') left top;
+    background-size: 221rpx 46rpx;
+    top: 113rpx;
+    margin-left: -110rpx;
+}
+
+.portrait-item:last-of-type .portrait-img:before {
+    background: url('http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconThirdPlace.png') left top;
+    background-size: 68rpx 56rpx;
+}
+
+.portrait-item:last-of-type .portrait-img:after {
+    background: url('http://app-1256684088.cos.ap-beijing.myqcloud.com/wujie/iconNoThree.png') left top;
+    background-size: 159rpx 34rpx;
+}
+
+.billboard-info {
+    font-size: 24rpx;
+    text-align: center;
+    line-height: 36rpx;
+    margin-top: 4rpx;
+}
+
+.billboard-info text {
+    display: block;
+}
+
+.billboard-info .name {
+    margin-bottom: 2rpx;
+}
+
+.billboard-info .total {
+    color: #f50;
+}
+
+.module-content {
+    padding: 20rpx 40rpx;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.module-content>view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24rpx 24rpx 20rpx 24rpx;
+    margin-bottom: 8rpx;
+    margin-right: 100rpx;
+}
+
+.module-content>view:nth-of-type(3) {
+    margin-right: 0;
+}
+
+.module-content>view .img {
+    width: 60rpx;
+    height: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12rpx;
+}
+
+.module-content>view image {
+    width: 54rpx;
+}
+
+.module-content>view text {
+    font-size: 28rpx;
+    color: #333;
+    line-height: 36rpx;
+}

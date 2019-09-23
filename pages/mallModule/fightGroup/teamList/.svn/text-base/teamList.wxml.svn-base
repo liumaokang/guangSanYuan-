@@ -1,0 +1,53 @@
+<import src="../../template/teamItem.wxml"></import>
+<view class="content">
+    <template is="teamItem" data="{{item:item}}" wx:for="{{teamList}}" wx:key="index"></template>
+    <view class="bottom-tips" wx:if="{{teamList.length>9}}">仅显示10个正在进行中的拼团哦~</view>
+    <view class="no-data" hidden="{{teamList.length>0}}">暂无进行中的拼团，赶快开团吧~</view>
+</view>
+
+
+<view bindtap="clickBlank" class="modal-box" data-type="group" hidden="{{!groupModal}}">
+    <view catchtap="clickBody" class="modal-body">
+        <view class="modal-content join-group">
+            <view class="title">一起参与拼团</view>
+            <view class="group-info">
+                <view>仅剩余
+          <text>{{groupInfo.teamMemberCount-groupInfo.joinMemberCount}}</text>个参团名额可用,赶紧来参团吧!</view>
+                <view>
+                    <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconSecKilling.png"></image>火热拼团ing
+          <text> {{countDownTime.hou}}:{{countDownTime.min}}:{{countDownTime.sec}}</text>后结束。</view>
+            </view>
+            <view class="group-people-list">
+                <block wx:if="{{groupInfo.teamBuyingType!=='THOUSAND'}}">
+                    <view class="people-item leader" hidden="{{groupInfo.joinPeopleCount==0}}" wx:if="{{idx==0}}" wx:for="{{groupInfo.joinMbrs}}" wx:for-index="idx" wx:key="idx">
+                        <image src="{{item.avatar}}"></image>
+                    </view>
+                </block>
+                <block wx:if="{{groupInfo.teamBuyingType==='THOUSAND'}}">
+                    <view class="people-item" wx:if="{{groupInfo.teamPeopleCount>10?index<9:index<groupInfo.teamPeopleCount}}" wx:for="{{groupInfo.joinMbrs}}" wx:key="index">
+                        <image src="{{item.avatar}}"></image>
+                    </view>
+                    <view class="people-item" wx:if="{{groupInfo.teamPeopleCount>10?index<9-groupInfo.joinPeopleCount:groupInfo.teamPeopleCount-groupInfo.joinPeopleCount}}" wx:for="{{groupInfo.teamPeopleCount-groupInfo.joinPeopleCount}}" wx:key="index">
+                        <text>?</text>
+                    </view>
+                </block>
+                <block wx:if="{{groupInfo.teamBuyingType!=='THOUSAND'}}">
+                    <view class="people-item" hidden="{{index==0}}" wx:if="{{groupInfo.teamPeopleCount>10?index<8:index<groupInfo.teamPeopleCount}}" wx:for="{{groupInfo.joinMbrs}}" wx:key="index">
+                        <image src="{{item.avatar}}"></image>
+                    </view>
+                    <view class="people-item" wx:if="{{groupInfo.teamPeopleCount>10?index<9-groupInfo.joinPeopleCount:groupInfo.teamPeopleCount-groupInfo.joinPeopleCount}}" wx:for="{{groupInfo.teamPeopleCount-groupInfo.joinPeopleCount}}" wx:key="index">
+                        <text>?</text>
+                    </view>
+                </block>
+                <view class="people-more" wx:if="{{groupInfo.teamMemberCount>10}}">
+                    <image src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconCollageMore.png"></image>
+                </view>
+            </view>
+            <button bindgetuserinfo="getUserInfo" class="button-box" openType="getUserInfo" wx:if="{{!hasUserInfo}}">确认拼团</button>
+            <button bindtap="joinGroup" class="button-box" wx:else>确认拼团</button>
+        </view>
+    </view>
+</view>
+
+
+<xf-model bind:cancel="closeCantGroupModel" bind:confirm="toPayTeamBuying" confirmShow="{{cantGroupModel}}" confirmTxt="去开团" content="建议您选择重新开团参与该活动" title="您不满足该参团条件哦"></xf-model>

@@ -1,0 +1,418 @@
+page {
+    background-color: #F9F9F9;
+    height: calc(100% - 160rpx);
+    width: 100%;
+}
+
+.coupon-main {
+    width: 100%;
+    height: calc(100% - 130rpx);
+}
+
+.coupon-nav {
+    overflow: hidden;
+    height: 90rpx;
+    width: 696rpx;
+    line-height: 90rpx;
+    display: flex;
+    justify-content: space-around;
+    /* border-top: 2rpx solid #e6e6e6; */
+    background: #fff;
+    color: #8b8b8c;
+    position: fixed;
+    top: 15rpx;
+    left: 27rpx;
+    z-index: 9;
+    border-radius:10px;
+}
+
+.coupon-nav>view {
+    font-size: 28rpx;
+}
+
+.selected {
+    color: #FB5F68;
+    border-bottom: 5rpx solid #FB5F68;
+    text-align: center;
+}
+
+.select {
+    text-align: center;
+}
+
+.show {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.coupon-item-box {
+    padding: 20rpx;
+    margin-top: 60rpx;
+    /* background: #fff; */
+    min-height: 100%;
+}
+
+.coupon-item {
+    height: 205rpx;
+    width: 710rpx;
+    /* padding: 0rpx 19rpx 0rpx 60rpx; */
+    background: url('https://v.coolndns.com/upload/wxapi/yuanjiao.png') no-repeat center;
+    background-size: 710rpx 233rpx;
+    position: relative;
+}
+
+.coupon-item .timeout {
+    position: absolute;
+    width: 174rpx;
+    height: 168rpx;
+    top: 14rpx;
+    right: 19rpx;
+}
+
+.coupon-item:last-of-type {
+    margin-bottom: 0;
+}
+
+.coupon-top {
+    margin-top: 35rpx;
+    padding:35rpx 41rpx 0 41rpx;
+    box-sizing: border-box;
+}
+
+.coupon-top image {
+    width: 175rpx;
+    height: 37rpx;
+}
+
+.coupon-top>text {
+    display: block;
+    position: relative;
+}
+
+.coupon-top .name {
+    font-size: 33rpx;
+    line-height: 42rpx;
+    color: #3D3D3D;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 14rpx;
+}
+
+.coupon-top .name text {
+    color: #ff8561;
+    font-size: 40rpx;
+    margin-right: 10rpx;
+    font-style: italic;
+}
+
+.coupon-top .time {
+    font-size: 20rpx;
+    color: #8b8b8c;
+    line-height: 36rpx;
+    margin-top: 19rpx;
+}
+
+.coupon-bottom {
+    position: absolute;
+    height: 70rpx;
+    bottom: 24rpx;
+    left: 60rpx;
+    width: 590rpx;
+}
+
+.coupon-bottom .coupon-bottom-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coupon-bottom .condition {
+    font-size: 20rpx;
+    line-height: 70rpx;
+    display: inline-block;
+    color: #8b8b8c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.coupon-bottom .use {
+    line-height: 70rpx;
+    padding-right: 27rpx;
+    font-size: 24rpx;
+    float: right;
+    color: #3CDBC0;
+    background: url('http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconRight1.png') no-repeat right;
+    background-size: 12rpx 21rpx;
+}
+
+.coupon-title {
+    font-size: 24rpx;
+    color: #1b1b1d;
+    padding-top: 22rpx;
+    line-height: 62rpx;
+    height: 62rpx;
+    border-bottom: 1rpx solid #dcdcdc;
+    margin-bottom: 11rpx;
+    margin-right: 19rpx;
+    margin-left: 19rpx;
+}
+
+.use-box .coupon-top .name,.use-box .coupon-top .name>text {
+    color: #8b8b8c;
+}
+
+.coupon-bottom .pay-back {
+    display: inline-block;
+    width: 144rpx;
+    height: 44rpx;
+    border-radius: 24rpx;
+    text-align: center;
+    border: 1px solid rgba(139,139,140,1);
+    font-size: 12px;
+    color: rgba(139,139,140,1);
+    line-height: 44rpx;
+}
+
+.use-box .coupon-bottom .use {
+    background: transparent;
+    padding-right: 0;
+    color: #8b8b8c;
+}
+
+.coupon-left {
+    float: left;
+    width: 22%;
+    height: 188rpx;
+    position: relative;
+    text-align: center;
+    background: url(https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/ticket3.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.coupon-left>.coupon-price {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-size: 38rpx;
+    line-height: 188rpx;
+}
+
+.coupon-right {
+    float: left;
+    width: 78%;
+    padding: 28rpx 0 0 27rpx;
+    height: 188rpx;
+    box-sizing: border-box;
+    position: relative;
+    background: url(https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/ticket4.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.coupon-right>text {
+    position: relative;
+    display: block;
+}
+
+.coupon-right .name {
+    font-size: 34rpx;
+    line-height: 34rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.coupon-right .condition {
+    font-size: 28rpx;
+    line-height: 32rpx;
+    color: #636363;
+    margin: 18rpx 0 32rpx 0;
+    width: calc(100% - 12rpx);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.coupon-right .time {
+    font-size: 24rpx;
+    line-height: 26rpx;
+    color: #9a9a9a;
+    position: absolute;
+    bottom: 26rpx;
+}
+
+.coupon-right .coupon-icon {
+    width: 118rpx;
+    height: 118rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 32rpx;
+}
+
+.coupon-used .coupon-left,.coupon-overdue .coupon-left {
+    background: url(https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/ticket1.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.coupon-used .coupon-right,.coupon-overdue .coupon-right {
+    background: url(https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/ticket2.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.coupon-used .coupon-right>text,.coupon-overdue .coupon-right>text {
+    color: #9a9a9a;
+}
+
+.no-data {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-data image {
+    width: 242rpx;
+    height: 261rpx;
+    margin-top: 200rpx;
+}
+
+.no-data button {
+    color: #3CDBC0;
+    border: 1rpx solid #3CDBC0;
+    margin-top: 50rpx;
+    width: 202rpx;
+    height: 60rpx;
+    background: #fff;
+}
+
+.coupon-bottom-box {
+    height: 122rpx;
+    margin-top: 24rpx;
+    font-size: 24rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coupon-bottom-box view {
+    height: 36rpx;
+    padding: 0 30rpx;
+}
+
+.coupon-data {
+    color: #8b8b8c;
+}
+
+.coupon-history {
+    font-size: 24rpx;
+    color: #3CDBC0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.coupon-history image {
+    width: 11rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+    margin-top: 2rpx;
+}
+
+.loading {
+    color: #999;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #eee;
+}
+
+movable-area {
+    height: 100%;
+    width: 100%;
+}
+
+.movable-view {
+    width: 120rpx;
+    height: 120rpx;
+    position: fixed;
+    right: 0;
+    bottom: 120rpx;
+}
+
+movable-view {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    width: 240rpx;
+    height: 100rpx;
+    text-align: center;
+    font-size: 10rpx;
+}
+
+.spinner>view {
+    background-color: #3CDBC0;
+    height: 100%;
+    width: 8rpx;
+    margin: 0 3rpx;
+    display: inline-block;
+    animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes stretchdelay {
+    0%,40%,100% {
+        -webkit-transform: scaleY(0.4);
+    }
+
+    20% {
+        -webkit-transform: scaleY(1.0);
+    }
+}
+
+@keyframes stretchdelay {
+    0%,40%,100% {
+        transform: scaleY(0.4);
+    }
+
+    20% {
+        transform: scaleY(1.0);
+    }
+}

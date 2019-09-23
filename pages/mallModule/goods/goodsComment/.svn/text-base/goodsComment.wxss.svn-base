@@ -1,0 +1,54 @@
+@import "../../template/commentItem.wxss";
+
+page {
+    background: rgba(245,245,245,1);
+    padding:5rpx 20rpx;
+    box-sizing: border-box;
+}
+
+.content {
+    background-color: #ffffff;
+}
+.dots{
+  width: 100%;
+}
+.comment-stars-box{
+  float: left;
+}
+.no-data {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-data image {
+    margin-top: 30%;
+    width: 242rpx;
+    height: 261rpx;
+}
+
+.loading-btn {
+    color: #454545;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    width: 100%;
+    background: #fff;
+    border-radius: 0;
+}
+
+.loading-btn::after {
+    border: 0;
+}
+
+.order-end {
+    color: #009136;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    text-align: center;
+}

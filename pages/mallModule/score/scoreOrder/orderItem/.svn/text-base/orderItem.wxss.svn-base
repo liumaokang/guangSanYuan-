@@ -1,0 +1,83 @@
+.order-item {
+    background-color: #fff;
+    font-size: 28rpx;
+    min-height: 318rpx;
+    margin-bottom: 10rpx;
+    padding: 0 35rpx;
+    box-sizing: border-box;
+}
+
+.order-item:first-of-type {
+    margin-top: 10rpx;
+}
+
+.item-top {
+    padding-top: 12rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    border-bottom: 1rpx solid #f5f5f5;
+    color: #454545;
+}
+
+.order-num {
+    font-size: 24rpx;
+    line-height: 60rpx;
+}
+
+.order-status {
+    font-size: 28rpx;
+    float: right;
+}
+
+.waitPay {
+    color: #ff002e;
+}
+
+.item-middle {
+    height: 158rpx;
+    padding: 20rpx 0 0 0;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.goods-item-img {
+    height: 120rpx;
+    width: 120rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    display: inline-block;
+    margin-right: 20rpx;
+    border-radius: 6rpx;
+}
+
+.goods-item-img image {
+    height: 100%;
+    width: 100%;
+}
+
+.item-total {
+    height: 66rpx;
+    line-height: 66rpx;
+    font-size: 24rpx;
+    border-bottom: 1rpx solid #F1F1F1;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.item-total text:first-of-type {
+    margin-right: 10rpx;
+}
+
+.item-total .freight {
+    font-size: 24rpx;
+}
+
+.item-total .total-price {
+    color: #FE2A36;
+    font-size: 28rpx;
+    /* font-weight: bold; */
+    margin-right: 10rpx;
+}

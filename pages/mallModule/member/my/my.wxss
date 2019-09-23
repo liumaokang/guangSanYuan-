@@ -1,0 +1,485 @@
+page {
+    background-color: #f5f5f5;
+    padding-bottom: 98rpx;
+    min-height: 100vh;
+}
+
+.top-bg {
+    background: #3CDBC0;
+    width: 100%;
+    height: 100rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.MbrQrcodeBox button::after {
+    border: none;
+}
+
+.toMemberCard {
+    position: relative;
+}
+
+.MbrQrcodeBox button {
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    width: 40rpx;
+    height: 40rpx;
+    background: transparent;
+}
+
+.MbrQrcodeBox button::after {
+    border: none;
+}
+
+.user-info {
+    height: 387rpx;
+    background: #f5f5f5 url('https://v.coolndns.com/upload/wxapi/01.png') top center no-repeat;
+    background-size: 100% 387rpx;
+    display: flex;
+    padding: 24rpx 30rpx 0;
+    position: relative;
+}
+
+.user-info .user-portrait {
+    width: 108rpx;
+    height: 108rpx;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-info .user-grade {
+    display: flex;
+    flex-direction: column;
+    height: 100rpx;
+    padding-left: 20rpx;
+}
+
+.user-grade .nick-name {
+    height: 44rpx;
+    font-size: 32rpx;
+    font-weight: bolder;
+    color: #fff;
+    line-height: 44rpx;
+    margin-bottom: 10rpx;
+}
+
+.user-grade .nologin-action {
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    height: 45rpx;
+    background:rgba(249,130,133,1);
+    border-radius: 20rpx;
+    line-height: 45rpx;
+    border: 0;
+    outline: none;
+    font-size: 24rpx;
+    color:rgba(255,255,255,1);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 16rpx 0 22rpx;
+}
+
+.user-grade .nologin-action image {
+    width: 10rpx;
+    height: 16rpx;
+    margin-left: 8rpx;
+}
+
+.user-info .vip-more {
+    width: 630rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    position: absolute;
+    bottom: 86rpx;
+    left: 73%;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+.user-info .vip-more .logo {
+    width: 200rpx;
+    height: 30rpx;
+}
+
+.user-info .vip-more view {
+    display: flex;
+    font-size: 24rpx;
+    color: #fff;
+    line-height: 32rpx;
+    align-items: center;
+}
+
+.user-info .vip-more view image {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.user-grade image {
+    width: 10rpx;
+    height: 16rpx;
+}
+
+.user-grade .nick-name {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #fff;
+    line-height: 44rpx;
+    margin-bottom: 10rpx;
+}
+
+.user-info .my-setting-label {
+    display: flex;
+    height: 34rpx;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+.user-info .my-setting-label .MbrQrcodeBox {
+    width: 34rpx;
+    height: 34rpx;
+    position: relative;
+    vertical-align: top;
+}
+
+.user-info .my-setting-label .setting {
+    margin-left: 28rpx;
+}
+
+.user-info .my-setting-label image {
+    width: 34rpx;
+    height: 34rpx;
+}
+
+.my-info {
+    height: 80rpx;
+    padding: 22rpx 30rpx 42rpx;
+    /* background-color: #f5f5f5; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: -277rpx;
+    color: #FFF;
+}
+.my-info>view{width: 33%;}
+/* .my-info .my-info-item:first-of-type {
+} */
+
+.my-info .my-info-item {
+    width: 230rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.my-info .my-info-item view {
+    font-size: 34rpx;
+    /* font-weight: bold; */
+    color: #FFF;
+    line-height: 55rpx;
+    font-family:FZLanTingHei-L-GBK;
+}
+
+.my-info .my-info-item text {
+    font-size: 24rpx;
+    color: #FFF;
+    line-height: 34rpx;
+}
+
+.my-info-item .num {
+    color: #003b02;
+    font-size: 32rpx;
+    line-height: 36rpx;
+    height: 36rpx;
+    margin-bottom: 12rpx;
+}
+
+.my-info-item.balance .num {
+}
+
+.my-info-item.coupon .num {
+}
+
+.my-info-item.score .num {
+}
+
+.my-info-item .name {
+}
+
+.my-info .my-info-item:last-of-type {
+    float: right;
+    font-size: 32rpx;
+}
+
+.sales-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 140rpx;
+    padding: 0 40rpx;
+    box-sizing: border-box;
+    border-bottom: 20rpx solid #f1f1f1;
+    position: relative;
+}
+
+.sales-center>view {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sales-center image.left-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}
+
+.sales-center text {
+    font-size: 32rpx;
+    color: #1b1b1d;
+    font-weight: Medium;
+}
+
+.sales-center .right-icon {
+    width: 12rpx;
+    height: 23rpx;
+}
+
+.common-body {
+    padding: 0 30rpx 42rpx;
+    background-color: #f5f5f5;
+    margin-top: -128rpx;
+}
+
+.order-type-box {
+    height: 257rpx;
+    background: #fff;
+    border-radius: 10rpx;
+}
+
+.common-body .all-order {
+    line-height: 95rpx;
+    overflow: hidden;
+    border-bottom: 1rpx solid rgba(0,0,0,0.1);
+    display: flex;
+    padding: 0 20rpx;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.common-body .all-order>text {
+    font-weight: bold;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.common-body .all-order view {
+    display: flex;
+    width: 165rpx;
+    font-size: 22rpx;
+    color: #999;
+    align-items: center;
+}
+
+.common-body .fun-list {
+    margin-top: 20rpx;
+    height: 440rpx;
+    background: #ffffff;
+    border-radius: 10rpx;
+}
+
+.common-body .all-order image {
+    width: 12rpx;
+    height: 20rpx;
+    margin-left: 8rpx;
+}
+
+.order-type-box .order-type-list {
+    height: 257rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30rpx;
+}
+
+.order-type-box .order-type-list>view {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 66px;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(0,0,0,0.6);
+    line-height: 75rpx;
+    position: relative;
+}
+.order-type-box .order-type-list>view>text{padding-bottom: 70rpx;}
+.order-type-box .order-type-list>view image {
+    width: 41rpx;
+    height: 39rpx;
+    position: relative;
+}
+
+.order-type-box .order-type-list>view .badge {
+    position: absolute;
+    right: 20rpx;
+    top: 10rpx;
+    height: 32rpx;
+    text-align: center;
+    line-height: 32rpx;
+    font-size: 20rpx;
+    color: #fff;
+    background: #FD767A;
+    border-radius: 16rpx;
+    border: 2rpx solid #fff;
+    overflow: hidden;
+    padding: 0 8rpx;
+    min-width: 32rpx;
+    box-sizing: border-box;
+}
+
+.fun-list .grid-body {
+    position: relative;
+    padding: 50rpx 50rpx;
+}
+
+.fun-list .grid-body .grid-line {
+    margin-bottom: 54rpx;
+    display: flex;
+    align-items: center;
+}
+
+.fun-list .grid-body .grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 88rpx;
+    margin-right: 82rpx;
+}
+
+.fun-list .grid-body .tail {
+    margin-right: 0;
+}
+
+.fun-list .grid-body .grid image {
+    width: 41rpx;
+    height: 40rpx;
+}
+
+.fun-list .grid-body .grid text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24rpx;
+    font-weight: 400;
+    color:rgba(112,112,112,1);
+    line-height: 63rpx;
+    white-space: nowrap;
+}
+
+.tel {
+    font-size: 28rpx;
+    line-height: 90rpx;
+    color: #313131;
+    text-decoration: underline;
+    float: right;
+    margin-right: 36rpx;
+}
+
+.balance {
+}
+
+.edition-info {
+    margin-top: 72rpx;
+    font-size: 28rpx;
+    color: #d9dbe0;
+    line-height: 36rpx;
+    width: 100%;
+    text-align: center;
+}
+
+.popup-content {
+}
+
+.popup-content-box {
+    font-size: 34rpx;
+    line-height: 50rpx;
+    color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 80rpx;
+}
+
+.popup-content-box image {
+    width: 255rpx;
+}
+
+button.authorization {
+    width: 100%;
+    height: 140%;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    outline: none;
+}
+
+button::after {
+    border: none;
+}
+
+button.authorization::after {
+    border: none;
+}
+
+.bind-mobile-box {
+    margin: 0rpx 30rpx;
+    padding: 0rpx 30rpx;
+    border-radius: 6rpx;
+    height: 110rpx;
+    background: #fff;
+    font-size: 24rpx;
+    line-height: 110rpx;
+    overflow: hidden;
+    border-bottom: 1rpx solid #f1f1f1;
+}
+
+.bind-mobile-box image {
+    width: 22rpx;
+    height: 34rpx;
+    vertical-align: middle;
+    margin-top: -6rpx;
+    margin-right: 10rpx;
+}
+
+.bind-mobile-box .bind-btn {
+    width: 96rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    margin: 0rpx;
+    padding: 0rpx;
+    margin-top: 32rpx;
+    border: 2rpx solid #3CDBC0;
+    color: #3CDBC0;
+    text-align: center;
+    float: right;
+    font-size: 20rpx;
+    border-radius: 4rpx;
+    background-color: #fff;
+    position: unset;
+}

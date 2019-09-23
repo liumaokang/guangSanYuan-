@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "authorize": "../../../../components/authorize/authorize",
+        "setMeal": "../../../../components/setMeal/setMeal",
+        "loading": "/./components/loading/index"
+    }
+}

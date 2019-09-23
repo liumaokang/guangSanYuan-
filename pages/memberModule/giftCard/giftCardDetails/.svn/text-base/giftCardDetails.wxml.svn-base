@@ -1,0 +1,23 @@
+<image class="card-img" src="{{imageUrl}}"></image>
+<view class="balance">余额<text>￥{{balance}}</text>
+</view>
+<button bindtap="clickUse" class="use-btn">立即使用</button>
+<view class="tig">请出示二维码使用</view>
+<view class="cell">
+    <text>适用门店</text>
+    <view bindtap="toStoreList" class="btn">查看全部门店</view>
+</view>
+<view class="cell">
+    <text>可用时段</text>
+    <view>{{beginDate}}至{{endDate}}</view>
+</view>
+<view class="cell">
+    <text>商户电话</text>
+    <view bindtap="handelCall" class="mobile">{{mobile}}</view>
+</view>
+<view class="cell">
+    <text>使用须知</text>
+    <view>
+        <view wx:for="{{remark}}" wx:key="index">{{item}}</view>
+    </view>
+</view>

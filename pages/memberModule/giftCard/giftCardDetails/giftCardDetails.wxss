@@ -1,0 +1,61 @@
+page {
+    text-align: center;
+}
+
+.card-img {
+    width: 630rpx;
+    height: 380rpx;
+    border-radius: 20rpx;
+    margin-top: 30rpx;
+    box-shadow: 0rpx 0rpx 20rpx 0rpx rgba(0,0,0,0.4);
+}
+
+.balance {
+    font-size: 30rpx;
+    margin: 30rpx 0rpx 50rpx;
+}
+
+.balance text {
+    font-size: 36rpx;
+    color: #f1b400;
+}
+
+.use-btn {
+    width: 334rpx;
+    height: 90rpx;
+    line-height: 84rpx;
+    color: #f1b400;
+    background: #fff;
+    padding: 0rpx;
+    border: 1rpx solid #f1b400;
+}
+
+.tig {
+    font-size: 28rpx;
+    color: #848484;
+    margin: 20rpx 0rpx 60rpx;
+}
+
+.cell {
+    font-size: 30rpx;
+    margin: 0rpx 40rpx;
+    border-bottom: 1rpx solid #EFEFEF;
+    padding: 40rpx 0rpx;
+    overflow: hidden;
+    text-align: left;
+}
+
+.cell text {
+    color: #333;
+    float: left；;
+}
+
+.cell view {
+    float: right;
+    width: 530rpx;
+    color: #909090;
+}
+
+.cell .btn,.cell .mobile {
+    color: #576B95;
+}

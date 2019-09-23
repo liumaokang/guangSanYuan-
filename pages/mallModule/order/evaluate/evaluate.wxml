@@ -1,0 +1,29 @@
+<view class="evaluate-item" wx:for="{{goodsList}}" wx:for-index="goodsNum" wx:key="index">
+    <view style='padding-top:26rpx;'>
+      <text class='title'>商品评价</text>
+    </view>
+    <view class="evaluate-goods">
+        <view class="goods-img-box">
+            <image mode="widthFix" src="{{item.goods_img}}"></image>
+        </view>
+        
+        <view class="stars-box">
+            
+            <image bindtap="choiceStars" class="stars-image" data-goodsNum="{{goodsNum}}" data-index="{{idx}}" src="{{item.score>idx?selected:unSelect}}" wx:for="{{5}}" wx:for-index="idx" wx:for-item="ele" wx:key="{{index}}"></image>
+        </view>
+    </view>
+    <view class="evaluate-content">
+        <textarea bindblur="bindTextAreaBlur" bindinput="bindTextAreaInput" data-goodsNum="{{goodsNum}}" placeholder="请输入你要评价的内容"></textarea>
+        <view class="labels-box">
+            <text bindtap="clickLabels" class="labels-item {{item.select?'select':''}}" data-goodsNum="{{goodsNum}}" data-id="{{item.id}}" wx:for="{{item.labels}}" wx:key="{{idx}}">{{item.text}}</text>
+        </view>
+    </view>
+    <view class="evaluate-img-box">
+        <view class="evaluate-img" wx:for="{{avatarUrl}}" wx:for-index="idx"  wx:key="index">
+            <image src="{{item}}"></image>
+            <image bindtap="deleteImg" class="close-icon" data-goodsNum="{{goodsNum}}" data-id="{{idx}}" src="http://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/iconEvaluateClose.png"></image>
+        </view>
+        <image bindtap="chooseImage" class="submit-img" data-goodsNum="{{goodsNum}}" src="{{url}}/upload/wxapi/camera.png"></image>
+    </view>
+</view>
+<button bindtap="submitComment" class="button-box enable">提交评价</button>

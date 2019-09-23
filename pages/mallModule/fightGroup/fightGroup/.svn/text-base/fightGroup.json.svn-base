@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "拼团",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "authorize": "../../../../components/authorize/authorize",
+        "tabbar": "../../../../components/tabbar/tabbar",
+        "loading": "/./components/loading/index"
+    }
+}

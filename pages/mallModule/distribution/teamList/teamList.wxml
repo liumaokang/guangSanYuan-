@@ -1,0 +1,15 @@
+<view class="content">
+    <view class="group-item" wx:for="{{groupList}}" wx:key="idx">
+        <view class="info">
+            <image src="{{item.avatar?item.avatar:'https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/userLogoImg.png'}}"></image>
+            <view>
+                <text class="name">{{item.name}}</text>
+                <text class="time">2017-04-28 11:28加入</text>
+            </view>
+        </view>
+        <text class="total">￥{{item.total}}</text>
+    </view>
+</view>
+<view class="no-data" hidden="{{groupList.length>0}}">
+    <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/imgNoData.png"></image>
+</view>

@@ -1,0 +1,10 @@
+<popup bind:close="toggleConfirm" customClass="top" position="center" show="{{confirmShow}}">
+    <view class="popup-luckdraw-box">
+        <view class="pop-title">{{title}}</view>
+        <view class="pop-content">{{content}}</view>
+        <view class="pop-btn">
+            <text bindtap="toggleConfirm" class="btn-cancel">{{cancelTxt}}</text>
+            <text bindtap="clickConfirm" class="btn-sure">{{confirmTxt}}</text>
+        </view>
+    </view>
+</popup>

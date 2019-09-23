@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "限时抢购",
+    "usingComponents": {
+        "authorize": "../../../../components/authorize/authorize",
+        "tabbar": "../../../../components/tabbar/tabbar",
+        "loading": "/./components/loading/index"
+    }
+}

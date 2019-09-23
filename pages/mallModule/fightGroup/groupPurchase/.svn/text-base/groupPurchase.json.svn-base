@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "开团详情",
+    "usingComponents": {
+        "authorize": "../../../../components/authorize/authorize",
+        "popup": "../../../../components/popup/popup",
+        "luckdraw-game": "../../../../components/luck-draw/luck-draw",
+        "loading": "/./components/loading/index"
+    }
+}

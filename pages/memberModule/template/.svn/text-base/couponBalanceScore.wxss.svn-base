@@ -1,0 +1,34 @@
+.coupon-balance-score {
+    width: 100%;
+    margin-top: 190rpx;
+    display: flex;
+    height: 80rpx;
+}
+
+.coupon-balance-score>view {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 24rpx;
+    color: #666;
+    position: relative;
+}
+
+.coupon-balance-score>view text:first-of-type {
+    color: #ffa300;
+    font-size: 28rpx;
+}
+
+.coupon-balance-score>view text:first-of-type text {
+    font-size: 24rpx;
+}
+
+.coupon-balance-score>view .line {
+    position: absolute;
+    right: 0px;
+    width: 0px;
+    height: 48rpx;
+    border-right: 1rpx solid #ffbb43;
+}

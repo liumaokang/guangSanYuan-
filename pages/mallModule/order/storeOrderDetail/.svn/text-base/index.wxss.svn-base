@@ -1,0 +1,195 @@
+.order-body {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.top {
+    padding: 30rpx 30rpx 20rpx;
+    height: 233rpx;
+    margin-bottom: 115rpx;
+    background: linear-gradient(180deg,rgba(5,178,155,1) 0%,rgba(59,233,178,1) 100%);
+}
+
+.top .server {
+    text-align: right;
+}
+
+.top .tab-name {
+    height: 60rpx;
+    font-size: 44rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: bolder;
+    color: rgba(255,255,255,1);
+    line-height: 60rpx;
+}
+
+.top image {
+    width: 64rpx;
+    height: 64rpx;
+    text-align: right;
+}
+
+.top .store {
+    width: 690rpx;
+    height: 190rpx;
+    margin: 20rpx auto 0;
+    background: rgba(255,255,255,1);
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 0 40rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.store .name {
+    padding-left: 38rpx;
+    background: url('https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/orderStore.png') left center no-repeat;
+    background-size: 26rpx 28rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: bolder;
+    color: rgba(51,51,51,1);
+    line-height: 40rpx;
+    margin-bottom: 6rpx;
+}
+
+.store .time {
+    height: 36rpx;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(102,102,102,1);
+    line-height: 36rpx;
+}
+
+.panel-body {
+    padding: 0 30rpx;
+    overflow: hidden;
+}
+
+.section-panel {
+    background: rgba(255,255,255,1);
+    border-radius: 5px;
+    padding: 40rpx;
+    margin-bottom: 20rpx;
+}
+
+.list-title {
+    height: 44rpx;
+    font-size: 32rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: bolder;
+    color: rgba(51,51,51,1);
+    line-height: 44rpx;
+    padding: 20rpx 0;
+    border-bottom: 1rpx solid #e5e5e5;
+}
+
+.good-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 48rpx 0 50rpx;
+    border-bottom: 1rpx dotted #e5e5e5;
+}
+
+.good-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.good-name {
+    height: 40rpx;
+    font-size: 28rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,1);
+    line-height: 40rpx;
+    margin-bottom: 6rpx;
+}
+
+.good-info {
+    display: flex;
+    width: 460rpx;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 36rpx;
+}
+
+.good-info text {
+    flex: 1;
+}
+
+.good-price {
+    height: 42rpx;
+    font-size: 30rpx;
+    font-family: PingFangSC-Medium;
+    font-weight: bolder;
+    color: rgba(51,51,51,1);
+    line-height: 42rpx;
+}
+
+.show-detail {
+    width: 200rpx;
+    height: 48rpx;
+    background: rgba(241,241,241,1) url("https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/goodsMore.png") 85% center no-repeat;
+    background-size: 20rpx 12rpx;
+    border-radius: 24rpx;
+    font-size: 24rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 48rpx;
+    text-align: center;
+    padding-right: 28rpx;
+    margin: 20rpx auto 0;
+}
+
+.show-detail.back {
+    background: rgba(241,241,241,1) url("https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/goodsBack.png") 70% center no-repeat;
+    background-size: 20rpx 12rpx;
+}
+
+.show-detail:active {
+    opacity: 0.8;
+}
+
+.amount-item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1rpx solid #e5e5e5;
+    padding: 30rpx 0;
+    height: 36rpx;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(153,153,153,1);
+    line-height: 36rpx;
+}
+
+.total-amount {
+    height: 36px;
+    font-size: 26rpx;
+    font-family: PingFangSC-Regular;
+    font-weight: 400;
+    color: rgba(51,51,51,1);
+    padding-top: 30rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.copy {
+    width: 88rpx;
+    height: 44rpx;
+    border-radius: 4rpx;
+    border: 1px solid rgba(193,193,193,1);
+    padding: 6rpx 20rpx;
+}
+
+.copy :active {
+    opacity: 0.8;
+}

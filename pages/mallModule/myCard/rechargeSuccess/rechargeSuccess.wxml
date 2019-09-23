@@ -1,0 +1,48 @@
+<view class="body">
+    <image class="logo-label" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/miniprogram/recharge.png"></image>
+    <view class="title">充值成功</view>
+    <view class="money"></view>
+    <view class="navs">
+        <navigator class="nav-item" openType="reLaunch" url="/pages/mallModule/index/index/index">
+      返回主页
+    </navigator>
+        <navigator class="nav-item coupon" openType="navigateBack">
+      继续充值
+    </navigator>
+    </view>
+    <view class="more-title">
+        <view class="recommending-title">
+            <view class="money-box">
+                <view class="line line-left"></view>
+                <view class="des-txt">
+          更多推荐·
+          <text style="color:#3CDBC0">RECOMMEND</text>
+                </view>
+                <view class="line line-right"></view>
+            </view>
+        </view>
+        <view class="goods-list">
+            <view bindtap="toGoodsDetail" class="goods-item" data-productId="{{item.id}}" data-type="{{item.isTeam?'group':'normal'}}" wx:for="{{recommendingList}}" wx:key="index">
+                <view class="img-box">
+                    <view class="group-icon" wx:if="{{item.isTeam}}">{{item.memberCount}}人团</view>
+                    <image mode="aspectFit" src="{{item.productUrl}}"></image>
+                </view>
+                <view class="goods-info">
+                    <text class="goods-name">{{item.name}}</text>
+                    <view class="goods-price">
+                        <block wx:if="{{item.isTeam}}">
+                            <text class="sell-price">￥{{item.teamLeaderPrice}}</text>
+                            <text class="old-price" wx:if="{{item.sellPrice&&item.teamLeaderPrice<item.sellPrice}}">￥{{item.sellPrice}}</text>
+                        </block>
+                        <block wx:else>
+                            <text class="sell-price">￥{{item.sellPrice}}</text>
+                            <text class="old-price" wx:if="{{item.originalPrice&&item.sellPrice<item.originalPrice}}">￥{{item.originalPrice}}</text>
+                        </block>
+                    </view>
+                    <view class="button-box" wx:if="{{item.isTeam}}">{{item.teamBuyingType==='THOUSAND'?'去参团':'去开团'}}</view>
+                    <view class="button-box" wx:else>立即购买</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

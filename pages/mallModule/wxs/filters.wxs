@@ -1,0 +1,80 @@
+var filtQRNumber = (function(val) {
+    if (val) {
+        val = val.toString();
+        var op = '';
+        for (var i = 0; i < val.length; i++) {
+            if (i % 4 === 0 && i > 0) {
+                op += " " + val.charAt(i)
+            } else {
+                op += val.charAt(i)
+            }
+        };
+        return (op)
+    } else {
+        return ('')
+    }
+});
+var filtNickname = (function(val) {
+    if (!val) {
+        return ('点击头像授权登录')
+    } else {
+        return (val)
+    }
+});
+var filtMobile = (function(val) {
+    if (val) {
+        return (val.substring(0, 3) + '****' + val.substring(7))
+    } else {
+        return ('')
+    }
+});
+var filtDateHead = (function(val) {
+    if (val) {
+        return (val.split(' ')[(0)])
+    } else {
+        return ('')
+    }
+});
+var filtRefundStatus = (function(val) {
+    if (val === 'CREATED') {
+        return ('退款中')
+    } else if (val === 'REJECTED') {
+        return ('已拒绝')
+    } else if (val === 'FINISHED') {
+        return ('已退款')
+    } else if (val === 'CANCELED') {
+        return ('已取消')
+    } else {
+        return ('')
+    }
+});
+var filtToFix = (function(value) {
+    if (value >= 0) {
+        return (value.toFixed(2))
+    } else {
+        return (0)
+    }
+});
+var filtdistributionCompany = (function(value) {
+    if (value === 'MT') {
+        return ('美团')
+    } else if (value === 'FN') {
+        return ('蜂鸟')
+    } else {
+        return ('')
+    }
+});
+var shortAddress = (function(address) {
+    var inx = address.indexOf('市');
+    return (address.slice(inx + 1))
+});
+module.exports = ({
+    filtQRNumber: filtQRNumber,
+    filtNickname: filtNickname,
+    filtMobile: filtMobile,
+    filtDateHead: filtDateHead,
+    filtRefundStatus: filtRefundStatus,
+    filtToFix: filtToFix,
+    shortAddress: shortAddress,
+    filtdistributionCompany: filtdistributionCompany,
+});

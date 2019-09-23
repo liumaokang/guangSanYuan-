@@ -1,0 +1,10 @@
+<import src="../../template/barcode.wxml"></import>
+<view class="content">
+    <template is="barcode" data></template>
+    <view class="qrcode-box">
+        <canvas canvasId="qrcode"></canvas>
+    </view>
+    <view class="number">{{filters.filtQRNumber(authCode)}}</view>
+</view>
+<text class="tig">每分钟自动刷新</text>
+<wxs module="filters" src="../../wxs/filters.wxs" />

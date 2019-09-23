@@ -1,0 +1,17 @@
+<view class="logo">
+    <image mode="widthFix" src="https://xianfengapp.oss-cn-hangzhou.aliyuncs.com/xianfengImages/sprite3/logoBind.png"></image>
+</view>
+<form bindsubmit="bindMobile" reportSubmit="true">
+    <view catchtap="bindbox" class="mobile-input-box">
+        <input autoFocus bindinput="bindMobileInput" maxlength="11" placeholder="请输入手机号" style="width:100%;" type="number"></input>
+    </view>
+    <view class="code-input-box">
+        <input bindinput="bindcaptchaInput" maxlength="6" placeholder="请输入验证码" type="password"></input>
+        <view catchtap="getCaptcha" class="get-code" style="color: {{getCodeBgColor}}">{{getCodeBtn}}</view>
+    </view>
+    <view bindtap="toggleAgree" class="agreement">
+     我已认真阅读、理解并同意
+    <text catchtap="toAdPage">《鲜丰水果服务协议》</text>
+    </view>
+    <button class="confirm-btn btn" disabled="{{!agree}}" formType="submit" style="{{agree?'':'background:#E5E5E5'}}">确认绑定</button>
+</form>

@@ -1,0 +1,22 @@
+<view class="header">
+    <view>运单号:<text class="express-number">{{num}}</text>
+    </view>
+    <view>国内承运人:<text class="express-name">{{com}}</text>
+    </view>
+    <view>国内承运人电话:<text bindtap="callTrackingPhone" class="express-tel">{{phoneNum}}</text>
+    </view>
+</view>
+<view class="content" wx:if="{{shipdetails.length>0}}">
+    <view class="express-item" wx:for="{{shipdetails}}" wx:key="index">
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/current_clock.png" wx:if="{{item.newest}}"></image>
+        <image src="https://app-1256684088.cos.ap-beijing.myqcloud.com/wujieImages/pass_clock.png" wx:if="{{!item.newest}}"></image>
+        <view class="express-info">
+            <text class="time">{{item.time}}</text>
+            <view class="status">{{item.context}}<text bindtap="callDistributionPhone">{{distributionPhone}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="no-data" wx:if="{{shipdetails.length==0}}">
+    <text>暂无快递信息</text>
+</view>

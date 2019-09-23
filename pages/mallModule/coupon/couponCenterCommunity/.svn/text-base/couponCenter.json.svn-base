@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "社群专享券中心",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "usingComponents": {
+        "authorize": "../../../../components/authorize/authorize",
+        "loading": "/./components/loading/index"
+    }
+}

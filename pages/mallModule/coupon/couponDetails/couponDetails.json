@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "商品优惠券",
+    "usingComponents": {
+        "authorize": "../../../../components/authorize/authorize",
+        "loading": "/./components/loading/index"
+    }
+}

@@ -1,0 +1,142 @@
+@import "orderItem/orderItem.wxss";
+
+page {
+    background-color: #f9f9f9;
+    height: 100%;
+    width: 100%;
+}
+
+.order-box {
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f5f5f5;
+}
+
+movable-area {
+    height: 100%;
+    width: 100%;
+}
+
+.movable-view {
+    width: 120rpx;
+    height: 120rpx;
+}
+
+movable-view {
+    width: 120rpx;
+    height: 120rpx;
+    position: relative;
+    z-index: 999;
+
+}
+.top{width: 100%;background: #f9f9f9;padding: 20rpx;box-sizing: border-box;height: 130rpx;line-height: 130rpx;position: fixed;z-index: 99;
+    top: 0;
+    left: 0;}
+.top-tab {
+    height: 90rpx;
+    white-space: nowrap;
+    background-color: #fff;
+    float: left;
+    border-radius:10rpx;
+}
+
+.tab-item {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    height: 100%;
+}
+
+.tab-wrap {
+    display: flex;
+    text-align: center;
+    color:rgba(74,74,74,1);
+    align-items: stretch;
+    justify-content: center;
+}
+
+.tab-wrap .item-text {
+    line-height: 90rpx;
+    height: 90rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
+    border-bottom: 4rpx solid transparent;
+}
+
+.tab-item.active .item-text {
+    color:rgba(251,95,104,1);
+    border-color: rgba(251,95,104,1);
+    font-weight: bolder;
+}
+
+.order-list {
+    margin-top: 100rpx;
+    min-height: calc(100% - 100rpx);
+    background-color: #f5f5f5;
+    padding: 0 20rpx 50rpx 20rpx;
+}
+
+.swiper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    margin-top: 80rpx;
+}
+
+.swiper swiper-item scroll-view {
+    white-space: nowrap;
+}
+
+.order-content {
+    padding-top: 20rpx;
+}
+
+.no-data {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-data image {
+    width: 242rpx;
+    height: 261rpx;
+    margin-top: 200rpx;
+}
+
+.loading {
+    color: #999;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #eee;
+}
+
+.loading-btn {
+    color: #454545;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    width: 100%;
+    border-radius: 0;
+}
+
+.loading-btn::after {
+    border: 0;
+}
+
+.order-end {
+    color: #3cdbc0;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    height: 80rpx;
+    text-align: center;
+}
